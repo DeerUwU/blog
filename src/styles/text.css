@@ -1,0 +1,10 @@
+/* Text effects for blog posts etc */
+
+.spoiler {
+	color:transparent;
+	background-color: #ffffff08;
+}
+
+.spoiler:hover {
+	color: var(--primary);
+}

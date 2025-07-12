@@ -5,7 +5,7 @@ import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
-
+import '../styles/text.css';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -128,7 +128,7 @@ const posts = (await getCollection('blog')).sort(
 					I really want to fill this blog journal thingy with more personality and *style* in the future. I still have to learn working with Astro and maybe other webdev tools. Im trying out new things and so far i like it. But for now, this will suffice.
 				</p>
 				<div style="display: flex; flex-direction: row;">
-					<img src="../public/images/art/king rules.png">
+					<img src="images/art/king rules.png" loading="lazy">
 				</div>
 			</div>
 			<div id="main-right">

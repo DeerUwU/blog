@@ -128,7 +128,7 @@ h5 {
 }
 
 .blogpost-title {
-	font-family: "Libre Barcode 39", system-ui;
+	font-family: "Libre Barcode 39";
   	font-weight: 400;
   	font-style: normal;
 	margin-bottom: -10px;
@@ -232,8 +232,6 @@ small {
 
 
 
-
-
 /* SCROLLBARS */
 
 /* width */
@@ -261,6 +259,6 @@ small {
 	
 }
 
-*:has(::-webkit-scrollbar):hover ::-webkit-scrollbar-thumb {
+.scrollable:hover ::-webkit-scrollbar-thumb {
 	background: var(--primary);
 }
