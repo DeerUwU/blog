@@ -30,7 +30,7 @@ jobs:
     - run: npm run build
     # When the dist_dir is ready, deploy it to neocities
     - name: Deploy to neocities
-      uses: DeerUwU/neocities-offline-blog@master # dont use master in production
+      uses: bcomnes/deploy-to-neocities@master # dont use master in production
       with:
         api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
         cleanup: true
