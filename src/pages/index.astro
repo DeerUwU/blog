@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
@@ -18,14 +17,20 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE}/>
 		<style>
+			body {
+				height: 100vh;
+			}
 			main {
 				width: 100%;
+				height: -webkit-fill-available;
+				height: 75vh;
 				display: flex;
 				flex-direction: row;
 			}
 			#main-left, #main-right {
 				width: 50%;
-				padding: 20px;
+				padding: 0px 20px;
+				/* overflow: hidden; */
 			}
 			#main-left {
 				border-right: var(--B-dark);
@@ -34,8 +39,17 @@ const posts = (await getCollection('blog')).sort(
 				margin-right: 20px;
 			}
 			#main-right {
-				max-height: 80vh;
-				overflow-y: auto;
+				max-height: fit-content;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.entrylist-title {
+				margin-bottom: 20px;
+				/* text-decoration: underline; */
+			}
+			.entrylist {
+				height: -webkit-fill-available;
 			}
 
 			/* blogpost list entries*/
@@ -101,7 +115,7 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<Particles id="tsparticles" options={options} init="particlesInit" />
+		<!-- <Particles id="tsparticles" options={options} init="particlesInit" /> -->
 		<!-- <div id="tsparticles"></div>
 		<script src="tsparticles.engine.min.js"></script> -->
 		<Header />
@@ -109,7 +123,7 @@ const posts = (await getCollection('blog')).sort(
 			<div id="main-left">
 				<h1>About me</h1>
 				<p>
-					Hey hello, hi!! I dont know how you found this place but uh congrats? This is some sort of blog or journal or whatever, a place where i keep track of my thoughts for anyone to read, really. 
+					Hey hello, hi!! I dont know how you found this place but uh congrats? This is some sort of blog or journal or whatever, a place where i keep track of my thoughts for anyone to read, really. I kinda want to stay anonymous for now. We're all strangers, after all.
 					<br><br>
 					I really want to fill this blog journal thingy with more personality and *style* in the future. I still have to learn working with Astro and maybe other webdev tools. Im trying out new things and so far i like it. But for now, this will suffice.
 				</p>
@@ -118,8 +132,8 @@ const posts = (await getCollection('blog')).sort(
 				</div>
 			</div>
 			<div id="main-right">
-				<h1>Offline's Journal</h1>
-				<section>
+				<h1 class="entrylist-title">Offline's Journal</h1>
+				<section class="entrylist scrollable">
 					<ul>
 						{
 							posts.map((post) => (
@@ -146,6 +160,6 @@ const posts = (await getCollection('blog')).sort(
 			
 
 		</main>
-		<Footer />
+		<!-- <Footer /> -->
 	</body>
 </html>

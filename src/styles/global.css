@@ -39,20 +39,6 @@
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
 }
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
 
 @font-face {
 	font-family: 'Dm Mono';
@@ -69,6 +55,20 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: 'VHS-Deer';
+	src: url('/fonts/vhs-deer.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+html {
+	height: 100%;
+  	margin: 0;
+}
+
 body {
 	font-family: 'Dm Mono', sans-serif;
 	margin: 0;
@@ -81,6 +81,11 @@ body {
 	color: var(--text-normal);
 	font-size: 18px;
 	line-height: 1.2;
+
+	/* experimental */
+	min-height: 100vh;
+	/* display: flex;
+	flex-direction: column; */
 }
 main {
 	width: 720px;
@@ -94,6 +99,7 @@ h3,
 h4,
 h5,
 h6 {
+	/* font-family: 'VHS-Deer'; */
 	margin: 0 0 0.5rem 0;
 	color: var(--primary);
 	line-height: 1.2;
@@ -196,4 +202,42 @@ small {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+
+
+
+
+/* PRESET CLASSES */
+
+.scrollable {
+	overflow-y: scroll;
+}
+
+
+
+
+
+
+/* SCROLLBARS */
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+	padding-right: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--background-light);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--primary-darkest);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--primary);
 }
