@@ -3,6 +3,7 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap');
 
 :root {
 	--background: #111111;
@@ -62,6 +63,13 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+  font-family: "Libre Barcode 39", system-ui;
+  src: url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+
+}
 
 
 html {
@@ -99,7 +107,6 @@ h3,
 h4,
 h5,
 h6 {
-	/* font-family: 'VHS-Deer'; */
 	margin: 0 0 0.5rem 0;
 	color: var(--primary);
 	line-height: 1.2;
@@ -119,6 +126,15 @@ h4 {
 h5 {
 	font-size: 1.25em;
 }
+
+.blogpost-title {
+	font-family: "Libre Barcode 39", system-ui;
+  	font-weight: 400;
+  	font-style: normal;
+	margin-bottom: -10px;
+} 
+
+
 strong,
 b {
 	font-weight: 700;
@@ -148,7 +164,6 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
 }
 code {
 	padding: 2px 5px;
@@ -234,10 +249,18 @@ small {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: var(--primary-darkest);
+	background-color: var(--primary-darkest);
+	/* why doesnt it work :( */
+	transition-duration: 0.3s;
+	transition-property: background-color;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
+	background-color: var(--primary);
+	
+}
+
+*:has(::-webkit-scrollbar):hover ::-webkit-scrollbar-thumb {
 	background: var(--primary);
 }
