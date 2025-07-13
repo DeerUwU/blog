@@ -88,7 +88,7 @@ body {
 	overflow-wrap: break-word;
 	color: var(--text-normal);
 	font-size: 18px;
-	line-height: 1.2;
+	line-height: 1.3;
 
 	/* experimental */
 	min-height: 100vh;
@@ -191,6 +191,13 @@ hr {
 small {
 	opacity: 0.5;
 }
+
+::selection {
+	color: #111111;
+	background-color: #9057bf; /* cant use var() for some reason. whatever*/
+}
+
+
 
 @media (max-width: 720px) {
 	body {

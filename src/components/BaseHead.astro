@@ -5,6 +5,7 @@ import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
 import '../styles/global.css';
+import '../styles/text.css'; // for cool text effects
 
 interface Props {
 	title: string;
@@ -59,3 +60,6 @@ const { title, image = FallbackImage } = Astro.props;
 <meta property="twitter:title" content={title} />
 <!-- <meta property="twitter:description" content={description} /> -->
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.8.1/tsparticles.bundle.min.js"></script>
