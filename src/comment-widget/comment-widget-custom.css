@@ -59,50 +59,47 @@
     height: 100%;
     overflow: auto;
     padding: 20px;
-    background-image: url('sparkle-bg.gif'); /* F2U background provided by https://sadgrl.online/webmastery/downloads/tiledbgs */
+    /* background-image: url('sparkle-bg.gif'); F2U background provided by https://sadgrl.online/webmastery/downloads/tiledbgs */
     background-attachment: fixed;
-    font-family: 'DM Mono';
+    font-family: var(--font-DM-Mono);
     font-size: 16px;
-    color: white;
 }
 
 #c_widget button, #c_widget input[type=submit] {
     padding: 4px;
-    font-family: 'DM Mono';
+    font-family: var(--font-DM-Mono);
+    font-weight: bold;
     text-decoration: none;
 	text-align: center;
     text-transform: uppercase;
-    background-color: black;
-    color: #B766FF;
-    border: 1px solid white;
+    color: var(--primary);
+    background-color: var(--background-light);
+    border: none;
 }
 #c_widget button:hover, #c_widget input[type=submit]:hover {
-    color: white;
-    border: 1px solid #B766FF;
+    color: var(--primary-light);
 }
 #c_widget button:disabled, #c_widget input[type=submit]:disabled {opacity: 60%;}
 #c_widget button:disabled:hover, #c_widget input[type=submit]:disabled:hover {
-    color: #B766FF;
-    border: 1px solid white;
+    color: var(--primary-dark);
 }
 
 /* Input section */
 #c_inputDiv {
     margin-bottom: 15px;
     padding: 10px;
-    background-color: black;
-    border: 2px solid white;
+    background-color: var(--background);
+    border: var(--B-primary-thin);
 }
 
 #c_widgetTitle {
     margin: -10px;
     margin-bottom: 10px;
     padding: 5px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     /* font-style: italic; */
     font-weight: bold;
     text-align: right;
-    background-color: #2D0B52;
 }
 
 .c-inputWrapper {
@@ -110,12 +107,23 @@
     text-align: right;
 }
 .c-input {
-    padding: 4px;
-    color: black;
-    border: 1px solid #2D0B52;
+    font-family: var(--font-DM-Mono);
+
+    
+    color: var(--text-normal);
+    background-color: var(--background-light);
+
+    border: none;
 	outline: none;
+    padding: 4px;
+    margin-bottom: 5px;
+
+    transition-duration: 0.1s;
+    transition-property: background-color;
 }
-.c-input:focus {border: 1px solid #B766FF;}
+.c-input:focus {
+    background-color: var(--primary-darkest);
+}
 
 .c-textInput {
     width: calc(100% - 10px);
@@ -128,7 +136,7 @@
     margin-right: 0;
 }
 #c_replyingText {
-    color: white;
+    color: var(--text-normal);
     text-align: right;
 }
 
@@ -136,8 +144,8 @@
 .c-comment {
     margin-bottom: 15px;
     padding: 10px;
-    border: 2px solid white;
-    background-color: #2D0B52; 
+    background-color: var(--background);
+    /* border: var(--B-primary-thin); */
 }
 .c-reply {
     display: block;
@@ -146,8 +154,7 @@
     margin-left: auto;
     margin-right: 0;
     padding: 10px;
-    border: 2px solid white;
-    background-color: #2D0B52; 
+    /* border: var(--B-primary-thin); */
 }
 .c-reply:last-child {margin-bottom: 0;}
 .c-replyContainer {
@@ -174,21 +181,24 @@
 .c-timestamp {
     float: right;
     opacity: 75%;
+    font-weight: bold;
 }
 .c-text {
+    font-family: var(--font-DM-Mono);
+    font-size: 18px;
+    text-align: justify;
+
     margin: 0;
     margin-left: -10px;
     margin-right: -10px;
     padding: 10px;
-    font-family: Verdana;
-    font-size: 14px;
-    text-align: justify;
-    color: white;
-    background-color: black;
+    
+    color: var(--text-normal);
+    background-color: var(--background);
 }
 
 /* Pagination */
-#c_pagination {text-align: center;}
+#c_pagination {text-align: le;}
 .c-replyButton {
     margin-top: 10px;
     margin-right: 4px;

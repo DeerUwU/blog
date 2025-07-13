@@ -9,6 +9,7 @@
 	--background: #111111;
 	/* --background: #18131a; */
 	--background-light: #1a1a1a;
+	--primary-light: #eaaaff;
 	--primary: #c573e1;
 	--primary-dark: #9057bf;
 	--primary-darkest:#35285a;
@@ -26,6 +27,11 @@
 
 	--B-primary: 5px solid var(--primary);
 	--B-primary-darkest: 5px solid var(--primary-darkest);
+
+	--B-primary-thin: 2px solid var(--primary);
+	--B-primary-darkest-thin: 2px solid var(--primary-darkest);
+
+
 	--B-dark: 5px solid var(--text-darkest);
 
 	--BW-thin: 2px;
