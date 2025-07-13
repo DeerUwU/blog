@@ -41,35 +41,6 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
-@font-face {
-	font-family: 'Dm Mono';
-	src: url('/fonts/DMMono-Regular.ttf') format('ttf');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Dm Mono';
-	src: url('/fonts/DMMono-Medium.ttf') format('ttf');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'VHS-Deer';
-	src: url('/fonts/vhs-deer.ttf') format('ttf');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-  font-family: "Libre Barcode 39", system-ui;
-  src: url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap') format('ttf');
-  font-weight: 400;
-  font-style: normal;
-
-}
 
 
 html {
@@ -78,7 +49,7 @@ html {
 }
 
 body {
-	font-family: 'Dm Mono', sans-serif;
+	font-family: var(--font-DM-Mono);
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -128,7 +99,7 @@ h5 {
 }
 
 .blogpost-title {
-	font-family: "Libre Barcode 39";
+	font-family: var(--font-Barcode-39);
   	font-weight: 400;
   	font-style: normal;
 	margin-bottom: -10px;
