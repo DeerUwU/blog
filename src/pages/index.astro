@@ -7,9 +7,11 @@ import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 import '../styles/text.css';
 
+
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
 ---
 
 <!doctype html>
@@ -115,9 +117,7 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<!-- <Particles id="tsparticles" options={options} init="particlesInit" /> -->
-		<!-- <div id="tsparticles"></div>
-		<script src="tsparticles.engine.min.js"></script> -->
+
 		<Header />
 		<main>
 			<div id="main-left">
