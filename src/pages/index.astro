@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Comments from '../components/Comments.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
@@ -122,9 +121,9 @@ const posts = (await getCollection('blog')).sort(
 			<div id="main-left">
 				<h1>About me</h1>
 				<p>
-					Hey hello, hi!! I dont know how you found this place but uh congrats? This is some sort of blog or journal or whatever, a place where i keep track of my thoughts for anyone to read, really. I kinda want to stay anonymous for now. We're all strangers, after all.
+					Hey hello, hi!! I dont know how you found this place but uh congrats? Who am i? Im a lonely loser trying to find a sense of purpose and belonging in life. Im documenting my thoughts and journey on this website. Feel free to look through everything, im an open book. Maybe someone will get someonthing out of this.
 					<br><br>
-					I really want to fill this blog journal thingy with more personality and *style* in the future. I still have to learn working with Astro and maybe other webdev tools. Im trying out new things and so far i like it. But for now, this will suffice.
+					I really want to fill this blog journal thingy with more personality and *style* in the future. I still have to learn working with Astro and maybe other webdev tools. Im trying out new things. But for now, this will suffice.
 				</p>
 				<div style="display: flex; flex-direction: row;">
 					<img src="images/art/king rules.png" loading="lazy">
@@ -159,7 +158,7 @@ const posts = (await getCollection('blog')).sort(
 			
 
 		</main>
-		<Comments />
+		<!-- <Comments /> -->
 	</body>
 	
 </html>
