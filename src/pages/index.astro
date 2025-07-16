@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import Particles from '../components/Particles.astro';
 import { SITE_TITLE } from '../consts';
 import '../styles/text.css';
 
@@ -16,6 +17,7 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
+		<Particles/>
 		<BaseHead title={SITE_TITLE}/>
 		<style>
 			body {
@@ -116,7 +118,7 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<div id="particles-js" style="position:fixed; width: 100%; height: 110%; z-index: -999;"></div>
+		<Particles />
 		<Header />
 		<main>
 			

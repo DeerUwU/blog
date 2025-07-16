@@ -5,6 +5,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
+import Particles from '../../components/Particles.astro';
 import { SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
@@ -15,6 +16,7 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
+		<Particles/>
 		<BaseHead title={SITE_TITLE} />
 		<style>
 			main {
