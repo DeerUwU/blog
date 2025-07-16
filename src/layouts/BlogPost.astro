@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import Particles from '../components/Particles.astro';
 import '../styles/text.css';
 
 type Props = CollectionEntry<'blog'>['data'];
@@ -13,6 +14,7 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead title={title} />
+		<Particles/>
 		<style>
 			main {
 				width: calc(100% - 2em);

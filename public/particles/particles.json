@@ -20,7 +20,7 @@
         "nb_sides": 3
       },
       "image": {
-        "src": "public/particles/img/star1.png",
+        "src": "particles/img/star1.png",
         "width": 64,
         "height": 64
       }
