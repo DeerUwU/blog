@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import Particles from '../../components/Particles.astro';
@@ -12,12 +11,13 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
+<!-- this is for the blog entry list -->
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<Particles/>
 		<BaseHead title={SITE_TITLE} />
+		<Particles/>
 		<style>
 			main {
 				width: 960px;
@@ -32,6 +32,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 			ul li {
 				width: calc(100% - 1rem);
+				height: 60px;
 				background-color: var(--background-light);
 				/* padding: 10px; */
 				transition: 0.2s ease-in-out;
@@ -68,13 +69,14 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.title {
 				margin: 0;
-				margin-bottom: 5px;
+				margin-bottom: -7px;
 				color: rgb(var(--primary));
 				line-height: 1;
 			}
 			.date {
 				margin: 0;
 				color: rgb(var(--gray));
+				font-size: 15px;
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -108,7 +110,7 @@ const posts = (await getCollection('blog')).sort(
 							<li>
 								<a href={`/blog/${post.id}/`}>
 									<div class="cardText">
-										<h2 class="title blogpost-title">{post.data.title}</h2>
+										<h3 class="title blogpost-title">{post.data.title}</h3>
 										<p class="date">
 											<FormattedDate date={post.data.pubDate} />
 										</p>
@@ -125,6 +127,6 @@ const posts = (await getCollection('blog')).sort(
 				</ul>
 			</section>
 		</main>
-		<Footer />
+		<!-- <Footer /> -->
 	</body>
 </html>

@@ -11,6 +11,8 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
+<!-- this is for the blog entry itself -->
+
 <html lang="en">
 	<head>
 		<BaseHead title={title} />
@@ -20,7 +22,6 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 				width: calc(100% - 2em);
 				max-width: 100%;
 				margin: 0;
-				/* margin-bottom: 10rem; */
 			}
 			.hero-image {
 				width: 100%;

@@ -1,23 +1,23 @@
 {
   "particles": {
     "number": {
-      "value": 50,
+      "value": 100,
       "density": {
         "enable": false,
         "value_area": 800
       }
     },
     "color": {
-      "value": "#9057bf"
+      "value": ["#8058BF", "#662D95", "#502C5F"]
     },
     "shape": {
-      "type": "image",
+      "type": "star",
       "stroke": {
         "width": 0,
         "color": "#000000"
       },
       "polygon": {
-        "nb_sides": 3
+        "nb_sides": 5
       },
       "image": {
         "src": "particles/img/star1.png",
@@ -26,17 +26,17 @@
       }
     },
     "opacity": {
-      "value": 0.3,
+      "value": 0.6,
       "random": true,
       "anim": {
-        "enable": true,
+        "enable": false,
         "speed": 0.3196803196803197,
         "opacity_min": 0.05,
         "sync": false
       }
     },
     "size": {
-      "value": 20,
+      "value": 10,
       "random": true,
       "anim": {
         "enable": false,
@@ -47,14 +47,14 @@
     },
     "line_linked": {
       "enable": true,
-      "distance": 100,
+      "distance": 120,
       "color": "#35285a",
       "opacity": 1,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 1,
+      "speed": 0.5,
       "direction": "bottom-right",
       "random": true,
       "straight": true,

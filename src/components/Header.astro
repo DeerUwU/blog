@@ -8,7 +8,7 @@ import HeaderLink from './HeaderLink.astro';
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/blog">Journal</HeaderLink>
 		</div>
 	</nav>
 </header>
@@ -34,10 +34,14 @@ import HeaderLink from './HeaderLink.astro';
 		justify-content: space-between;
 	}
 	nav a {
-		padding: 1em 0.5em;
+		padding: 1em 0.5em 0.5em 0.5em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		transition-duration: 0.1s;
+	}
+	nav a:hover {
+		color: var(--primary);
 	}
 	nav a.active {
 		text-decoration: none;

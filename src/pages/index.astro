@@ -27,19 +27,24 @@ const posts = (await getCollection('blog')).sort(
 				width: 100%;
 				height: -webkit-fill-available;
 				height: 75vh;
+				margin: 20px;
+				gap: 20px;
 				display: flex;
+				justify-self: center;
+				justify-content: center;
 				flex-direction: row;
 			}
 			#main-left, #main-right {
 				width: 50%;
-				padding: 0px 20px;
+				max-width: 500px;
+				padding: 20px 20px;
+
+				background-color: #2b2b2b3b;
+				backdrop-filter: blur(5px);
 				/* overflow: hidden; */
 			}
 			#main-left {
-				border-right: var(--B-dark);
-				
-				padding-right: 20px;
-				margin-right: 20px;
+				overflow-y: scroll;
 			}
 			#main-right {
 				max-height: fit-content;
@@ -67,15 +72,11 @@ const posts = (await getCollection('blog')).sort(
 			ul li {
 				width: calc(100% - 1rem);
 				background-color: var(--background-light);
-				/* padding: 10px; */
-				transition: 0.2s ease-in-out;
-				transition-property: border-width;
+				transition-duration: 0.2s;
+				transition-property: background-color;
 			}
 			ul li:hover {
-				/* padding: 5px; */
-				border-left: 5px solid var(--primary);
-				transition: 0.2s ease-in-out;
-				transition-property: border-width;
+				background-color: var(--primary-darkest);
 			}
 			
 			ul li * { /* every element inside the blog card */
@@ -84,15 +85,17 @@ const posts = (await getCollection('blog')).sort(
 			}
 			ul li:first-child {
 				border-left: 5px solid var(--primary);
-				background-image: linear-gradient(to right, var(--primary-darkest) , transparent);
 			}
-	
+
+			ul li:first-child .date {
+				color: var(--primary);
+			}
 			ul li:first-child .title {
-				/* font-size: 2.369rem; */
+				color: var(--primary);
 			}
+
 			.thumbnail {
 				margin-left: auto;
-				border-radius: 0px;
 			}
 			ul li a {
 				display: flex;
@@ -102,20 +105,32 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.title {
 				margin: 0;
-				margin-bottom: 5px;
-				color: rgb(var(--primary));
+				margin-bottom: -7px;
+				color: var(--primary);
 				line-height: 1;
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
+				color: var(--gray);
+				font-size: 16px;
 			}
 
+			@media only screen and (max-width: 800px) {
+				main {
+					width: 100%;
+					height: auto;
+					flex-direction: column;
+					padding: 1em;
+				}
+				#main-left, #main-right {
+					width: auto;
+					max-width: 100%;
+				}
+			}
 		</style>
+
+
+
 	</head>
 	<body>
 		<Particles />
@@ -123,18 +138,20 @@ const posts = (await getCollection('blog')).sort(
 		<main>
 			
 			<div id="main-left">
-				<h1>About me</h1>
+				<h2>About Me</h2>
 				<p>
-					Hey hello, hi!! I dont know how you found this place but uh congrats? Who am i? Im a lonely loser trying to find a sense of purpose and belonging in life. Im documenting my thoughts and journey on this website. Feel free to look through everything, im an open book. Maybe someone will get something out of this.
+					I dont know how you found this place but... welcome.
+					<br><br>
+					Who am i? Im a lonely loser trying to find a sense of purpose and belonging in life. Im documenting my thoughts and journey on this website. Feel free to look through everything, im an open book. Maybe someone will get something out of this.
 					<br><br>
 					I really want to fill this blog journal thingy with more personality and *style* in the future. I still have to learn working with Astro and maybe other webdev tools. Im trying out new things. But for now, this will suffice.
 				</p>
 				<div style="display: flex; flex-direction: row;">
-					<img src="images/art/king rules.png" loading="lazy">
+					<!-- <img src="images/art/king rules.png" loading="lazy"> -->
 				</div>
 			</div>
 			<div id="main-right">
-				<h1 class="entrylist-title">Offline's Journal</h1>
+				<h2 class="entrylist-title">My Journal</h2>
 				<section class="entrylist scrollable">
 					<ul>
 						{
@@ -142,7 +159,7 @@ const posts = (await getCollection('blog')).sort(
 								<li>
 									<a href={`/blog/${post.id}/`}>
 										<div class="cardText">
-											<h2 class="title blogpost-title">{post.data.title}</h2>
+											<h3 class="title blogpost-title">{post.data.title}</h3>
 											<p class="date">
 												<FormattedDate date={post.data.pubDate} />
 											</p>
