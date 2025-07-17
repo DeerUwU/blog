@@ -16,15 +16,15 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} />
-		<Particles/>
+		
 		<style>
 			main {
 				width: 960px;
 			}
-
 		</style>
 	</head>
 	<body>
+		<Particles/>
 		<Header />
 		<main>
 			<div style="height:30px"></div>

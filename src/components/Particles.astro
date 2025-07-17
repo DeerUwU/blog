@@ -1,18 +1,80 @@
 ---
+
 ---
 
 <section>
-	<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-	<script is:inline src="../../particles/particles.js"></script>
-	<script is:inline src="../../particles/loadparticles.js"></script>
-	<div id="particles-js"></div>
+    <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"
+    ></script>
+    <script is:inline src="../../particles/particles.js"></script>
+    <script is:inline src="../../particles/loadparticles.js"></script>
+    <div id="particles-js"></div>
+    <div id="pattern1"></div>
+    <div id="pattern2"></div>
+    <div id="pattern3"></div>
 </section>
 
 <style>
-	#particles-js {
-		position:fixed; 
-		width: 100%; 
-		height: 110%; 
-		z-index: -999;
+    :root {
+        --pattern-size: 300px;
+        --pattern-size2: 280px;
+
+        --offset: 100px;
+    }
+
+    #particles-js,
+    #pattern1,
+    #pattern2,
+    #pattern3 {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
+    #particles-js {
+        z-index: -990;
+    }
+
+    #pattern1 {
+        z-index: -999;
+    }
+    #pattern1 {
+        z-index: -998;
+    }
+	/* #pattern3 {
+		z-index: -1000;
+		background: linear-gradient(90deg,rgba(0, 0, 0, 0) 40%, rgba(180, 85, 212, 1) 50%, rgba(0, 0, 0, 0) 60%);
+		background-blend-mode: multiply;
+	} */
+
+    #pattern1 {
+        --c1: rgba(30, 24, 37, 0.2);
+        --_g: #0000 90deg, var(--c1) 0;
+        background: conic-gradient(from 90deg at 3px 3px, var(--_g)),transparent;
+        background-size: calc(var(--pattern-size) / 5)
+            calc(var(--pattern-size) / 5);
+        background-blend-mode: add;
+        animation: movePattern1 80s linear 0s infinite forwards;
+    }
+
+    #pattern2 {
+        --c1: rgba(32, 27, 34, 0.05);
+        --_g: #0000 90deg, var(--c1) 0;
+        background: conic-gradient(from 90deg at 2px 2px, var(--_g)),
+             transparent;
+        background-size: calc(var(--pattern-size) / 5)
+            calc(var(--pattern-size) / 5);
+
+        background-blend-mode: add;
+        animation: movePattern2 40s linear 0s infinite forwards;
+    }
+
+
+	@keyframes movePattern1 {
+		from { background-position: 0px 0px }
+		to { background-position: var(--pattern-size) var(--pattern-size); }
+	}
+	@keyframes movePattern2 {
+		from { background-position: 20px 50px }
+		to { background-position: calc(var(--pattern-size)+20px) calc(var(--pattern-size)+50px); }
 	}
 </style>

@@ -19,14 +19,12 @@ import '../styles/text.css';
 		<BaseHead title={SITE_TITLE}/>
 		<Particles/>
 		<style>
-			body {
-				height: 100vh;
-			}
+
 			main {
 				width: 100%;
 				height: -webkit-fill-available;
 				height: 75vh;
-				margin: 20px;
+				/* margin: 20px; */
 				gap: 20px;
 				display: flex;
 				justify-self: center;
@@ -39,7 +37,7 @@ import '../styles/text.css';
 				padding: 20px 20px;
 			}
 			#main-left {
-				overflow-y: scroll;
+				overflow-y: auto;
 			}
 			#main-right {
 				max-height: fit-content;
@@ -50,15 +48,6 @@ import '../styles/text.css';
 			.entrylist-title {
 				margin-bottom: 20px;
 				/* text-decoration: underline; */
-			}
-			.entrylist {
-				height: -webkit-fill-available;
-			}
-
-			
-
-			.thumbnail {
-				margin-left: auto;
 			}
 
 
@@ -75,10 +64,9 @@ import '../styles/text.css';
 				}
 			}
 		</style>
-
-
-
 	</head>
+
+	
 	<body>
 		<Particles />
 		<Header />
