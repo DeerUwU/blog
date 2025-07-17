@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<section class="entrylist scrollable">
+	<ul class="blogcard-container">
+		{
+			posts.map((post) => (
+				<li class="blogcard frosted-glass">
+					<a href={`/blog/${post.id}/`}>
+						<div class="blogcard-text">
+							<h3 class="blogcard-title">{post.data.title}</h3>
+							<p class="blogcard-date">
+								<FormattedDate date={post.data.pubDate} />
+							</p>
+						</div>
+						
+						{post.data.heroImage && (
+							<Image class="thumbnail" height={80} src={post.data.heroImage} alt="" />
+						)}
+						
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</section>

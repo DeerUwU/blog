@@ -243,3 +243,78 @@ small {
 .blur-bg {
 	backdrop-filter: blur(10px);
 }
+
+
+.frosted-glass {
+	background-color: #2b2b2b2b;
+	backdrop-filter: blur(5px);
+
+	/* border: 		2px solid #2b2b2b3b;
+	border-top: 	2px solid #5f5f5f6b;
+	border-bottom: 	2px solid #0000003b; */
+}
+
+
+/* -------------------------------------------------------------------- */
+
+.blogcard-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.blogcard {
+	width: calc(100% - 1rem);
+	background-color: #2b2b2b2b;
+	backdrop-filter: blur(5px);
+	transition-duration: 0.2s;
+	transition-property: background-color;
+}
+.blogcard:hover {
+	background-color: #7c2fba3b;
+}
+
+
+.blogcard * { /* every element inside the blog card */
+	text-decoration: none;
+	transition: 0.2s ease;
+}
+
+.blogcard-text {
+	padding: 12px 10px 8px 10px;
+}
+
+.blogcard-title {
+	font-family: var(--font-Barcode-39);
+  	font-weight: 400;
+  	font-style: normal;
+
+	margin: 0;
+	margin-bottom: -6px;
+	color: var(--primary);
+	line-height: 1;
+}
+.blogcard-date {
+	margin: 0;
+	color: var(--gray);
+	font-size: 16px;
+}
+
+
+
+
+
+
+.blogcard:first-child {
+	border-left: 5px solid var(--primary);
+}
+
+.blogcard:first-child .blogcard-date {
+	color: var(--primary);
+}
+.blogcard:first-child .blogcard-title {
+	color: var(--primary);
+}
