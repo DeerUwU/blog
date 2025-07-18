@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap');
 
 :root {
-	--background: hsl(0, 0%, 3%);
+	--background: hsl(0, 0%, 2%);
 	/* --background: #18131a; */
 	--background-light: #1a1a1a;
 	--primary-light: #eaaaff;
