@@ -51,10 +51,10 @@
 }
 
 html {
-    cursor: url("/cursor/Wii Pointer Open Hand.cur"), default;
+    cursor: url("/cursor/Pointer.cur"), default;
 }
 html:active {
-    cursor: url("/cursor/Wii Pointer Grab.cur"), grab;
+    cursor: url("/cursor/Grab.cur"), grab;
 }
 
 html {
@@ -104,7 +104,7 @@ h5:active,
 h6:active,
 p:active,
 span:active {
-	cursor: text;
+	cursor: url("/cursor/Highlight.cur"), text;
 }
 
 h1,
@@ -153,7 +153,7 @@ a:hover {
 	color: var(--primary-darkest);
 	text-decoration: none;
 	background-color: var(--primary);
-	cursor: url("/cursor/Wii Pointer.cur"), pointer;
+	cursor: url("/cursor/Open.cur"), pointer;
 }
 
 p a {
@@ -191,12 +191,12 @@ textarea {
 	font-size: 16px;
 }
 input:hover {
-	font-size: 16px;
-	cursor: url("/cursor/Wii Pointer.cur"), pointer;
+	/* font-size: 16px; */
+	cursor: url("/cursor/Open.cur"), pointer;
 }
 
 button:hover {
-	cursor: url("/cursor/Wii Pointer.cur"), pointer;
+	cursor: url("/cursor/Open.cur"), pointer;
 }
 
 table {
@@ -297,7 +297,7 @@ small {
     transition-property: color;
 }
 .icon-button:hover {
-	cursor: url("/cursor/Wii Pointer.cur"), pointer;
+	cursor: url("/cursor/Open.cur"), pointer;
 	color: var(--text-primary);
 }
 
@@ -326,7 +326,10 @@ small {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background-color: var(--primary);
-	
+	cursor: url("/cursor/Open.cur"), pointer;
+}
+::-webkit-scrollbar-thumb:active {
+	cursor: url("/cursor/Grab.cur"), grab;
 }
 
 .scrollable:hover ::-webkit-scrollbar-thumb {
@@ -340,8 +343,9 @@ input[type="range"] {
   	appearance: none;
 	height: 10px;
 	background-color: var(--primary-darkest);
-
 }
+
+
 
 input[type="range"]::-webkit-slider-thumb {
 	-webkit-appearance: none;  /* Override default CSS styles */
@@ -349,8 +353,16 @@ input[type="range"]::-webkit-slider-thumb {
 	width: 10px; /* Set a specific slider handle width */
 	height: 10px; /* Slider handle height */
 	background: var(--primary);
-	cursor: url("/cursor/Wii Pointer.cur"), pointer; /* Cursor on hover */
 }
+
+input[type="range"]::-webkit-slider-thumb:hover {
+	cursor: url("/cursor/Open.cur"), pointer; /* Cursor on hover */
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+	cursor: url("/cursor/Grab.cur"), grab;
+}
+
 
 /* CHECKBOX */
 
@@ -364,7 +376,6 @@ input[type="range"]::-webkit-slider-thumb {
 	height: 1.6em;
 	/* margin-bottom: 20px; */
 	background: var(--primary-darkest);
-	cursor: url("/cursor/Wii Pointer.cur"), pointer;
 	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -375,6 +386,11 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .checkbox-slider input[type="checkbox"]:hover + label {
 	background: var(--primary-dark);
+	cursor: url("/cursor/Open.cur"), pointer;
+}
+.checkbox-slider input[type="checkbox"]:active + label {
+	background: var(--primary-dark);
+	cursor: url("/cursor/Pointer.cur"), pointer;
 }
 
 .checkbox-slider input[type="checkbox"]:checked + label {

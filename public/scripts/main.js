@@ -7,6 +7,8 @@ var setting_enable_sounds = true;
 var setting_enable_particles = true;
 
 // ----------------------------------------------------------
+// utility
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -76,11 +78,24 @@ function PlayMusic(value, seek = 0) {
 	}
 }
 
+function PlayParticleClickSound(e, sound) {
+	console.log("clicked on particle body");
+
+	
+}
+
+
 function RegisterSounds() {
 	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
 
-	$('body').on("click", () => {PlaySound("snd_colby_droplet.wav", true)});
+	$('body').click(function(e) {
+		console.log(e.target);
+		if ($(e.target).is('#pattern2')) { 
+			PlaySound("snd_colby_droplet.wav", true);
+		};
+	});
+
 	$(".snd_open").on("click", () => {PlaySound("snd_open.wav")});
 	$(".snd_close").on("click", () => {PlaySound("snd_close.wav")});
 	console.log("registered sounds");
@@ -95,6 +110,7 @@ function RegisterSounds() {
 // 		console.log("cursor default");
 // 	}
 // }
+
 
 
 function SaveBgmState() {

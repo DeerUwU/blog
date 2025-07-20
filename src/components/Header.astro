@@ -7,7 +7,7 @@ import HeaderLink from './HeaderLink.astro';
 		margin: 0;
 		/* background: var(--background); */
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-
+		pointer-events: none;
 		width: 100%;
 		position:fixed;
 		top: 0;
@@ -32,6 +32,7 @@ import HeaderLink from './HeaderLink.astro';
 		/* justify-content: center; */
 		align-items: center;
 		padding: 0px 5px;
+		pointer-events: initial;
 	}
 
 
@@ -47,6 +48,7 @@ import HeaderLink from './HeaderLink.astro';
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 		transition-duration: 0.2s;
+		pointer-events:initial;
 	}
 	nav a:hover {
 		color: var(--primary);
