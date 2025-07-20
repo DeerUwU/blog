@@ -50,18 +50,18 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
-
+html {
+    cursor: url("/cursor/Wii Pointer Open Hand.cur"), default;
+}
+html:active {
+    cursor: url("/cursor/Wii Pointer Grab.cur"), grab;
+}
 
 html {
 	height: 100%;
   	margin: 0;
 	background-color: var(--background);
 }
-
-
-
-
-
 
 body {
 	font-family: var(--font-DM-Mono);
@@ -95,6 +95,18 @@ main {
 	margin-top: 50px;
 	padding: 2em 1em;
 }
+
+h1:active,
+h2:active,
+h3:active,
+h4:active,
+h5:active,
+h6:active,
+p:active,
+span:active {
+	cursor: text;
+}
+
 h1,
 h2,
 h3,
@@ -141,6 +153,7 @@ a:hover {
 	color: var(--primary-darkest);
 	text-decoration: none;
 	background-color: var(--primary);
+	cursor: url("/cursor/Wii Pointer.cur"), pointer;
 }
 
 p a {
@@ -177,9 +190,15 @@ textarea {
 	width: 100%;
 	font-size: 16px;
 }
-input {
+input:hover {
 	font-size: 16px;
+	cursor: url("/cursor/Wii Pointer.cur"), pointer;
 }
+
+button:hover {
+	cursor: url("/cursor/Wii Pointer.cur"), pointer;
+}
+
 table {
 	width: 100%;
 }
@@ -278,7 +297,7 @@ small {
     transition-property: color;
 }
 .icon-button:hover {
-	cursor: pointer;
+	cursor: url("/cursor/Wii Pointer.cur"), pointer;
 	color: var(--text-primary);
 }
 
@@ -329,8 +348,8 @@ input[type="range"]::-webkit-slider-thumb {
   	appearance: none;
 	width: 10px; /* Set a specific slider handle width */
 	height: 10px; /* Slider handle height */
-	background: var(--primary); /* Green background */
-	cursor: pointer; /* Cursor on hover */
+	background: var(--primary);
+	cursor: url("/cursor/Wii Pointer.cur"), pointer; /* Cursor on hover */
 }
 
 /* CHECKBOX */
@@ -345,7 +364,7 @@ input[type="range"]::-webkit-slider-thumb {
 	height: 1.6em;
 	/* margin-bottom: 20px; */
 	background: var(--primary-darkest);
-	cursor: pointer;
+	cursor: url("/cursor/Wii Pointer.cur"), pointer;
 	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;

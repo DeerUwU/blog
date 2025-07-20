@@ -10,6 +10,13 @@ var setting_enable_particles = true;
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+function getRandomFloat(min, max, decimals) {
+  const str = (Math.random() * (max - min) + min).toFixed(
+    decimals,
+  );
+
+  return parseFloat(str);
+}
 
 function toBool(value) {
 	if (typeof value === "boolean") return value;
@@ -41,7 +48,7 @@ var bgm;
 var bgm_idx = 0;
 
 
-function PlaySound(snd_name) {
+function PlaySound(snd_name, pitch_random = false) {
 
 	if (!setting_enable_sounds) return;
 
@@ -49,7 +56,13 @@ function PlaySound(snd_name) {
 		src: [snd_dir+snd_name]
 	});
 
+	sound.rate(1.0);
+	if (pitch_random) {
+		sound.rate(getRandomFloat(0.8,1.2,2));
+	}
+
 	sound.play();
+	
 	console.log("played sound:"+snd_name);
 }
 
@@ -67,10 +80,21 @@ function RegisterSounds() {
 	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
 
+	$('body').on("click", () => {PlaySound("snd_colby_droplet.wav", true)});
 	$(".snd_open").on("click", () => {PlaySound("snd_open.wav")});
 	$(".snd_close").on("click", () => {PlaySound("snd_close.wav")});
 	console.log("registered sounds");
 }
+
+// function SetCursor(state) {
+// 	if (state == "grab") {
+// 		$('body').css({'cursor': 'url(/cursor/Wii Pointer Grab.cur), grab'});
+// 		console.log("cursor grab");
+// 	} else {
+// 		$('body').css({'cursor': 'url(/cursor/Wii Pointer Open Hand.cur), default'});
+// 		console.log("cursor default");
+// 	}
+// }
 
 
 function SaveBgmState() {
@@ -109,6 +133,7 @@ function SetVolume(volume) {
 	Howler.volume(setting_volume_master);
 	localStorage.setItem("setting_volume_master", setting_volume_master)
 	$('#setting-volume-value').text(volume+"%");
+	PlaySound("snd_slider_drag.wav");
 }
 
 function SetEnableParticles(value) {
@@ -189,3 +214,29 @@ window.onload = () => {
 
 	console.log("main.ts loaded.");
 };
+
+
+$(document).ready(function () {
+	// window.addEventListener("onclick", SetCursor("grab"));
+	// window.addEventListener("onclick", SetCursor("default"));
+
+
+  var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+  console.log('ismobile = ${isMobile}');
+  
+  var enable_particles = localStorage.getItem("setting_enable_particles");
+  
+  //TODO: create a function to unload particles.js
+  //if (enable_particles == "false") return; // stupid value is stored as string not bool.
+
+  if (isMobile) {
+    particlesJS.load("particles-js", "/particles/particles_mobile.json", function(){
+      console.log("particles_mobile.json loaded")
+    });
+  } else {
+    particlesJS.load("particles-js", "/particles/particles.json", function(){
+      console.log("particles.json loaded")
+    });
+  }
+
+});
