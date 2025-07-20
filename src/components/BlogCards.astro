@@ -8,11 +8,11 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<section class="entrylist scrollable">
+<section class="entrylist">
 	<ul class="blogcard-container">
 		{
 			posts.map((post) => (
-				<li class="blogcard frosted-glass">
+				<li class="blogcard frosted-glass" onmouseover="">
 					<a href={`/blog/${post.id}/`}>
 						<div class="blogcard-text">
 							<h3 class="blogcard-title">{post.data.title}</h3>

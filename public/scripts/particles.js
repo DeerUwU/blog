@@ -56,6 +56,7 @@ var pJS = function(tag_id, params){
       },
       size: {
         value: 20,
+        value_min: 10,
         random: false,
         anim: {
           enable: false,
@@ -143,6 +144,7 @@ var pJS = function(tag_id, params){
 
   pJS.tmp.obj = {
     size_value: pJS.particles.size.value,
+    size_min_value: pJS.particles.size.min_value,
     size_anim_speed: pJS.particles.size.anim.speed,
     move_speed: pJS.particles.move.speed,
     line_linked_distance: pJS.particles.line_linked.distance,
@@ -242,6 +244,8 @@ var pJS = function(tag_id, params){
 
     /* size */
     this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
+    this.radius = clamp(this.radius, pJS.particles.size.min_value ,pJS.particles.size.value);
+
     if(pJS.particles.size.anim.enable){
       this.size_status = false;
       this.vs = pJS.particles.size.anim.speed / 100;
@@ -304,6 +308,9 @@ var pJS = function(tag_id, params){
 
     /* opacity */
     this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value;
+    this.opacity = clamp(this.opacity, pJS.particles.opacity.min_value ,pJS.particles.opacity.value);
+
+
     if(pJS.particles.opacity.anim.enable){
       this.opacity_status = false;
       this.vo = pJS.particles.opacity.anim.speed / 100;

@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import BlogCards from '../../components/BlogCards.astro';
+import Cosmetic from '../../components/Cosmetic.astro';
 import Header from '../../components/Header.astro';
-import Particles from '../../components/Particles.astro';
 import { SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
@@ -18,13 +18,16 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} />
 		
 		<style>
+			body {
+				overflow-y: auto;
+			}
 			main {
 				width: 960px;
 			}
 		</style>
 	</head>
 	<body>
-		<Particles/>
+		<Cosmetic/>
 		<Header />
 		<main>
 			<div style="height:30px"></div>

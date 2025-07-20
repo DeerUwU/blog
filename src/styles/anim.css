@@ -1,0 +1,163 @@
+.anim-fadein {
+	opacity: 0;
+	animation: animFadein 1s linear 0s 1 forwards;
+}
+.anim-fadein-up {
+	opacity: 0;
+	animation: animFadeinUp 1s linear 0s 1 forwards;
+}
+.anim-fadein-up-small {
+	opacity: 0;
+	animation: animFadeinUpSmall 1s linear 0s 1 forwards;
+}
+.anim-fadein-down {
+	opacity: 0;
+	animation: animFadeinDown 1s linear 0s 1 forwards;
+}
+.anim-fadein-down-small {
+	opacity: 0;
+	animation: animFadeinDownSmall 1s linear 0s 1 forwards;
+}
+.anim-fadein-left {
+	opacity: 0;
+	animation: animFadeinLeft 1s linear 0s 1 forwards;
+}
+.anim-fadein-right {
+	opacity: 0;
+	animation: animFadeinRight 1s linear 0s 1 forwards;
+}
+
+.anim-fadeout {
+	opacity: 1;
+	animation: animFadeout 1s linear 0s 1 forwards;
+}
+
+
+
+.dur-100ms {
+	animation-duration: 0.1s;
+}
+.dur-200ms {
+	animation-duration: 0.2s;
+}
+.dur-300ms {
+	animation-duration: 0.3s;
+}
+.dur-500ms {
+	animation-duration: 0.5s;
+}
+.dur-1s {
+	animation-duration: 1s;
+}
+.dur-2s {
+	animation-duration: 2s!;
+}
+
+.delay-100ms {
+	animation-delay: 0.2s;
+}
+.delay-200ms {
+	animation-delay: 0.2s;
+}
+.delay-500ms {
+	animation-delay: 0.5s;
+}
+.delay-1s {
+	animation-delay: 1s;
+}
+.delay-2s {
+	animation-delay: 2s!;
+}
+
+.anim-linear {
+	animation-timing-function: linear;
+}
+
+.anim-ease {
+	animation-timing-function: ease;
+}
+
+.anim-ease-in {
+	animation-timing-function: ease-in;
+}
+
+.anim-ease-in-out {
+	animation-timing-function: ease-in-out;
+}
+
+.anim-ease-out {
+	animation-timing-function: ease-out;
+}
+
+
+
+
+@keyframes animFadein {
+	from {	opacity: 0; }
+	to {	opacity: 1;	}
+}
+@keyframes animFadeout {
+	from {	opacity: 1; }
+	to {	opacity: 0;	}
+}
+
+@keyframes animFadeinUp {
+	from {
+		transform: translateY(300px);
+		opacity: 0;
+	}
+	to {
+		transform: none; 
+		opacity: 1;	
+	}
+}
+@keyframes animFadeinUpSmall {
+	from {
+		transform: translateY(100px);
+		opacity: 0;
+	}
+	to {
+		transform: none; 
+		opacity: 1;	
+	}
+}
+@keyframes animFadeinDown {
+	from {
+		transform: translateY(-300px);
+		opacity: 0;
+	}
+	to {	
+		transform: translateY(0px); 
+		opacity: 1;	
+	}
+}
+@keyframes animFadeinDownSmall {
+	from {
+		transform: translateY(-100px);
+		opacity: 0;
+	}
+	to {	
+		transform: translateY(0px); 
+		opacity: 1;	
+	}
+}
+@keyframes animFadeinLeft {
+	from {
+		transform: translateX(300px);
+		opacity: 0;
+	}
+	to {	
+		transform: translateY(0px); 
+		opacity: 1;	
+	}
+}
+@keyframes animFadeinRight {
+	from {
+		transform: translateX(-300px);
+		opacity: 0;
+	}
+	to {	
+		transform: translateY(0px); 
+		opacity: 1;	
+	}
+}
