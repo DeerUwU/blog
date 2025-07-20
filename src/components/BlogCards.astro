@@ -12,7 +12,7 @@ const posts = (await getCollection('blog')).sort(
 	<ul class="blogcard-container">
 		{
 			posts.map((post) => (
-				<li class="blogcard frosted-glass" onmouseover="">
+				<li class="blogcard frosted-glass snd_mod_hover">
 					<a href={`/blog/${post.id}/`}>
 						<div class="blogcard-text">
 							<h3 class="blogcard-title">{post.data.title}</h3>

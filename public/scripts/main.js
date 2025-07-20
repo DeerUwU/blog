@@ -41,12 +41,16 @@ var bgm;
 var bgm_idx = 0;
 
 
-function PlaySound() {
+function PlaySound(snd_name) {
+
+	if (!setting_enable_sounds) return;
+
 	var sound = new Howl({
-		src: [snd_dir+'blip.wav']
+		src: [snd_dir+snd_name]
 	});
 
 	sound.play();
+	console.log("played sound:"+snd_name);
 }
 
 function PlayMusic(value, seek = 0) {
@@ -58,6 +62,16 @@ function PlayMusic(value, seek = 0) {
 		bgm.pause();
 	}
 }
+
+function RegisterSounds() {
+	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
+	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
+
+	$(".snd_open").on("click", () => {PlaySound("snd_open.wav")});
+	$(".snd_close").on("click", () => {PlaySound("snd_close.wav")});
+	console.log("registered sounds");
+}
+
 
 function SaveBgmState() {
 	console.log("saving music state");
@@ -128,13 +142,6 @@ function SetEnableSound(value) {
 window.onbeforeunload = SaveBgmState;
 
 window.onload = () => {
-
-	$("#settings-close").on("click", CloseSettingsMenu);
-	$("#settings-open").on("click", OpenSettingsMenu);
-	
-
-	CloseSettingsMenu();
-
 	if (sessionStorage.getItem("bgm_idx") == null) {
 		bgm_idx = getRandomInt(bgm_random.length-1)
 	} else {
@@ -145,9 +152,8 @@ window.onload = () => {
 	src: [bgm_random[bgm_idx]]
 	});
 
-
-	if (localStorage.getItem("first_time_visit") == null || 
-		localStorage.getItem("first_time_visit") == "true") 
+	// if viewing website for the first time:
+	if (localStorage.getItem("first_time_visit") == null || localStorage.getItem("first_time_visit") == "true") 
 	{
 		localStorage.setItem("first_time_visit", false);
 		localStorage.setItem("setting_volume_master", setting_volume_master);
@@ -179,6 +185,7 @@ window.onload = () => {
 	}
 	Howler.volume(setting_volume_master);
 	SetEnableParticles(setting_enable_particles);
-	
+	RegisterSounds();
+
 	console.log("main.ts loaded.");
 };
