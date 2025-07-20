@@ -53,8 +53,8 @@ jobs:
       - name: Deploy to Neocities
         uses: bcomnes/deploy-to-neocities@master
         with:
-          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+          api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: true
           dist_dir: dist
-          neocities_supporter: false
+          neocities_supporter: true
         # if dist_dir is within a subfolder, update the filepath to reflect that
