@@ -1,0 +1,68 @@
+---
+// everything needed for appearance and backgrounds for the website
+---
+<style>
+	section {
+        padding: 20px;
+		width: 500px;
+		height: fit-content;
+	}
+
+    .settings-titlebar {
+        display: flex; 
+        justify-content: space-between;
+    }
+
+    .settings-list {
+        display: grid;
+        gap: 10px;
+    }
+    .setting {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2b2b2b2b;
+        padding: 0px 10px;
+    }
+
+    .slider-value {
+        width: 50px;
+        text-align: right;
+    }
+</style>
+
+
+<section id="popup-info" class="frosted-glass-strong anim-fadein-up-small delay-200ms anim-ease">
+    <div>
+        <div class="settings-titlebar">
+            <h2>Info & Credits</h2>
+            <span id="settings-close"class="material-symbols-sharp icon-button snd_close" onclick="ClosePopup()">close</span>
+        </div>
+        
+        <hr>
+        <p>Website created by <a href="https://neocities.org/site/offline-blog" target="_blank">me</a>. <br>
+        No ai was used to make it. 
+        <hr>
+        <h4>Assets</h4>
+        <ul>
+            <li>Wii cursor icons created by <a href="https://primmr.dev/projects/wii-pointer-cursors/" target="_blank" class="link">Primm</a></li>
+            <li>Sounds & Music taken from Yume Nikki & Yume 2kki</li>
+        </ul>
+
+        <h4>Libraries</h4>
+        <ul>
+            <li><a href="https://github.com/VincentGarreau/particles.js/"target="_blank" class="link">particles.js</a> (modified)</li>
+            <li><a href="https://github.com/goldfire/howler.js" target="_blank" class="link">howler.js</a></li>
+        </ul>
+
+        <h4>Other</h4>
+        <ul>
+            <li>Framework: <a href="https://astro.build" target="_blank" class="link">Astro</a></li>
+            <li>Icons: <a href="https://fonts.google.com/icons" target="_blank" class="link">Google Icons</a></li>
+        </ul>
+    </p>
+            
+        </div> <!-- end of settings list -->
+    </div>
+</section>
+

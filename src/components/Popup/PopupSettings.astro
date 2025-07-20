@@ -1,0 +1,85 @@
+---
+// everything needed for appearance and backgrounds for the website
+---
+<style>
+	section {
+        padding: 20px;
+		width: 500px;
+		height: fit-content;
+	}
+
+    .settings-titlebar {
+        display: flex; 
+        justify-content: space-between;
+    }
+
+    .settings-list {
+        display: grid;
+        gap: 10px;
+    }
+    .setting {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2b2b2b2b;
+        padding: 0px 10px;
+    }
+
+    .slider-value {
+        width: 50px;
+        text-align: right;
+    }
+</style>
+
+
+<section id="popup-settings" class="frosted-glass-strong anim-fadein-up-small delay-200ms anim-ease">
+    <div>
+        <div class="settings-titlebar">
+            <h2>Site Settings</h2>
+            <span id="settings-close"class="material-symbols-sharp icon-button snd_close" onclick="ClosePopup()">close</span>
+        </div>
+        
+        <hr>
+        <p id="info-first-time" style="display: none;">Looks like you're visiting for the first time! Please adjust the settings to your likings.</p>
+
+        <div class="settings-list">
+            <div class="setting">
+                <p>Volume</p>
+                <div style="display: flex; align-items: center; gap: 10px">
+                    <p id="setting-volume-value" class="slider-value">50%</p>
+                    <input type="range" min="0" max="100" value="50" class="slider" id="setting-volume" oninput="SetVolume(this.value)">
+                </div>
+
+            </div>
+            <div class="setting">
+                <p>Enable Music</p>
+                <div class="item">
+                    <div class="checkbox-slider">
+                        <input type="checkbox" id="setting-enable-music" name="check" oninput="SetEnableMusic(this.checked)">
+                        <label for="setting-enable-music"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="setting">
+                <p>Enable Sounds</p>
+                <div class="item">
+                    <div class="checkbox-slider">
+                        <input type="checkbox" id="setting-enable-sounds" name="check" oninput="SetEnableSound(this.checked)">
+                        <label for="setting-enable-sounds"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="setting">
+                <p>Enable Particles</p>
+                <div class="item">
+                    <div class="checkbox-slider">
+                        <input type="checkbox" id="setting-showparticles" name="check" oninput="SetEnableParticles(this.checked)">
+                        <label for="setting-showparticles"></label>
+                    </div>
+                </div>
+            </div>
+            
+        </div> <!-- end of settings list -->
+    </div>
+</section>
+

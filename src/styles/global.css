@@ -113,24 +113,28 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 0.5rem 0;
 	color: var(--primary);
 	line-height: 1.2;
 }
 h1 {
 	font-size: 2.5em;
+	margin-bottom: 0 0 0.5rem 0;
 }
 h2 {
 	font-size: 2em;
+	margin: 0 0 0.4rem 0;
 }
 h3 {
 	font-size: 1.7em;
+	margin: 0 0 0.3rem 0;
 }
 h4 {
 	font-size: 1.5em;
+	margin: 0 0 0.2rem 0;
 }
 h5 {
 	font-size: 1.25em;
+	margin: 0 0 0.1rem 0;
 }
 
 .blogpost-title {
@@ -155,8 +159,12 @@ a:hover {
 	background-color: var(--primary);
 	cursor: url("/cursor/Open.cur"), pointer;
 }
+a:active {
+	cursor: url("/cursor/Pointer.cur"), default;
+}
 
-p a {
+p a,
+.link {
     color: var(--primary);
     font-weight: 600;
     text-decoration: solid underline;
@@ -167,7 +175,8 @@ p a {
 }
 
 
-p a:hover {
+p a:hover,
+.link:hover {
     color: var(--background);
 	text-decoration: solid underline;
     text-decoration-color: var(--background);
@@ -197,6 +206,11 @@ input:hover {
 
 button:hover {
 	cursor: url("/cursor/Open.cur"), pointer;
+}
+
+ul {
+	margin: 10px 0px;
+	padding-left: 30px;
 }
 
 table {

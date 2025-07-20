@@ -64,8 +64,7 @@ function PlaySound(snd_name, pitch_random = false) {
 	}
 
 	sound.play();
-	
-	console.log("played sound:"+snd_name);
+	//console.log("played sound:"+snd_name);
 }
 
 function PlayMusic(value, seek = 0) {
@@ -78,19 +77,13 @@ function PlayMusic(value, seek = 0) {
 	}
 }
 
-function PlayParticleClickSound(e, sound) {
-	console.log("clicked on particle body");
-
-	
-}
-
 
 function RegisterSounds() {
 	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
 
 	$('body').click(function(e) {
-		console.log(e.target);
+		// console.log(e.target);
 		if ($(e.target).is('#pattern2')) { 
 			PlaySound("snd_colby_droplet.wav", true);
 		};
@@ -134,11 +127,29 @@ function LoadSettingsToMenu() {
 
 function OpenSettingsMenu() {
 	LoadSettingsToMenu();
-	$('#settings-menu').show();
+	$('#popup-settings').show();
 	$('#popup-container').show();
 }
 function CloseSettingsMenu() {
-	$('#settings-menu').hide();
+	$('#popup-settings').hide();
+	$('#popup-container').hide();
+}
+
+function OpenPopup(name) {
+	$('#popup-container').children().hide();
+	switch(name) {
+		case "settings":
+			LoadSettingsToMenu();
+			$('#popup-container').show();
+			$('#popup-settings').show();
+			break;
+		case "info":
+			$('#popup-container').show();
+			$('#popup-info').show();
+			break;
+	}	
+}
+function ClosePopup() {
 	$('#popup-container').hide();
 }
 
@@ -180,9 +191,20 @@ function SetEnableSound(value) {
 }
 
 // --------------------------------------------------------------
+// save bg music position before changing tabs
 window.onbeforeunload = SaveBgmState;
 
 window.onload = () => {
+	$('#popup-container').click(function(e) {
+		// console.log(e.target);
+		if ($(e.target).is('#popup-container')) { 
+			ClosePopup();
+			PlaySound('snd_cmn_close.wav')
+		};
+	});
+
+
+
 	if (sessionStorage.getItem("bgm_idx") == null) {
 		bgm_idx = getRandomInt(bgm_random.length-1)
 	} else {

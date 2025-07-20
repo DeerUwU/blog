@@ -64,11 +64,11 @@ import HeaderLink from './HeaderLink.astro';
 		text-decoration-color: var(--primary);
 	}
 
-	#settings-open {
+	.icon-button {
         /* position: fixed;
         bottom: 0; */
-        width: 48px;
-        height: 48px;
+        width: 32px;
+        height: 32px;
         /* margin-left: 30px;
         margin-bottom: 30px; */
 
@@ -83,7 +83,7 @@ import HeaderLink from './HeaderLink.astro';
         transition-duration: 0.2s;
         transition-property: color;
     }
-    #settings-open:hover {
+    .icon-button:hover {
         /* cursor: pointer; */
         color: var(--primary);
     }
@@ -96,7 +96,11 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Journal</HeaderLink>
 			
-			<button id="settings-open" class="snd_open" onclick="OpenSettingsMenu()">
+			
+			<button class="icon-button snd_open" onclick="OpenPopup('info');">
+				<span class="material-symbols-sharp">info</span>
+			</button>
+			<button class="icon-button snd_open" onclick="OpenPopup('settings');">
 				<span class="material-symbols-sharp">settings</span>
 			</button>
 		</div>
