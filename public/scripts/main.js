@@ -37,11 +37,8 @@ var bgm_random = [
 	mus_dir+'BGM_034.wav',
 ];
 
-var bgm_idx = getRandomInt(bgm_random.length-1)
-
-var bgm = new Howl({
-  src: [bgm_random[bgm_idx]]
-});
+var bgm;
+var bgm_idx = 0;
 
 
 function PlaySound() {
@@ -52,13 +49,23 @@ function PlaySound() {
 	sound.play();
 }
 
-function PlayMusic(value) {
+function PlayMusic(value, seek = 0) {
 	if (value == true) {
+		bgm.seek(seek);
 		bgm.play();
 		bgm.loop(true);
 	} else {
 		bgm.pause();
 	}
+}
+
+function SaveBgmState() {
+	console.log("saving music state");
+	// if (!setting_enable_music) return;
+	
+	sessionStorage.setItem("bgm_idx", bgm_idx);
+	sessionStorage.setItem("bgm_seek", bgm.seek());
+	sessionStorage.setItem("info_music_seen", true);
 }
 
 
@@ -118,14 +125,26 @@ function SetEnableSound(value) {
 }
 
 // --------------------------------------------------------------
-
+window.onbeforeunload = SaveBgmState;
 
 window.onload = () => {
 
 	$("#settings-close").on("click", CloseSettingsMenu);
 	$("#settings-open").on("click", OpenSettingsMenu);
+	
 
 	CloseSettingsMenu();
+
+	if (sessionStorage.getItem("bgm_idx") == null) {
+		bgm_idx = getRandomInt(bgm_random.length-1)
+	} else {
+		bgm_idx = sessionStorage.getItem("bgm_idx");
+	}
+
+	bgm = new Howl({
+	src: [bgm_random[bgm_idx]]
+	});
+
 
 	if (localStorage.getItem("first_time_visit") == null || 
 		localStorage.getItem("first_time_visit") == "true") 
@@ -146,11 +165,16 @@ window.onload = () => {
 
 
 		Howler.autoUnlock = true;
-		if (setting_enable_music) {
-			bgm.play();
-			bgm.loop(true);
 
-			$("#info-enabling-music").show();
+		if (setting_enable_music) {
+			if (sessionStorage.getItem("bgm_seek") != null) {
+				PlayMusic(true, sessionStorage.getItem("bgm_seek"));
+			} else {
+				PlayMusic(true);
+			}
+			
+			
+			if (toBool(sessionStorage.getItem("info_music_seen")) != true) {$("#info-enabling-music").show()};
 		}
 	}
 	Howler.volume(setting_volume_master);
@@ -158,7 +182,3 @@ window.onload = () => {
 	
 	console.log("main.ts loaded.");
 };
-
-
-
-
