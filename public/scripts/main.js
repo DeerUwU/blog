@@ -230,7 +230,7 @@ window.onload = () => {
 		localStorage.setItem("setting_enable_particles", setting_enable_particles);
 		
 		$("#info-first-time").show();
-		OpenSettingsMenu();
+		OpenPopup("settings");
 	} else {
 		setting_volume_master 		= localStorage.getItem("setting_volume_master");
 		setting_enable_music 		= toBool(localStorage.getItem("setting_enable_music"));
@@ -265,7 +265,7 @@ $(document).ready(function () {
 
 
   var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
-  console.log('ismobile = ${isMobile}');
+  console.log("ismobile = "+isMobile);
   
   var enable_particles = localStorage.getItem("setting_enable_particles");
   
