@@ -17,7 +17,7 @@
 */
 
 // The values in this section are REQUIRED for the widget to work! Keep them in quotes!
-const s_stylePath = 'comment-widget/comment-widget-custom.css';
+const s_stylePath = '/comment-widget/comment-widget-custom.css';
 const s_formId =    '1FAIpQLSfiFMV9cdW_tsTRy0UnJ4lsl1MTUBZNVe2o9rWnAzFdaXPD8g';
 const s_nameId =    '2030089265';
 const s_websiteId = '1466581564';
@@ -61,7 +61,7 @@ const s_noCommentsText = 'No comments yet!';
 const s_closedCommentsText = 'Comments are currently closed!';
 const s_websiteText = 'Website'; // The links to websites left by users on their comments
 const s_replyButtonText = 'Reply'; // The button for replying to someone
-const s_replyingText = 'Replying to'; // The text that displays while the user is typing a reply
+const s_replyingText = 'Replying to: '; // The text that displays while the user is typing a reply
 const s_expandRepliesText = 'Show Replies';
 const s_leftButtonText = '<<';
 const s_rightButtonText = '>>';
@@ -87,7 +87,7 @@ const v_mainHtml = `
     <div id="c_inputDiv">
         <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
     </div>
-    <div id="c_container">${s_loadingText}</div>
+    <div id="c_container" class="frosted-glass">${s_loadingText}</div>
 `;
 const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
@@ -368,11 +368,16 @@ function createComment(data) {
     const id = data.Name + '|--|' + data.Timestamp2;
     comment.id = id;
 
+    let namekarat = ">";
+    // namekarat.innerText = ">";
+    // namekarat.className = "c-namekarat";
+    // comment.appendChild(namekarat);
+
     // Name of user
-    let name = document.createElement('h3');
+    let name = document.createElement('h4');
     let filteredName = data.Name;
     if (s_wordFilterOn) {filteredName = filteredName.replace(v_filteredWords, s_filterReplacement)}
-    name.innerText = filteredName;
+    name.innerText = namekarat+filteredName;
     name.className = 'c-name';
     comment.appendChild(name);
 

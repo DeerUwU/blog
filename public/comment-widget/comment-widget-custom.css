@@ -58,7 +58,7 @@
     box-sizing: border-box;
     height: 100%;
     overflow: auto;
-    padding: 20px;
+    /* padding: 20px; */
     /* background-image: url('sparkle-bg.gif'); F2U background provided by https://sadgrl.online/webmastery/downloads/tiledbgs */
     background-attachment: fixed;
     font-family: var(--font-DM-Mono);
@@ -88,7 +88,9 @@
 #c_inputDiv {
     margin-bottom: 15px;
     padding: 10px;
-    background-color: var(--background);
+    /* background-color: var(--background); */
+    background-color: #1111112b;
+	backdrop-filter: blur(5px);
     border: var(--B-primary-thin);
 }
 
@@ -102,6 +104,8 @@
     text-align: right;
 }
 
+
+
 .c-inputWrapper {
     display: block;
     text-align: right;
@@ -111,7 +115,7 @@
 
     
     color: var(--text-normal);
-    background-color: var(--background-light);
+    background-color: #2b2b2b80;
 
     border: none;
 	outline: none;
@@ -122,7 +126,7 @@
     transition-property: background-color;
 }
 .c-input:focus {
-    background-color: var(--primary-darkest);
+    background-color: #7c2fba7b;
 }
 
 .c-textInput {
@@ -144,7 +148,7 @@
 .c-comment {
     margin-bottom: 15px;
     padding: 10px;
-    background-color: var(--background);
+    background-color: transparent;
     /* border: var(--B-primary-thin); */
 }
 .c-reply {
@@ -154,14 +158,14 @@
     margin-left: auto;
     margin-right: 0;
     padding: 10px;
-    /* border: var(--B-primary-thin); */
+    border-top: var(--B-primary-thin);
 }
 .c-reply:last-child {margin-bottom: 0;}
 .c-replyContainer {
     margin: -10px;
     margin-top: 10px;
     padding: 10px;
-    background-color: black;
+    /* background-color: black; */
 }
 
 .c-name {
@@ -173,11 +177,8 @@
     font-weight: bold;
 }
 .c-site {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #B766FF;
+    color: var(--primary-dark);
 }
-.c-site:hover {color: white;}
 .c-timestamp {
     float: right;
     opacity: 75%;
@@ -189,12 +190,12 @@
     text-align: justify;
 
     margin: 0;
-    margin-left: -10px;
-    margin-right: -10px;
+    /* margin-left: -10px;
+    margin-right: -10px; */
     padding: 10px;
     
     color: var(--text-normal);
-    background-color: var(--background);
+    background-color: var(--background-trans);
 }
 
 /* Pagination */

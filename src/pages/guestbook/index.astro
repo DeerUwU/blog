@@ -1,10 +1,8 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import BlogCards from '../../components/BlogCards.astro';
 import Cosmetic from '../../components/Cosmetic.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
-
 ---
 <!-- this is for the blog entry list -->
 
@@ -14,11 +12,25 @@ import { SITE_TITLE } from '../../consts';
 		<BaseHead title={SITE_TITLE} />
 		
 		<style>
+			section {
+				width: 100%;
+				padding: 1em 0em 1em 0em;
+				background: var(--background-light);
+
+				display: flex;
+				justify-content: center;
+			}
+
 			body {
 				overflow-y: auto;
 			}
 			main {
 				width: 960px;
+			}
+
+			#c_widget {
+				max-width: 1000px;
+				pointer-events: all;
 			}
 		</style>
 	</head>
@@ -26,8 +38,10 @@ import { SITE_TITLE } from '../../consts';
 		<Cosmetic/>
 		<Header />
 		<main>
-			<BlogCards/>
+			<div id="c_widget"/>
+			
 		</main>
 		<!-- <Footer /> -->
+		 <script src="public/comment-widget/comment-widget.js" is:inline></script>
 	</body>
 </html>

@@ -81,10 +81,11 @@ function PlayMusic(value, seek = 0) {
 function RegisterSounds() {
 	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
+	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", true)});
 
 	$('body').click(function(e) {
 		// console.log(e.target);
-		if ($(e.target).is('#pattern2')) { 
+		if ($(e.target).is('body') || $(e.target).is('main')) { 
 			PlaySound("snd_colby_droplet.wav", true);
 		};
 	});
@@ -119,6 +120,7 @@ function SaveBgmState() {
 function LoadSettingsToMenu() {
 	$("#setting-volume").val(setting_volume_master*100);
 	$("#setting-volume-value").text(setting_volume_master*100+"%");
+	$('#setting-volume').css({'backgroundSize': (setting_volume_master*100) + "% 100%"});
 	
 	$("#setting-showparticles").prop('checked', setting_enable_particles);
 	$("#setting-enable-music").prop('checked', setting_enable_music);
@@ -159,7 +161,10 @@ function SetVolume(volume) {
 	setting_volume_master = volume/100;
 	Howler.volume(setting_volume_master);
 	localStorage.setItem("setting_volume_master", setting_volume_master)
+	
 	$('#setting-volume-value').text(volume+"%");
+	$('#setting-volume').css({'backgroundSize': (volume) + "% 100%"});
+
 	PlaySound("snd_slider_drag.wav");
 }
 
