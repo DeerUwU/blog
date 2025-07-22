@@ -67,13 +67,14 @@ function PlaySound(snd_name, pitch_random = false) {
 	//console.log("played sound:"+snd_name);
 }
 
-function PlayMusic(value, seek = 0) {
+function PlayMusic(value, fade = false, seek = 0) {
 	if (value == true) {
 		bgm.seek(seek);
 		bgm.play();
 		bgm.loop(true);
+		if (fade || seek == 0) bgm.fade(0, 1, 1000);
 	} else {
-		bgm.fade(1, 0, 1000);
+		// bgm.fade(1, 0, 1000);
 		bgm.pause();
 	}
 }
@@ -130,15 +131,6 @@ function LoadSettingsToMenu() {
 	$("#setting-enable-sounds").prop('checked', setting_enable_sounds);
 }
 
-function OpenSettingsMenu() {
-	LoadSettingsToMenu();
-	$('#popup-settings').show();
-	$('#popup-container').show();
-}
-function CloseSettingsMenu() {
-	$('#popup-settings').hide();
-	$('#popup-container').hide();
-}
 
 function OpenPopup(name) {
 	$('#popup-container').children().hide();
@@ -187,7 +179,7 @@ function SetEnableMusic(value) {
 	setting_enable_music = value;
 	localStorage.setItem("setting_enable_music", value);
 
-	PlayMusic(value);
+	PlayMusic(value, true);
 	console.log("music: "+value);
 }
 
@@ -264,7 +256,7 @@ window.onload = () => {
 
 		if (setting_enable_music) {
 			if (sessionStorage.getItem("bgm_seek") != null) {
-				PlayMusic(true, sessionStorage.getItem("bgm_seek"));
+				PlayMusic(true, false, sessionStorage.getItem("bgm_seek"));
 			} else {
 				PlayMusic(true);
 			}
