@@ -103,8 +103,8 @@ function RegisterSounds() {
 		};
 	});
 
-	$(".snd_click_open").on("click", () => {PlaySound("snd_open.wav")});
-	$(".snd_click_close").on("click", () => {PlaySound("snd_close.wav")});
+	$(".snd_click_open").on("click", () => {PlaySound("snd_open.wav", {volume: 0.5})});
+	$(".snd_click_close").on("click", () => {PlaySound("snd_close.wav", {volume: 0.5})});
 	$(".snd_click_blip1").on("click", () => {PlaySound("snd_blip1.wav")});
 	console.log("registered sounds");
 }
