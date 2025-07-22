@@ -38,8 +38,8 @@ const s_commentsPerPage = 10; // The max amount of comments that can be displaye
 const s_maxLength = 500; // The max character length of a comment
 const s_maxLengthName = 16; // The max character length of a name
 const s_commentsOpen = true; // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
-const s_collapsedReplies = false; // True for collapsed replies with a button, false for replies to display automatically
-const s_longTimestamp = false; // True for a date + time, false for just the date
+const s_collapsedReplies = true; // True for collapsed replies with a button, false for replies to display automatically
+const s_longTimestamp = true; // True for a date + time, false for just the date
 let s_includeUrlParameters = false; // Makes new comment sections on pages with URL parameters when set to true (If you don't know what this does, leave it disabled)
 const s_fixRarebitIndexPage = false; // If using Rarebit, change to true to make the index page and page 1 of your webcomic have the same comment section
 
@@ -87,7 +87,7 @@ const v_mainHtml = `
     <div id="c_inputDiv">
         <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
     </div>
-    <div id="c_container" class="frosted-glass">${s_loadingText}</div>
+    <div id="c_container" class="">${s_loadingText}</div>
 `;
 const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>

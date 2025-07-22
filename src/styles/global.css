@@ -76,6 +76,7 @@ html {
 	background-color: var(--background);
 }
 
+
 body {
 	font-family: var(--font-DM-Mono);
 	margin: 0;
@@ -377,6 +378,7 @@ small {
 }
 
 /* Track */
+
 ::-webkit-scrollbar-track {
 	background: var(--background-light);
 }
@@ -401,6 +403,7 @@ small {
 .scrollable:hover ::-webkit-scrollbar-thumb {
 	background: var(--primary);
 }
+
 
 /* SLIDERS */
 
@@ -513,13 +516,14 @@ input[type="range"]::-webkit-slider-thumb:active {
   margin-left: -60px;
   
   /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
-  opacity: 0;
-  transition: opacity 0.3s;
+  transform: rotateX(90deg);
+  transition: transform .2s ease;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
-  opacity: 1;
+  transform: rotateX(0deg);
+  transition: transform .2s ease;
 }
 
 /* -------------------------------------------------------------------- */
@@ -561,6 +565,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 	font-family: var(--font-Barcode-39);
   	font-weight: 400;
   	font-style: normal;
+	text-shadow: unset;
 
 	margin: 0;
 	margin-bottom: -6px;
@@ -590,6 +595,12 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 
+@-moz-document url-prefix() {
+  html {
+    scrollbar-color: var(--primary-dark) var(--primary-darkest);
+	scrollbar-width: 5px;
+  }
+}
 
 
 @media only screen and (max-width: 800px) {

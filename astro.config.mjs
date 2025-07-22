@@ -5,7 +5,7 @@ import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://offline-blog.neocities.org',
+	site: 'https://blog.cakeeh.art',
 	integrations: [mdx(), sitemap()],
 
 	trailingSlash: "ignore", //Set the route matching behavior for trailing slashes in the dev server and on-demand rendered pages.

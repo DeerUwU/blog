@@ -50,7 +50,20 @@ var bgm;
 var bgm_idx = 0;
 
 
-function PlaySound(snd_name, pitch_random = false) {
+
+/**
+   * Flexible sound effect system
+   * @param   volume   volume
+   * @param   rate_min minimum speed (and pitch)
+   * @param   rate_max maximum speed (and pitch)
+   * @return  void
+   */
+function PlaySound(snd_name, {
+	volume = 1.0,
+	rate_min = 1.0, // pitch (and speed)
+	rate_max = 1.0 // pitch (and speed)
+} = {}) {
+	// TODO: implement options to pick sounds from array or Object (for chance weights)
 
 	if (!setting_enable_sounds) return;
 
@@ -58,11 +71,8 @@ function PlaySound(snd_name, pitch_random = false) {
 		src: [snd_dir+snd_name]
 	});
 
-	sound.rate(1.0);
-	if (pitch_random) {
-		sound.rate(getRandomFloat(0.8,1.2,2));
-	}
-
+	sound.rate(getRandomFloat(rate_min, rate_max, 2));
+	sound.volume(volume);
 	sound.play();
 	//console.log("played sound:"+snd_name);
 }
@@ -83,13 +93,13 @@ function PlayMusic(value, fade = false, seek = 0) {
 function RegisterSounds() {
 	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
-	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", true)});
-	$(".site-button").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", true)});
+	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
+	$(".site-button").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
 
 	$('body').click(function(e) {
 		// console.log(e.target);
 		if ($(e.target).is('body') || $(e.target).is('main')) { 
-			PlaySound("snd_colby_droplet.wav", true);
+			PlaySound("snd_colby_droplet.wav", {rate_min: 0.7, rate_max: 1.3});
 		};
 	});
 
@@ -98,17 +108,6 @@ function RegisterSounds() {
 	$(".snd_click_blip1").on("click", () => {PlaySound("snd_blip1.wav")});
 	console.log("registered sounds");
 }
-
-// function SetCursor(state) {
-// 	if (state == "grab") {
-// 		$('body').css({'cursor': 'url(/cursor/Wii Pointer Grab.cur), grab'});
-// 		console.log("cursor grab");
-// 	} else {
-// 		$('body').css({'cursor': 'url(/cursor/Wii Pointer Open Hand.cur), default'});
-// 		console.log("cursor default");
-// 	}
-// }
-
 
 
 function SaveBgmState() {
@@ -265,9 +264,12 @@ window.onload = () => {
 			if (toBool(sessionStorage.getItem("info_music_seen")) != true) {$("#info-enabling-music").show()};
 		}
 	}
+
 	Howler.volume(setting_volume_master);
 	SetEnableParticles(setting_enable_particles);
 	RegisterSounds();
+
+	if (setting_enable_music && navigator.getAutoplayPolicy("mediaelement") != "allowed") {$("#info-enabling-music").show()};
 
 	console.log("main.ts loaded.");
 };

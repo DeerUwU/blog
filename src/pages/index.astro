@@ -88,9 +88,8 @@ import '../styles/text.css';
 				<p>
 					I dont know how you found this place but... welcome.
 					<br><br>
-					Who am i? Im a lonely loser trying to find a sense of purpose and belonging in life. Im documenting my thoughts and journey on this website. Feel free to look through everything, im an open book. Maybe someone will get something out of this. 
+					Who am i? Im a lonely loser trying to find a sense of purpose and belonging in life. Im documenting my thoughts and journey on this website. Feel free to look through everything, maybe someone will get something out of this. 
 					<br><br>
-					(this website is designed desktop first, but ill try my best to keep it mobile friendly)
 				</p>
 					<h4>Todo:</h4>
 				<ul>
@@ -102,8 +101,10 @@ import '../styles/text.css';
 				</ul>
 				<!-- <div style="height: 100px;"></div> -->
 				<div style="display: flex; flex-direction: row; gap: 20px">
-					<img src="images/gifs/150px-Mewo_sprite.gif" width="64px" loading="lazy" style="image-rendering: pixelated;">
-					<img src="images/gifs/Forest_Bunny_Sprite.gif" width="64px" loading="lazy" style="image-rendering: pixelated;">
+					<img src="images/gifs/150px-Mewo_sprite.gif" width="64px" loading="lazy" style="image-rendering: pixelated;"
+					onclick="PlaySound('snd_cat_purr.wav', {rate_min: 1, rate_max: 1.2})">
+
+					<img src="images/gifs/Forest_Bunny_Sprite.gif" width="64px" loading="lazy" style="image-rendering: pixelated;" onclick="PlaySound('snd_ut_tem6.wav', {rate_min: 0.8, rate_max: 1.5})">
 				</div>
 			</div>
 			<div id="main-right" class="frosted-glass scrollable anim-fadein-up-small anim-ease delay-200ms">

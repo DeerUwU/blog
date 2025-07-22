@@ -48,13 +48,13 @@ import { SITE_TITLE } from '../../consts';
 		<Header />
 		<main>
 			<section class="panel frosted-glass anim-fadein-up-small delay-200ms anim-ease">
-				<p>Here's my own 88x31, i'd prefer if you hotlink it :3<br>
-				disclaimer: i might change the url soon</p>
+				<p>Here's my own 88x31, i'd prefer if you hotlink it :3 ✨</p>
 				<div style="display: flex;">
-					<a href="https://offline-blog.neocities.org/" style="height: 31px;">
-						<img src="/images/gifs/journal-88x31.gif" loading="lazy" class="site-button" alt="88x31 button">
+					<a href="https://blog.cakeeh.art/" style="height: 31px;">
+						<img src="/images/gifs/deer-journal-88x31.gif" loading="lazy" class="site-button" alt="88x31 button">
 					</a>
-					<button class="icon-button tooltip" onclick="CopyButton(); PlaySound('snd_success.wav')">
+					<button class="icon-button tooltip" 
+					onmouseenter="PlaySound('snd_blip2.wav', {volume: 0.3})" onclick="CopyButton(); PlaySound('snd_success.wav')">
 						<span class="tooltiptext">Copy Html</span>
 						<span class="material-symbols-sharp">content_copy</span>
 					</button>
@@ -103,7 +103,7 @@ import { SITE_TITLE } from '../../consts';
 		</main>
 		<script is:inline>
 			function CopyButton() {
-				let code = '<a href="https://offline-blog.neocities.org/">\n<img src="images/gifs/journal-88x31.gif" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">\n</a>';
+				let code = '<a href="https://blog.cakeeh.art/">\n<img src="https://blog.cakeeh.art/images/gifs/deer-journal-88x31.gif" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">\n</a>';
 
 				navigator.clipboard.writeText(code);
 				console.log("copied to clipboard!");
