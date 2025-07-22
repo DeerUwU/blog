@@ -73,6 +73,7 @@ function PlayMusic(value, seek = 0) {
 		bgm.play();
 		bgm.loop(true);
 	} else {
+		bgm.fade(1, 0, 1000);
 		bgm.pause();
 	}
 }
@@ -82,6 +83,7 @@ function RegisterSounds() {
 	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
 	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", true)});
+	$(".site-button").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", true)});
 
 	$('body').click(function(e) {
 		// console.log(e.target);
@@ -90,8 +92,9 @@ function RegisterSounds() {
 		};
 	});
 
-	$(".snd_open").on("click", () => {PlaySound("snd_open.wav")});
-	$(".snd_close").on("click", () => {PlaySound("snd_close.wav")});
+	$(".snd_click_open").on("click", () => {PlaySound("snd_open.wav")});
+	$(".snd_click_close").on("click", () => {PlaySound("snd_close.wav")});
+	$(".snd_click_blip1").on("click", () => {PlaySound("snd_blip1.wav")});
 	console.log("registered sounds");
 }
 
@@ -193,6 +196,25 @@ function SetEnableSound(value) {
 	localStorage.setItem("setting_enable_sounds", value);
 
 	console.log("sounds: "+value);
+}
+
+function SettingChangeBgm() {
+	if (toBool(localStorage.getItem("setting_enable_music")) == false) return;
+
+	bgm_idx = parseInt(bgm_idx);
+	bgm_idx = (bgm_idx+1) % (bgm_random.length);
+
+
+	bgm.unload();
+
+	bgm = new Howl({
+	src: [bgm_random[bgm_idx]]
+	});
+
+	bgm.play();
+	bgm.loop(true);
+	bgm.fade(0, 1, 1000);
+	console.log("new track: "+bgm_idx)
 }
 
 // --------------------------------------------------------------

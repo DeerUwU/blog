@@ -1,0 +1,112 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Cosmetic from '../../components/Cosmetic.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+<!-- this is for the blog entry list -->
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} />
+		
+		<style>
+			body {
+				overflow-y: auto;
+			}
+			main {
+				width: 960px;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+			}
+			.grid-88x31 {
+				/* background-color: red; */
+				width: 100%;
+				height: fit-content;
+			}
+			.site-button {
+				position: relative;
+				z-index: 1;
+				image-rendering: pixelated;
+
+				transform: scale(1);
+				transition: transform .2s ease;
+			}
+
+			.site-button:hover {
+				transform: scale(2);
+				z-index: 2;
+			}
+
+		</style>
+	</head>
+	<body>
+		<Cosmetic/>
+		<Header />
+		<main>
+			<section class="panel frosted-glass">
+				<p>Here's my own 88x31, i'd prefer if you hotlink it :3<br>
+				disclaimer: i might change the url soon</p>
+				<div style="display: flex;">
+					<a href="https://offline-blog.neocities.org/" style="height: 31px;">
+						<img src="images/gifs/journal-88x31.gif" loading="lazy" class="site-button" alt="88x31 button">
+					</a>
+					<button class="icon-button tooltip" onclick="CopyButton(); PlaySound('snd_success.wav')">
+						<span class="tooltiptext">Copy Html</span>
+						<span class="material-symbols-sharp">content_copy</span>
+					</button>
+					
+				</div>
+			</section>
+			<section class="panel frosted-glass">
+				<h2>Friends</h2>
+				<hr>
+				<p>to be added.</p>
+			</section>
+			<section class="panel frosted-glass">
+				<h2>Misc</h2>
+				<hr>
+				<p>Random buttons i like or take you to neat websites</p>
+				<div class="grid-88x31">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/nap time.png" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+					<img src="/images/88x31/dontfeedtheai.webp" class="site-button" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">
+				</div>
+			</section>
+		</main>
+		<script is:inline>
+			function CopyButton() {
+				let code = '<a href="https://offline-blog.neocities.org/">\n<img src="images/gifs/journal-88x31.gif" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">\n</a>';
+
+				navigator.clipboard.writeText(code);
+				console.log("copied to clipboard!");
+			}
+		</script>
+	</body>
+</html>

@@ -29,6 +29,19 @@
         width: 50px;
         text-align: right;
     }
+
+    button {
+        background-color: var(--background-trans);
+        display: flex;
+        gap:10px;
+        align-items: center!important;
+        justify-content: center!important;
+
+        transition-duration: 0.1s;
+    }
+    button:hover {
+        background-color: var(--primary-dark-trans)!important;
+    }
 </style>
 
 
@@ -36,7 +49,7 @@
     <div>
         <div class="settings-titlebar">
             <h2>Site Settings</h2>
-            <span id="settings-close"class="material-symbols-sharp icon-button snd_close" onclick="ClosePopup()">close</span>
+            <span id="settings-close"class="material-symbols-sharp icon-button snd_click_close" onclick="ClosePopup()">close</span>
         </div>
         
         <hr>
@@ -78,6 +91,11 @@
                     </div>
                 </div>
             </div>
+
+            <button class="setting snd_mod_hover snd_click_blip1" onclick="SettingChangeBgm()">
+                <span class="material-symbols-sharp icon-button" onclick="ClosePopup()">Shuffle</span>
+                <p>Change Music</p>
+            </button>
             
         </div> <!-- end of settings list -->
     </div>
