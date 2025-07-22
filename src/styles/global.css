@@ -254,6 +254,13 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+img.emoji {
+   height: 1em;
+   width: 1em;
+   margin: 0 .05em 0 .1em;
+   vertical-align: -0.1em;
+}
+
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));

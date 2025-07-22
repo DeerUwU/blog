@@ -1,12 +1,21 @@
 ---
 const today = new Date();
+// footer is primarily for like scripts and code snippets that would usually sit at the bottom </body> tag
 ---
 
+
 <footer>
-	<p class="footer-text">{today.getFullYear()} Offline</p>
+	<!-- <p class="footer-text">{today.getFullYear()} Offline</p> -->
+	<script is:inline src="/scripts/jquery-3.7.1.min.js"></script>
+    <script is:inline src="/scripts/howler.core.js"></script>
+	<script is:inline src="/scripts/main.js"></script>
+	<script>
+		twemoji.parse(document.body, { folder: 'svg', ext:'.svg'});
+	</script>
 </footer>
 <style>
 	footer {
+		display: none;
 		width: 100%;
 		padding: 1em 0em 1em 0em;
 		background: var(--background-light);
