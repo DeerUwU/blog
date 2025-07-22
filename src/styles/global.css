@@ -9,14 +9,14 @@
 @import url('text.css');
 
 :root {
-	--background: hsl(0, 0%, 2%);
+	--background: hsl(0, 0%, 1%);
 	/* --background: #18131a; */
 	--background-light: #1a1a1a;
 	--background-trans: #2b2b2b2b;
 
 	--primary-light: #eaaaff;
-	--primary: #c573e1;
-	--primary-dark: #7f4ba9;
+	--primary: #c05de1;
+	--primary-dark: #7a3fa9;
 	--primary-dark-trans: #7c2fba7b;
 	--primary-darkest:#35285a;
 	--gradient-primary-darkest: linear-gradient(to right, var(--primary-darkest) , transparent);
@@ -287,6 +287,10 @@ hr {
 hr.dashed {
 	border: none;
 	border-top: 2px dashed var(--primary-darkest);
+}
+hr.dotted {
+	border: none;
+	border-top: 2px dotted var(--primary-darkest);
 }
 
 

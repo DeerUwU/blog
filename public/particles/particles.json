@@ -8,7 +8,7 @@
       }
     },
     "color": {
-      "value": ["#8058BF", "#662D95", "#502C5F"]
+      "value": ["#684ccc", "#5532a5", "#7441c5", "#482779", "#4f3cd2"]
     },
     "shape": {
       "type": "star",
@@ -50,7 +50,7 @@
     "line_linked": {
       "enable": true,
       "distance": 120,
-      "color": "#35285a",
+      "color": "#30226d",
       "opacity": 1,
       "width": 1
     },
