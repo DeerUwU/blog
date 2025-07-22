@@ -243,7 +243,6 @@ window.onload = () => {
 		localStorage.setItem("setting_enable_sounds", setting_enable_sounds);
 		localStorage.setItem("setting_enable_particles", setting_enable_particles);
 		
-		$("#info-first-time").show();
 		OpenPopup("settings");
 	} else {
 		setting_volume_master 		= localStorage.getItem("setting_volume_master");
@@ -268,6 +267,10 @@ window.onload = () => {
 	Howler.volume(setting_volume_master);
 	SetEnableParticles(setting_enable_particles);
 	RegisterSounds();
+
+	if (!bgm.playing() && localStorage.getItem("setting_enable_music")) {
+		$("#info-enabling-music").show();
+	}
 
 	console.log("main.ts loaded.");
 };
