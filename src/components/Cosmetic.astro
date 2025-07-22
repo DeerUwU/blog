@@ -136,6 +136,12 @@ import PopupSettings from "./Popup/PopupSettings.astro";
 		z-index: 200;
 		background-color: #000000c7;
 	}
+
+    @media only screen and (max-width: 800px) {
+        #popup-container {
+            backdrop-filter: grayscale(1) brightness(0.5);
+        }
+    }
 </style>
 
 

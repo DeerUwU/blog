@@ -2,7 +2,7 @@ var first_time_visit = true;
 
 // default setting vars
 var setting_volume_master = 0.2;
-var setting_enable_music = false;
+var setting_enable_music = true;
 var setting_enable_sounds = true;
 var setting_enable_particles = true;
 
