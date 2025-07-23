@@ -393,6 +393,7 @@ function createComment(data) {
         site.innerText = s_websiteText;
         site.href = data.Website;
         site.className = 'c-site';
+        site.target = "_blank";
         comment.appendChild(site);
     }
 

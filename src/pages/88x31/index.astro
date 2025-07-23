@@ -59,9 +59,9 @@ import { SITE_TITLE } from '../../consts';
 		<main>
 			<section class="panel frosted-glass anim-fadein-up-small delay-200ms anim-ease">
 				<p>Here's my own 88x31, i'd prefer if you hotlink it :3 ✨</p>
-				<div style="display: flex;">
-					<a href="https://blog.cakeeh.art/" style="height: 31px;">
-						<img src="/images/gifs/deer-journal-88x31.gif" loading="lazy" class="site-button" alt="88x31 button">
+				<div class="grid-88x31">
+					<a href="https://blog.cakeeh.art/" class="site-button">
+						<img src="/images/gifs/deer-journal-88x31.gif" loading="lazy"  alt="88x31 button">
 					</a>
 					<button class="icon-button tooltip" 
 					onmouseenter="PlaySound('snd_blip2.wav', {volume: 0.3})" onclick="CopyButton(); PlaySound('snd_success.wav')">
@@ -74,7 +74,12 @@ import { SITE_TITLE } from '../../consts';
 			<section class="panel frosted-glass anim-fadein-up-small delay-200ms anim-ease">
 				<h2>Friends</h2>
 				<hr>
-				<p>to be added.</p>
+				<div class="grid-88x31">
+					<a href="https://marlee-goat.neocities.org/"  target="_blank" class="site-button">
+						<img src="https://marlee-goat.neocities.org/marmar8831.gif" loading="lazy" style="image-rendering: pixelated;" alt="button to marlee's site">
+					</a>
+				</div>
+				
 			</section>
 			<section class="panel frosted-glass anim-fadein-up-small delay-200ms anim-ease">
 				<h2>Misc</h2>
@@ -113,7 +118,7 @@ import { SITE_TITLE } from '../../consts';
 		</main>
 		<script is:inline>
 			function CopyButton() {
-				let code = '<a href="https://blog.cakeeh.art/">\n<img src="https://blog.cakeeh.art/images/gifs/deer-journal-88x31.gif" loading="lazy" style="image-rendering: pixelated;" alt="88x31 button">\n</a>';
+				let code = '<a href="https://blog.cakeeh.art/" target="_blank">\n<img src="https://blog.cakeeh.art/images/gifs/deer-journal-88x31.gif" loading="lazy" style="image-rendering: pixelated;" alt="Deer\'s Journal button">\n</a>';
 
 				navigator.clipboard.writeText(code);
 				console.log("copied to clipboard!");
