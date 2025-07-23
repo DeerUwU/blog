@@ -70,10 +70,10 @@
     }
   },
   "interactivity": {
-    "detect_on": "window",
+    "detect_on": "canvas",
     "events": {
       "onhover": {
-        "enable": false,
+        "enable": true,
         "mode": "bubble"
       },
       "onclick": {
@@ -90,11 +90,11 @@
         }
       },
       "bubble": {
-        "distance": 200,
-        "size": 5,
-        "duration": 2,
-        "opacity": 2,
-        "speed": 0
+        "distance": 150,
+        "size": 0,
+        "duration": 50,
+        "opacity": 0.7,
+        "speed": 50
       },
       "repulse": {
         "distance": 200,

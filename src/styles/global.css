@@ -77,6 +77,8 @@ html {
 }
 
 
+
+
 body {
 	font-family: var(--font-DM-Mono);
 	margin: 0;
@@ -99,9 +101,6 @@ body {
 	text-align: left;	
 	/* experimental */
 	overflow: hidden;
-	/* min-height: 100%; */
-	/* display: flex;
-	flex-direction: column; */
 }
 main {
 	width: 720px;
@@ -109,6 +108,17 @@ main {
 	margin: auto;
 	margin-top: 50px;
 	padding: 2em 1em;
+}
+
+/* EXPERIMENTAL */
+/* skip mouse inputs on those container elements, should help filter
+particle canvas click interactions */
+body, main {
+	pointer-events: none;
+}
+main > *,
+section > * {
+	pointer-events: initial;
 }
 
 h1:active,

@@ -405,6 +405,9 @@ function createComment(data) {
     text.className = 'c-text';
     comment.appendChild(text);
     
+    // Deer: this might break shit
+    twemoji.parse(document.body, { folder: 'svg', ext:'.svg'});
+    
     return comment;
 }
 

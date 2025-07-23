@@ -97,12 +97,7 @@ function RegisterSounds() {
 	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
 	$(".site-button").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
 
-	$('body').click(function(e) {
-		// console.log(e.target);
-		if ($(e.target).is('body') || $(e.target).is('main')) { 
-			PlaySound("snd_colby_droplet.wav", {rate_min: 0.7, rate_max: 1.3});
-		};
-	});
+	
 
 	$(".snd_click_open").on("click", () => {PlaySound("snd_open.wav", {volume: 0.5})});
 	$(".snd_click_close").on("click", () => {PlaySound("snd_close.wav", {volume: 0.5})});

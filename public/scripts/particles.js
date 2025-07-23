@@ -816,7 +816,10 @@ var pJS = function(tag_id, params){
           /* size */
           if(pJS.interactivity.modes.bubble.size != pJS.particles.size.value){
 
-            if(pJS.interactivity.modes.bubble.size > pJS.particles.size.value){
+            if(pJS.interactivity.modes.bubble.size == 0) {
+              
+            } 
+            else if (pJS.interactivity.modes.bubble.size > pJS.particles.size.value){
               var size = p.radius + (pJS.interactivity.modes.bubble.size*ratio);
               if(size >= 0){
                 p.radius_bubble = size;

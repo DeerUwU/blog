@@ -66,10 +66,18 @@ import '../styles/text.css';
 				background-color: var(--background-trans);
 				height: fit-content;
 				padding: 5px 10px;
+				gap: 10px;
 			}
 			.totd-item > p {
 				margin: 0px;
 			}
+			.totd-item :first-child {
+				text-wrap: nowrap;
+			}
+			.totd-item :last-child {
+				text-align: right;
+			}
+
 
 			@media only screen and (max-width: 800px) {
 				body {
@@ -99,9 +107,10 @@ import '../styles/text.css';
 			anim-fadein-up-small anim-ease delay-200ms">
 				<h2>About Me</h2>
 				<p>
-					I dont know how you found this place but... welcome.
+					hi hi hi!!
 					<br><br>
-					Who am i? Im a lonely loser trying to find a sense of purpose and belonging in life. Im documenting my thoughts and journey on this website. Feel free to look through everything, maybe someone will get something out of this. 
+					Who am i? im a silly little idiot putting silly little words on my silly little webbed site. <br><br>
+					im trying to find a sense of purpose and belonging in life. Im using this website as a place to write down whatever is on my mind that day. Feel free to look through everything, maybe someone will get something out of this. 
 					<br><br>
 				</p>
 					<h4>Todo:</h4>
@@ -177,21 +186,27 @@ import '../styles/text.css';
 			const totd_month = 		['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 			var totd_number = getRandomInt(999);
 
-			function rand_from_seed(x, iterations){
+			function randFromSeed(x:any, iterations:any){
 				iterations = iterations || 100;
 				for(var i = 0; i < iterations; i++)
 					x = (x ^ (x << 1) ^ (x >> 1)) % 10000;
 				return x;
 			};
 
-			var random = rand_from_seed(~~((new Date)/86400000)); // Seed with the epoch day.
+			var unix_day = Math.floor(Date.now()/86400000);
+			var random_fruit = randFromSeed(unix_day, 1);
+			var random_animal = randFromSeed(unix_day, 2);
+			var random_number = randFromSeed(unix_day, 3);
+			var random_day = randFromSeed(unix_day, 4);
+			var random_shape = randFromSeed(unix_day, 5);
+			var random_month = randFromSeed(unix_day, 6);
 
-			$("#totd-fruit").text(totd_fruits[random % totd_fruits.length]);
-			$("#totd-animal").text(totd_animals[random % totd_animals.length]);
-			$("#totd-number").text(random % 99);
-			$("#totd-day").text(totd_day[random % totd_day.length]);
-			$("#totd-shape").text(totd_shape[random % totd_shape.length]);
-			$("#totd-month").text(totd_month[random % totd_month.length]);
+			$("#totd-fruit").text(totd_fruits[random_fruit % totd_fruits.length]);
+			$("#totd-animal").text(totd_animals[random_animal % totd_animals.length]);
+			$("#totd-number").text(random_number % 99);
+			$("#totd-day").text(totd_day[random_day % totd_day.length]);
+			$("#totd-shape").text(totd_shape[random_shape % totd_shape.length]);
+			$("#totd-month").text(totd_month[random_month % totd_month.length]);
 			
 		</script>
 	</body>
