@@ -33,16 +33,18 @@ import '../styles/text.css';
 			#main-left, #main-right {
 				width: 50%;
 				max-width: 500px;
-				padding: 20px 20px;
 			}
-			#main-left {
-				/* height: -webkit-fill-available; */
-				overflow-y: auto;
+
+
+			#main-left,
+			#main-right > div {
+				padding: 20px 20px;
 			}
 			#main-right {
 				max-height: fit-content;
 				display: flex;
 				flex-direction: column;
+				gap: 20px;
 			}
 
 			/* #main-left::after {
@@ -57,6 +59,17 @@ import '../styles/text.css';
 				/* text-decoration: underline; */
 			}
 
+			.totd-item {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				background-color: var(--background-trans);
+				height: fit-content;
+				padding: 5px 10px;
+			}
+			.totd-item > p {
+				margin: 0px;
+			}
 
 			@media only screen and (max-width: 800px) {
 				body {
@@ -82,7 +95,7 @@ import '../styles/text.css';
 		<Header />
 		<main class="">
 			
-			<div id="main-left" class="frosted-glass 
+			<section id="main-left" class="frosted-glass scrollable 
 			anim-fadein-up-small anim-ease delay-200ms">
 				<h2>About Me</h2>
 				<p>
@@ -113,15 +126,74 @@ import '../styles/text.css';
 					style="image-rendering: pixelated; height: 64px; width: auto;" 
 					onclick="PlaySound('snd_ut_tem6.wav', {rate_min: 0.8, rate_max: 1.5})">
 				</div>
-			</div>
-			<div id="main-right" class="frosted-glass scrollable anim-fadein-up-small anim-ease delay-200ms">
-				<h2 class="entrylist-title">My Journal</h2>
-				<BlogCards/>
-			</div">
+			</section>
+
+			<section id="main-right" class="scrollable">
+				<div class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+					<h3>Thing of the day</h3>
+					<hr>
+					<div class="totd-item">
+						<p>Fruit of the day: </p><p id="totd-fruit">Fruit</p>
+					</div>
+					<hr class="dashed">
+					<div class="totd-item">
+						<p>Animal of the day: </p><p id="totd-animal">Animal</p>
+					</div>
+					<hr class="dashed">
+					<div class="totd-item">
+						<p>Number of the day: </p><p id="totd-number">Number</p>
+					</div>
+					<hr class="dashed">
+					<div class="totd-item">
+						<p>Day of the day: </p><p id="totd-day">Day</p>
+					</div>
+					<hr class="dashed">
+					<div class="totd-item">
+						<p>Shape of the day: </p><p id="totd-shape">Shape</p>
+					</div>
+					<hr class="dashed">
+					<div class="totd-item">
+						<p>Month of the day: </p><p id="totd-month">Month</p>
+					</div>
+				</div>
+
+				<div class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+					<h3 class="entrylist-title">My Journal</h3>
+					<BlogCards/>
+				</div>
+				
+			</section">
 			
 
 		</main>
 		<Footer/>
+
+		<script>
+
+			const totd_fruits = 	['Apple','Banana','Cherry','Clementine','Cranberry','Decaisnea','Dragon Fruit','Durian','Kumquat','Plum','Grapes (green)','Grapes (not green)','Grapefruit','Green Kiwi','Golden Kiwi','Lime','Lemon','Mango','Nectarine','Orange','Passion Fruit','Peach','Pear','Pineapple','Pomegranate','Pomelo','Star Fruit','Strawberry','Tomato','Umbu','Watermelon','Xoconostle Cactus Fruit'];
+			const totd_animals = 	['Aardvark','Addax','Alligator','Ant','Antelope','Armadillo','Aquatic Warbler','Axolotl','Badger','Bald Eagle','Bat','Bee','Buffalo','Butterfly','Bnuyy','Camel','Caracal','Cheetah','Chicken','Chinchilla','Chipmunk','Copepod','Cow','Coyote','Crab','Crocodile','Deer','Dik Dik','Dolphin','Duck','Elephant','Ferret','Fish','Flamingo','Fox','Frog','Goat','Giraffe','Ground Centipede','Goose','Hedgehog','Iguana','Jellyfish','Jaguar','Large Mouth Bass','Lion','Lizard','Manatee','Monkey','Octopus','Owl','Penguin','Pig','Puffin','Pelican','Rhinoceros','Seal','Shark','Shrew','Snake','Squid','Tortoise','Turtle','Whale','Wolf','Worm'];
+			const totd_day = 		['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+			const totd_shape = 		['Line','Triangle','Rectangle','Square','Pentagon','Hexagon','Heptagon','Octagon','Nonagon','Decagon','Dodecagon','Oval','Star','Prism','Cylinder','Icosahedron','Torus','Trapezoid','Rhombus','Octahedron','Dodecahedron','Tetrahedron','Cube','Sphere','Rhombicuboctahedron'];
+			const totd_month = 		['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+			var totd_number = getRandomInt(999);
+
+			function rand_from_seed(x, iterations){
+				iterations = iterations || 100;
+				for(var i = 0; i < iterations; i++)
+					x = (x ^ (x << 1) ^ (x >> 1)) % 10000;
+				return x;
+			};
+
+			var random = rand_from_seed(~~((new Date)/86400000)); // Seed with the epoch day.
+
+			$("#totd-fruit").text(totd_fruits[random % totd_fruits.length]);
+			$("#totd-animal").text(totd_animals[random % totd_animals.length]);
+			$("#totd-number").text(random % 99);
+			$("#totd-day").text(totd_day[random % totd_day.length]);
+			$("#totd-shape").text(totd_shape[random % totd_shape.length]);
+			$("#totd-month").text(totd_month[random % totd_month.length]);
+			
+		</script>
 	</body>
 	
 </html>

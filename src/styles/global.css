@@ -632,6 +632,14 @@ input[type="range"]::-webkit-slider-thumb:active {
 		font-size: 0.875rem;
 	}
 
+	.blogcard-title {
+		font-size: 1.3rem;
+	}
+
+	.blogcard-date {
+		font-size: inherit;
+	}
+
 	.frosted-glass {
 		backdrop-filter: grayscale(0.2) brightness(0.2);
 		background-color: #34343440;

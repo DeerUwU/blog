@@ -20,6 +20,7 @@ function getRandomFloat(min, max, decimals) {
   return parseFloat(str);
 }
 
+
 function toBool(value) {
 	if (typeof value === "boolean") return value;
 	if (typeof value != "string") return null;
