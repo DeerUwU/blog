@@ -30,18 +30,18 @@ const s_sheetId =   '1bJH1D8VhyLIS1Xj8QlfxCOup-juua2YIFQvk4N7fmhM';
 const s_timezone = 2; // Your personal timezone (Example: UTC-5:00 is -5 here, UTC+10:30 would be 10.5)
 const s_daylightSavings = true; // If your personal timezone uses DST, set this to true
 // For the dates DST start and end where you live: [Month, Weekday, which number of that weekday, hour (24 hour time)]
-const s_dstStart = ['March', 'Sunday', 2, 2]; // Example shown is the second Sunday of March at 2:00 am
-const s_dstEnd = ['November', 'Sunday', 1, 2]; // Example shown is the first Sunday of November at 2:00 am
+const s_dstStart = ['March', 'Sunday', 2, 3]; // Example shown is the second Sunday of March at 2:00 am
+const s_dstEnd = ['October', 'Sunday', 1, 3]; // Example shown is the first Sunday of November at 2:00 am
 
 // Misc - Other random settings
-const s_commentsPerPage = 10; // The max amount of comments that can be displayed on one page, any number >= 1 (Replies not counted)
-const s_maxLength = 500; // The max character length of a comment
-const s_maxLengthName = 16; // The max character length of a name
-const s_commentsOpen = true; // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
-const s_collapsedReplies = true; // True for collapsed replies with a button, false for replies to display automatically
-const s_longTimestamp = true; // True for a date + time, false for just the date
+const s_commentsPerPage = 10;       // The max amount of comments that can be displayed on one page, any number >= 1 (Replies not counted)
+const s_maxLength = 500;            // The max character length of a comment
+const s_maxLengthName = 16;         // The max character length of a name
+const s_commentsOpen = true;        // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
+const s_collapsedReplies = true;    // True for collapsed replies with a button, false for replies to display automatically
+const s_longTimestamp = true;       // True for a date + time, false for just the date
 let s_includeUrlParameters = false; // Makes new comment sections on pages with URL parameters when set to true (If you don't know what this does, leave it disabled)
-const s_fixRarebitIndexPage = false; // If using Rarebit, change to true to make the index page and page 1 of your webcomic have the same comment section
+const s_fixRarebitIndexPage = false;// If using Rarebit, change to true to make the index page and page 1 of your webcomic have the same comment section
 
 // Word filter - Censor profanity, etc
 const s_wordFilterOn = false; // True for on, false for off
@@ -405,8 +405,12 @@ function createComment(data) {
     text.className = 'c-text';
     comment.appendChild(text);
     
-    // Deer: this might break shit
-    twemoji.parse(document.body, { folder: 'svg', ext:'.svg'});
+    try {
+        twemoji.parse(document.body, { folder: 'svg', ext:'.svg'});
+    } catch (error) {
+        console.error(error);
+    }
+    
     
     return comment;
 }
@@ -502,7 +506,16 @@ function openReply(id) {
 // Handle expanding replies (should only be accessible with collapsed replies enabled)
 function expandReplies(id) {
     const targetDiv = document.getElementById(`${id}-replies`);
-    if (targetDiv.style.display == 'none') {targetDiv.style.display = 'block'}
+    if (targetDiv.style.display == 'none') 
+    {
+        targetDiv.style.display = 'block';
+        
+        try {
+            twemoji.parse(document.body, { folder: 'svg', ext:'.svg'});
+        } catch (error) {
+            console.error(error);
+        }
+    }
     else {targetDiv.style.display = 'none'}
 }
 

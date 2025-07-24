@@ -3,43 +3,43 @@ const today = new Date();
 // footer is primarily for like scripts and code snippets that would usually sit at the bottom </body> tag
 ---
 
-
 <footer>
-	<!-- <p class="footer-text">{today.getFullYear()} Deer</p> -->
-	<script is:inline src="/scripts/jquery-3.7.1.min.js"></script>
+    <!-- <p class="footer-text">{today.getFullYear()} Deer</p> -->
+    <script is:inline src="/scripts/jquery-3.7.1.min.js"></script>
     <script is:inline src="/scripts/howler.core.js"></script>
-	<script is:inline src="/scripts/main.js"></script>
-	<script>
-		twemoji.parse(document.body, { folder: 'svg', ext:'.svg'});
-	</script>
+    <script is:inline src="/scripts/main.js"></script>
+    <script>
+        twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    </script>
 </footer>
 <style>
-	footer {
-		display: none;
-		width: 100%;
-		padding: 1em 0em 1em 0em;
-		background: var(--background-light);
-		text-align: center;
-		/* position: fixed; */
-		bottom: 0px;
-	}
+    footer {
+        display: none;
+        width: 100%;
+        padding: 1em 0em 1em 0em;
+        background: var(--background-light);
+        text-align: center;
+        /* position: fixed; */
 
-	.footer-text {
-		color: var(--text-sub);
-	}
+        bottom: 0px;
+    }
 
-	.social-links {
-		display: flex;
-		display: none;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
-	}
+    .footer-text {
+        color: var(--text-sub);
+    }
+
+    .social-links {
+        display: flex;
+        display: none;
+        justify-content: center;
+        gap: 1em;
+        margin-top: 1em;
+    }
+    .social-links a {
+        text-decoration: none;
+        color: rgb(var(--gray));
+    }
+    .social-links a:hover {
+        color: rgb(var(--gray-dark));
+    }
 </style>

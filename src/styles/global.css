@@ -21,7 +21,7 @@
 	--primary-darkest:#35285a;
 	--gradient-primary-darkest: linear-gradient(to right, var(--primary-darkest) , transparent);
 
-	--text-normal: #8d829e;
+	--text-normal: #afa2c2;
 	--text-sub: #54505b;
 	--text-darkest: #48454e41;
 
@@ -179,6 +179,18 @@ h5 {
   	font-style: normal;
 } 
 
+p {
+	margin-bottom: 1em;
+	line-height: 1.8rem;
+	text-box: auto;
+}
+.prose p {
+	margin-bottom: 1em;
+}
+
+li p {
+	margin-block: 5px!important;
+}
 
 strong,
 b {
@@ -212,6 +224,10 @@ p a,
     transition-duration: 0.2s;
 }
 
+/* footnote reference links */
+sup a {
+	padding: 1px 3px;
+}
 
 p a:hover,
 .link:hover,
@@ -227,13 +243,6 @@ p a:hover,
 }
 
 
-
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 1em;
-}
 textarea {
 	width: 100%;
 	font-size: 1.125rem;
@@ -353,7 +362,7 @@ small {
 
 .frosted-glass {
 	background-color: var(--background-trans);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(8px);
 	/* border: 		2px solid #2b2b2b3b;
 	border-top: 	2px solid #5f5f5f6b;
 	border-bottom: 	2px solid #0000003b; */
@@ -640,6 +649,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 	}
 	p {
 		font-size: 0.875rem;
+		line-height: 1.2rem;
 	}
 
 	.blogcard-title {

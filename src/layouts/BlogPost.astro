@@ -51,9 +51,10 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 				overflow-y: auto;
 				margin: auto;
 				/* margin-top: 20px; */
-				padding: 1em;
+				padding: 1em 2em;
 				color: var(--text-normal);
 			}
+
 			.title {
 				margin-bottom: 0em;
 				padding: 1em 0 0 0;
@@ -68,6 +69,13 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+
+			.flow-right {
+				display: flex!important;
+				gap: 20px;
+				flex-direction: row;
+			}
+
 		</style>
 	</head>
 
