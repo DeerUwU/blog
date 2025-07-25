@@ -61,13 +61,13 @@
     /* padding: 20px; */
     /* background-image: url('sparkle-bg.gif'); F2U background provided by https://sadgrl.online/webmastery/downloads/tiledbgs */
     background-attachment: fixed;
-    font-family: var(--font-DM-Mono);
-    font-size: 16px;
+    font-family: inherit;
+    /* font-size: 16px; */
 }
 
 #c_widget button, #c_widget input[type=submit] {
     padding: 4px;
-    font-family: var(--font-DM-Mono);
+    font-family: inherit;
     font-weight: bold;
     text-decoration: none;
 	text-align: center;
@@ -110,7 +110,7 @@
     text-align: right;
 }
 .c-input {
-    font-family: var(--font-DM-Mono);
+    font-family: inherit;
 
     
     color: var(--text-normal);
@@ -120,6 +120,8 @@
 	outline: none;
     padding: 4px;
     margin-bottom: 5px;
+
+    font-size: inherit;
 
     transition-duration: 0.1s;
     transition-property: background-color;
@@ -191,13 +193,11 @@
     font-weight: bold;
 }
 .c-text {
-    font-family: var(--font-DM-Mono);
-    font-size: 18px;
+    font-family: inherit;
+    /* font-size: 1.125rem; */
     text-align: justify;
 
     margin: 0;
-    /* margin-left: -10px;
-    margin-right: -10px; */
     padding: 10px;
     
     color: var(--text-normal);

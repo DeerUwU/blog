@@ -18,6 +18,11 @@ export default defineConfig({
             name: "DM Mono",
             cssVariable: "--font-DM-Mono"
         },
+        {
+            provider: fontProviders.google(),
+            name: "DM Sans",
+            cssVariable: "--font-DM-Sans"
+        },
 		{
             provider: fontProviders.google(),
             name: "Libre Barcode 39",

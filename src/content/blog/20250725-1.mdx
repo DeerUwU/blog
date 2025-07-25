@@ -1,5 +1,6 @@
 ---
 title: 'readability'
+Description: 'Please play around with this'
 pubDate: '07/25/2025'
 heroImage: ''
 ---
@@ -15,13 +16,29 @@ u know what, u can try out all of them and see which font you like the best and 
 (ok this was fun to make actually)
 
 <hr class="dashed"/>
-<button onclick='$(".prose").css("font-family", "Dm Mono");' class='snd_mod_hover snd_click_blip1'>Dm Mono</button>
-<button onclick='$(".prose").css("font-family", "Dm Sans");' class='snd_mod_hover snd_click_blip1'>Dm Sans</button>
-<button onclick='$(".prose").css("font-family", "Onest");' class='snd_mod_hover snd_click_blip1'>Onest</button>
-<button onclick='$(".prose").css("font-family", "Poppins");' class='snd_mod_hover snd_click_blip1'>Poppins</button>
+<button onclick='$("body").css("font-family", "Dm Mono");' class='snd_mod_hover snd_click_blip1'>Dm Mono</button>
+<button onclick='$("body").css("font-family", "Dm Sans");' class='snd_mod_hover snd_click_blip1'>Dm Sans</button>
+<button onclick='$("body").css("font-family", "Onest");' class='snd_mod_hover snd_click_blip1'>Onest</button>
+<button onclick='$("body").css("font-family", "Poppins");' class='snd_mod_hover snd_click_blip1'>Poppins</button>
+<button onclick='$("body").css("font-family", "Ari");' class='snd_mod_hover snd_click_blip1'>Ari W9500</button>
 
-<input type="color" oninput='$(".prose").css("color", value)' value="#9c8ca1" style="width: 96px; height: 24px;"/>
+<input type="color" oninput='$("p").css("color", value)' value="#9c8ca1" style="width: 96px; height: 24px;"/>
 
+
+<div style='display: flex; align-items: center; gap: 10px'>
+	<input 
+	type="range" 
+	min="0" max="2" value="1" step="0.01" 
+	oninput='$("p").css("font-size", value+"rem"); PlaySound("snd_slider_drag.wav"); UpdateSliderFill(this)' />
+	<p>Font Size</p>
+</div>
+<div style='display: flex; align-items: center; gap: 10px'>
+	<input 
+	type="range" 
+	min="0" max="1000" value="500" step="100" 
+	oninput='$("p").css("font-weight", value); PlaySound("snd_slider_drag.wav"); UpdateSliderFill(this)' />
+	<p>Font Weight</p>
+</div>
 <div style='display: flex; align-items: center; gap: 10px'>
 	<input 
 	type="range" 
@@ -36,13 +53,7 @@ u know what, u can try out all of them and see which font you like the best and 
 	oninput='$("p").css("line-height", value+"rem"); PlaySound("snd_slider_drag.wav"); UpdateSliderFill(this)' />
 	<p>Line Height</p>
 </div>
-<div style='display: flex; align-items: center; gap: 10px'>
-	<input 
-	type="range" 
-	min="0" max="1000" value="500" step="100" 
-	oninput='$("p").css("font-weight", value); PlaySound("snd_slider_drag.wav"); UpdateSliderFill(this)' />
-	<p>Font Weight</p>
-</div>
+
 
 
 <hr class="dashed"/>

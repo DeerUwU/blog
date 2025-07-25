@@ -22,7 +22,7 @@
         justify-content: space-between;
         align-items: center;
         background-color: var(--background-trans);
-        padding: 0px 10px;
+        padding: 5px 10px;
     }
 
     .slider-value {
@@ -88,6 +88,16 @@
                     <div class="checkbox-slider">
                         <input type="checkbox" id="setting-showparticles" name="check" oninput="SetEnableParticles(this.checked)">
                         <label for="setting-showparticles"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting">
+                <p>Monospace Font</p>
+                <div class="item">
+                    <div class="checkbox-slider">
+                        <input type="checkbox" id="setting-enable-monospace" name="check" oninput="SettingSetMonospace(this.checked)">
+                        <label for="setting-enable-monospace"></label>
                     </div>
                 </div>
             </div>

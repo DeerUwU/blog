@@ -84,6 +84,19 @@
   letter-spacing: 0.7rem!important;
 }
 
+.text-outline {
+  text-shadow: 
+	-2px -2px 0px #000,
+	-2px 0px 0px #000,
+	-2px 2px 0px #000,
+	0px -2px 0px #000,
+
+	0px 2px 0px #000,
+	2px -2px 0px #000,
+	2px 0px 0px #000,
+	2px 2px 0px #000;
+}
+
 
 .glitch {
 	animation: glitch 2s steps(100) infinite;

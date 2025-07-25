@@ -5,6 +5,7 @@ var setting_volume_master = 0.2;
 var setting_enable_music = true;
 var setting_enable_sounds = true;
 var setting_enable_particles = true;
+var setting_enable_monospace = true;
 
 // ----------------------------------------------------------
 // utility
@@ -142,6 +143,7 @@ function LoadSettingsToMenu() {
 	$("#setting-showparticles").prop('checked', setting_enable_particles);
 	$("#setting-enable-music").prop('checked', setting_enable_music);
 	$("#setting-enable-sounds").prop('checked', setting_enable_sounds);
+	$("#setting-enable-monospace").prop('checked', setting_enable_monospace);
 }
 
 
@@ -209,6 +211,20 @@ function SetEnableSound(value) {
 	console.log("sounds: "+value);
 }
 
+function SettingSetMonospace(value) {
+	setting_enable_monospace = value;
+	localStorage.setItem("setting_enable_monospace", value);
+
+	if (value) {
+		$('body').css('font-family', 'var(--font-DM-Mono)');
+		$('p').css('letter-spacing', '-0.02rem');
+	} else {
+		$('body').css('font-family', 'var(--font-DM-Sans)');
+		$('p').css('letter-spacing', '0rem');
+	}
+	console.log("monospace font: "+value);
+}
+
 function SettingChangeBgm() {
 	if (toBool(localStorage.getItem("setting_enable_music")) == false) return;
 
@@ -261,6 +277,7 @@ window.onload = () => {
 		localStorage.setItem("setting_enable_music", setting_enable_music);
 		localStorage.setItem("setting_enable_sounds", setting_enable_sounds);
 		localStorage.setItem("setting_enable_particles", setting_enable_particles);
+		localStorage.setItem("setting_enable_monospace", setting_enable_monospace);
 		
 		$("#info-first-time").show();
 		OpenPopup("settings");
@@ -269,6 +286,7 @@ window.onload = () => {
 		setting_enable_music 		= toBool(localStorage.getItem("setting_enable_music"));
 		setting_enable_sounds 		= toBool(localStorage.getItem("setting_enable_sounds"));
 		setting_enable_particles 	= toBool(localStorage.getItem("setting_enable_particles"));
+		setting_enable_monospace 	= toBool(localStorage.getItem("setting_enable_monospace"));
 
 
 		Howler.autoUnlock = true;
@@ -287,9 +305,15 @@ window.onload = () => {
 
 	Howler.volume(setting_volume_master);
 	SetEnableParticles(setting_enable_particles);
+	SettingSetMonospace(setting_enable_monospace);
 	RegisterSounds();
 
-	if (setting_enable_music && navigator.getAutoplayPolicy("mediaelement") != "allowed") {$("#info-enabling-music").show()};
+	try {
+		if (setting_enable_music && navigator.getAutoplayPolicy("mediaelement") != "allowed") {$("#info-enabling-music").show()};
+	} catch(error) {
+		console.warn(error);
+	}
+	
 
 	console.log("main.ts loaded.");
 };
