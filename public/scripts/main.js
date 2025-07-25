@@ -29,6 +29,18 @@ function toBool(value) {
 	return null;
 }
 
+/**
+   * Remap one value range to another
+   * @param   value   value to remap
+   * @param   input_start minimum value
+   * @param   input_end maximum value
+   * @param   output_start new minimum value
+   * @param   output_end new maximum value
+   */
+function RemapRange(value, input_start, input_end, output_start, output_end) {
+	return output_start + ((output_end - output_start) / (input_end - input_start)) * (value - input_start);
+}
+
 // ----------------------------------------------------------
 
 var snd_dir = "../../sounds/"
@@ -106,6 +118,7 @@ function RegisterSounds() {
 
 	$(".snd_click_open").on("click", () => {PlaySound("snd_open.wav", {volume: 0.5})});
 	$(".snd_click_close").on("click", () => {PlaySound("snd_close.wav", {volume: 0.5})});
+	$(".snd_effect_equip").on("click", () => {PlaySound("snd_effect_equip.wav")});
 	$(".snd_click_blip1").on("click", () => {PlaySound("snd_blip1.wav")});
 	console.log("registered sounds");
 }
@@ -148,6 +161,12 @@ function OpenPopup(name) {
 }
 function ClosePopup() {
 	$('#popup-container').hide();
+}
+
+
+function UpdateSliderFill(slider) {
+	console.log('test');
+	$(slider).css({'backgroundSize': (RemapRange(slider.value, slider.min, slider.max, 0, 100)) + "% 100%"});
 }
 
 // --------------------------------------------------------------

@@ -1,0 +1,55 @@
+---
+title: 'readability'
+pubDate: '07/25/2025'
+heroImage: ''
+---
+https://strawpoll.com/PbZqbWqQNyN
+
+So.... things are bugging me. idk. writing the last post kinda made me upset. i wanna listen to music but i dont wanna get tired of the songs i enjoy. anyways i feel like my design choices arent ideal for readability. i feel like it could be better but im not sure. ive experimented with it a little bit. tried out different fonts and i think onest or dm sans are less straining on the eyes compared to the current font (dm mono). but i still can't put my finger on it. is it the font? the color? the spacing? the thickness? wordcount per line? i dont know!!!
+<br/>
+<i class="shake">arghhh</i> why cant i just be happy with what i have??
+
+u know what, u can try out all of them and see which font you like the best and maybe answer the poll or comment idk.
+
+<br/><br/>
+(ok this was fun to make actually)
+
+<hr class="dashed"/>
+<button onclick='$(".prose").css("font-family", "Dm Mono");' class='snd_mod_hover snd_click_blip1'>Dm Mono</button>
+<button onclick='$(".prose").css("font-family", "Dm Sans");' class='snd_mod_hover snd_click_blip1'>Dm Sans</button>
+<button onclick='$(".prose").css("font-family", "Onest");' class='snd_mod_hover snd_click_blip1'>Onest</button>
+<button onclick='$(".prose").css("font-family", "Poppins");' class='snd_mod_hover snd_click_blip1'>Poppins</button>
+
+<input type="color" oninput='$(".prose").css("color", value)' value="#9c8ca1" style="width: 96px; height: 24px;"/>
+
+<div style='display: flex; align-items: center; gap: 10px'>
+	<input 
+	type="range" 
+	min="-0.2" max="0.5" value="0.15" step="0.01" 
+	oninput='$("p").css("letter-spacing", value+"rem"); PlaySound("snd_slider_drag.wav"); UpdateSliderFill(this)'/>
+	<p>Letter Spacing</p>
+</div>
+<div style='display: flex; align-items: center; gap: 10px'>
+	<input 
+	type="range" 
+	min="0" max="3" value="1.5" step="0.1" 
+	oninput='$("p").css("line-height", value+"rem"); PlaySound("snd_slider_drag.wav"); UpdateSliderFill(this)' />
+	<p>Line Height</p>
+</div>
+<div style='display: flex; align-items: center; gap: 10px'>
+	<input 
+	type="range" 
+	min="0" max="1000" value="500" step="100" 
+	oninput='$("p").css("font-weight", value); PlaySound("snd_slider_drag.wav"); UpdateSliderFill(this)' />
+	<p>Font Weight</p>
+</div>
+
+
+<hr class="dashed"/>
+<div><div id="c_widget"/></div>
+<script is:inline src="/comment-widget/comment-widget.js"></script>
+{/* <script is:inline src="/scripts/main.js"></script> */}
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Onest:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>

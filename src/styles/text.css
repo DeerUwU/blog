@@ -79,6 +79,12 @@
 
 
 
+.text-wide {
+  display: block;
+  letter-spacing: 0.7rem!important;
+}
+
+
 .glitch {
 	animation: glitch 2s steps(100) infinite;
 }
