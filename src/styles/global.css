@@ -1,8 +1,3 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap');
 
 @import url('anim.css');
@@ -21,7 +16,7 @@
 	--primary-darkest:		#35285a;
 	--gradient-primary-darkest: linear-gradient(to right, var(--primary-darkest) , transparent);
 
-	--text-normal: 	#9c8ca1;
+	--text-normal: #8d829e;
 	--text-sub: 	#55505b;
 	--text-darkest: #47454e41;
 
@@ -180,10 +175,11 @@ h5 {
   	font-style: normal;
 } 
 
+/* IMPORTANT */
 p {
 	margin-bottom: 1em;
 	margin-block: 5px!important;
-	line-height: 1.8rem;
+	line-height: 1.7rem;
 	letter-spacing: -0.02rem;
 	text-box: auto;
 }
@@ -227,6 +223,8 @@ p a,
 /* footnote reference links */
 sup a {
 	padding: 1px 3px;
+	position: fixed;
+	height: 0px;
 }
 
 p a:hover,
@@ -298,7 +296,7 @@ pre > code {
 }
 blockquote {
 	border-left: var(--BW-regular) solid var(--primary);
-	padding: 1px 0 1px 20px;
+	padding: 1px 0 1px 10px;
 	margin: 0px;
 	font-style: italic;
 	background: var(--gradient-primary-darkest);

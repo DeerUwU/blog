@@ -212,7 +212,9 @@ function SetEnableSound(value) {
 }
 
 function SettingSetMonospace(value) {
+	if (value == null) value == true;
 	setting_enable_monospace = value;
+	
 	localStorage.setItem("setting_enable_monospace", value);
 
 	if (value) {
