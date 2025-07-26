@@ -322,7 +322,7 @@ small {
 ::selection {
 	color: #111111;
 	background-color: #bb70f8cf; /* cant use var() for some reason. whatever*/
-	text-shadow: #111111 0px 0px 5px;
+	text-shadow: #111111bb 0px 0px 4px;
 }
 
 
@@ -678,5 +678,13 @@ input[type="range"]::-webkit-slider-thumb:active {
 	.frosted-glass {
 		backdrop-filter: grayscale(0.2) brightness(0.2);
 		background-color: #34343440;
+	}
+
+
+	/* SCROLLBARS */
+
+/* width */
+	::-webkit-scrollbar {
+		width: 5px;
 	}
 }
