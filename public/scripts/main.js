@@ -1,4 +1,5 @@
 var first_time_visit = true;
+var is_mobile = null;
 
 // default setting vars
 var setting_volume_master = 0.2;
@@ -109,11 +110,20 @@ function RegisterSounds() {
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
 	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
 	$(".site-button").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
+	$(".snd_ac_bubble_1").on("mouseenter", () => {PlaySound("snd_blip2.wav", {rate_min: 0.99, rate_max: 1.01})});
 
 	$('body').on('click', function(e) {
 		// console.log(e.target);
 		if ($(e.target).is('body') || $(e.target).is('main')) { 
 			PlaySound("snd_colby_droplet.wav", {rate_min: 0.7, rate_max: 1.3});
+		};
+	});
+
+	$('#popup-container').on('click', function(e) {
+		// console.log(e.target);
+		if ($(e.target).is('#popup-container')) { 
+			ClosePopup();
+			PlaySound('snd_cmn_close.wav')
 		};
 	});
 
@@ -250,15 +260,9 @@ function SettingChangeBgm() {
 // save bg music position before changing tabs
 window.onbeforeunload = SaveBgmState;
 
-window.onload = () => {
-	$('#popup-container').click(function(e) {
-		// console.log(e.target);
-		if ($(e.target).is('#popup-container')) { 
-			ClosePopup();
-			PlaySound('snd_cmn_close.wav')
-		};
-	});
-
+function init() {
+	var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+  	console.log("ismobile = "+isMobile);
 
 
 	if (sessionStorage.getItem("bgm_idx") == null) {
@@ -289,8 +293,8 @@ window.onload = () => {
 		setting_enable_sounds 		= toBool(localStorage.getItem("setting_enable_sounds"));
 		setting_enable_particles 	= toBool(localStorage.getItem("setting_enable_particles"));
 		setting_enable_monospace 	= toBool(localStorage.getItem("setting_enable_monospace"));
-
-
+		setting_enable_particles 	= toBool(localStorage.getItem("setting_enable_particles"));
+		
 		Howler.autoUnlock = true;
 
 		if (setting_enable_music) {
@@ -300,15 +304,26 @@ window.onload = () => {
 				PlayMusic(true);
 			}
 			
-			
 			if (toBool(sessionStorage.getItem("info_music_seen")) != true) {$("#info-enabling-music").show()};
+		}
+
+		//TODO: create a function to actually unload particles.js
+		if (is_mobile) {
+			particlesJS.load("particles-js", "/particles/particles_mobile.json", function(){
+			console.log("particles_mobile.json loaded")
+			});
+		} else {
+			particlesJS.load("particles-js", "/particles/particles.json", function(){
+			console.log("particles.json loaded")
+			});
 		}
 	}
 
 	Howler.volume(setting_volume_master);
 	SetEnableParticles(setting_enable_particles);
 	SettingSetMonospace(setting_enable_monospace);
-	RegisterSounds();
+	
+	
 
 	try {
 		if (setting_enable_music && navigator.getAutoplayPolicy("mediaelement") != "allowed") {$("#info-enabling-music").show()};
@@ -320,28 +335,5 @@ window.onload = () => {
 	console.log("main.ts loaded.");
 };
 
-
-$(document).ready(function () {
-	// window.addEventListener("onclick", SetCursor("grab"));
-	// window.addEventListener("onclick", SetCursor("default"));
-
-
-  var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
-  console.log("ismobile = "+isMobile);
-  
-  var enable_particles = localStorage.getItem("setting_enable_particles");
-  
-  //TODO: create a function to unload particles.js
-  //if (enable_particles == "false") return; // stupid value is stored as string not bool.
-
-  if (isMobile) {
-    particlesJS.load("particles-js", "/particles/particles_mobile.json", function(){
-      console.log("particles_mobile.json loaded")
-    });
-  } else {
-    particlesJS.load("particles-js", "/particles/particles.json", function(){
-      console.log("particles.json loaded")
-    });
-  }
-
-});
+document.addEventListener('astro:page-load', RegisterSounds);
+init();

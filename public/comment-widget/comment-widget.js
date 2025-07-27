@@ -550,4 +550,9 @@ function changePage(dir) {
     }
 }
 
-getComments(); // Run once on page load
+
+function init() {
+    getComments(); // Run once on page load
+}
+
+document.addEventListener('astro:page-load', init);

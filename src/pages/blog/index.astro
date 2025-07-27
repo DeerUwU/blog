@@ -15,11 +15,10 @@ import { SITE_TITLE } from '../../consts';
 		<BaseHead title={SITE_TITLE} />
 		
 		<style>
-			body {
-				overflow-y: auto;
-			}
 			main {
 				width: 960px;
+				height: -webkit-fill-available;
+				overflow-y: scroll;
 			}
 		</style>
 	</head>

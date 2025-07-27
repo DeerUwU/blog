@@ -101,18 +101,18 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<a href="/" id="site-title">{SITE_TITLE}</a>
+		<a href="/" id="site-title" class="snd_ac_bubble_1">{SITE_TITLE}</a>
 		<div class="internal-links frosted-glass">
-			<HeaderLink href="/" class="snd_mod_hover">Home</HeaderLink>
-			<HeaderLink href="/blog" class="snd_mod_hover">Journal</HeaderLink>
-			<HeaderLink href="/guestbook" class="snd_mod_hover">Guestbook</HeaderLink>
-			<HeaderLink href="/88x31" class="snd_mod_hover">88x31</HeaderLink>
+			<HeaderLink class="snd_ac_bubble_1 snd_click_blip1" href="/">Home</HeaderLink>
+			<HeaderLink class="snd_ac_bubble_1 snd_click_blip1" href="/blog">Journal</HeaderLink>
+			<HeaderLink class="snd_ac_bubble_1 snd_click_blip1" href="/guestbook" data-astro-reload>Guestbook</HeaderLink>
+			<HeaderLink class="snd_ac_bubble_1 snd_click_blip1" href="/88x31">88x31</HeaderLink>
 			
 			
-			<button class="icon-button snd_mod_hover snd_click_open" onclick="OpenPopup('info');">
+			<button class="icon-button snd_ac_bubble_1 snd_click_open" onclick="OpenPopup('info');">
 				<span class="material-symbols-sharp">info</span>
 			</button>
-			<button class="icon-button snd_mod_hover snd_click_open" onclick="OpenPopup('settings');">
+			<button class="icon-button snd_ac_bubble_1 snd_click_open" onclick="OpenPopup('settings');">
 				<span class="material-symbols-sharp">settings</span>
 			</button>
 		</div>
