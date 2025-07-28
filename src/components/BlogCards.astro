@@ -15,7 +15,7 @@ const posts = (await getCollection('blog')).reverse();
 	<ul class="blogcard-container">
 		{
 			posts.map((post) => (
-				<li class="blogcard frosted-glass snd_mod_hover">
+				<li class="blogcard frosted-glass snd_mod_hover snd_click_blip1">
 					<a href={`/blog/${post.id}/`}>
 						<div class="blogcard-text">
 							<h3 class="blogcard-title">{post.data.title}</h3>

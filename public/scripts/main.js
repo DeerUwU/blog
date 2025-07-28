@@ -256,6 +256,15 @@ function SettingChangeBgm() {
 	console.log("new track: "+bgm_idx)
 }
 
+
+function PlayCheckboxSound(value) {
+	if (value) {
+		PlaySound('snd_blip1.wav');
+	} else {
+		PlaySound('snd_blip2.wav');
+	}
+}
+
 // --------------------------------------------------------------
 // save bg music position before changing tabs
 window.onbeforeunload = SaveBgmState;

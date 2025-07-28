@@ -5,6 +5,7 @@ import BlogCards from '../components/BlogCards.astro';
 import Cosmetic from '../components/Cosmetic.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import SiteUpdate from '../components/SiteUpdate.astro';
 import { SITE_TITLE } from '../consts';
 import '../styles/text.css';
 
@@ -33,7 +34,8 @@ import '../styles/text.css';
 
 
 			#main-left,
-			#main-right > div {
+			#main-right > div,
+			#main-right > section {
 				padding: 20px 20px;
 			}
 			#main-right {
@@ -72,6 +74,14 @@ import '../styles/text.css';
 			}
 			.totd-item :last-child {
 				text-align: right;
+			}
+
+			.site-updates {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				max-height: 500px;
+				overflow-y: auto;
 			}
 
 
@@ -135,7 +145,7 @@ import '../styles/text.css';
 			</section>
 
 			<section id="main-right" class="scrollable">
-				<div class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
 					<h3>Thing of the day</h3>
 					<hr>
 					<div class="totd-item">
@@ -161,14 +171,29 @@ import '../styles/text.css';
 					<div class="totd-item">
 						<p>Month of the day: </p><p id="totd-month">Month</p>
 					</div>
-				</div>
+				</section>
 
-				<div class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+				<!-- <div class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
 					<h3 class="entrylist-title">My Journal</h3>
 					<BlogCards/>
-				</div>
+				</div> -->
+
+				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+					<h3>Site Updates</h3>
+					<hr>
+					<div class="site-updates">
+						<SiteUpdate date="07/28/25" content="i added the site update section today so any prior updates are based on my own commit history lol. anyways, i added seamless page transitions today! need to figure out a proper solution for the guestbook though because it prevents data from loading"/>
+						<SiteUpdate date="07/22/25" content="added twemoji support (replacing default emojis with the ones on twitter/discord). also added the 88x31 page"/>
+						<SiteUpdate date="07/21/25" content="added the guestbook!"/>
+						<SiteUpdate date="07/20/25" content="Added background music, sound effects and a settings page. also added the custom wii cursor"/>
+						<SiteUpdate date="07/18/25" content="improved visuals like the background"/>
+						<SiteUpdate date="07/16/25" content="added particles"/>
+						<SiteUpdate date="07/10/25" content="created the website!"/>
+					</div>
+				</section>
 				
 			</section">
+
 			
 
 		</main>

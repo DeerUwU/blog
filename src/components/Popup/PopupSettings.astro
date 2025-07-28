@@ -68,7 +68,7 @@
                 <p>Enable Music</p>
                 <div class="item">
                     <div class="checkbox-slider">
-                        <input type="checkbox" id="setting-enable-music" name="check" oninput="SetEnableMusic(this.checked)">
+                        <input type="checkbox" id="setting-enable-music" name="check" oninput="SetEnableMusic(this.checked); PlayCheckboxSound(this.checked)">
                         <label for="setting-enable-music"></label>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                 <p>Enable Sounds</p>
                 <div class="item">
                     <div class="checkbox-slider">
-                        <input type="checkbox" id="setting-enable-sounds" name="check" oninput="SetEnableSound(this.checked)">
+                        <input type="checkbox" id="setting-enable-sounds" name="check" oninput="SetEnableSound(this.checked); PlayCheckboxSound(this.checked)">
                         <label for="setting-enable-sounds"></label>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <p>Enable Particles</p>
                 <div class="item">
                     <div class="checkbox-slider">
-                        <input type="checkbox" id="setting-showparticles" name="check" oninput="SetEnableParticles(this.checked)">
+                        <input type="checkbox" id="setting-showparticles" name="check" oninput="SetEnableParticles(this.checked); PlayCheckboxSound(this.checked)">
                         <label for="setting-showparticles"></label>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 <p>Monospace Font</p>
                 <div class="item">
                     <div class="checkbox-slider">
-                        <input type="checkbox" id="setting-enable-monospace" name="check" oninput="SettingSetMonospace(this.checked)">
+                        <input type="checkbox" id="setting-enable-monospace" name="check" oninput="SettingSetMonospace(this.checked); PlayCheckboxSound(this.checked)">
                         <label for="setting-enable-monospace"></label>
                     </div>
                 </div>
