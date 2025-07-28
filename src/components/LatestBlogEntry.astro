@@ -5,6 +5,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).reverse();
 const post = posts[0];
+const recentPosts = [posts[0], posts[1], posts[2]]
 ---
 <style>
 	section {
@@ -32,7 +33,7 @@ const post = posts[0];
 
 <section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
 	<div class="space-between">
-		<h3>&lt; Latest Post &gt;</h3>
+		<h3>&lt; Latest Posts &gt;</h3>
 		
 		<a href="/blog" id="view-all" class="icon-button snd_slider_drag snd_click_open">
 			<span class="material-symbols-sharp">density_small</span>
@@ -42,6 +43,8 @@ const post = posts[0];
 	
 	<hr>
 	<ul class="blogcard-container">
+		{
+			recentPosts.map((post) => (
 				<li class="blogcard frosted-glass snd_mod_hover snd_click_blip1">
 					<a href={`/blog/${post.id}/`}>
 						<div class="blogcard-text">
@@ -52,10 +55,12 @@ const post = posts[0];
 						</div>
 						
 						{post.data.heroImage && (
-							<Image class="thumbnail" src={post.data.heroImage} alt="" />
+							<Image class="thumbnail" height={80} src={post.data.heroImage} alt="" />
 						)}
 						
 					</a>
 				</li>
+			))
+		}
 	</ul>
 </section>

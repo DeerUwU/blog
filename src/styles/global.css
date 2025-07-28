@@ -290,7 +290,12 @@ img.emoji {
 
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: #111111;
+	border: 1px solid #222222;
+	color: var(--text-sub);
+
+	max-width: fit-content;
+	word-wrap: break-word;
 }
 pre {
 	padding: 1.5em;

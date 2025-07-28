@@ -12,11 +12,15 @@ import '../styles/text.css';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, pubDate, updatedDate, heroImage } = Astro.props;
+const page = Astro.props;
 
 const posts = (await getCollection('blog')).reverse();
 const randomPost = posts[getRandomInt(posts.length)];
-const prevPost = posts[getRandomInt(posts.length)];
-const nextPost = posts[getRandomInt(posts.length)];
+
+// WARNING: this will fall apart if 2 posts have the same title
+const currentPosts = await getCollection('blog', ({ data }) => {
+  return data.title == title;
+});
 
 ---
 
@@ -40,8 +44,13 @@ const nextPost = posts[getRandomInt(posts.length)];
 			}
 
 			article {
-				vertical-align: center;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 				max-width: 50rem;
+				max-height: 85vh;
+				overflow-y: auto;
+				overflow-x: hidden;
 				/* width: fit-content; */
 			}
 
@@ -55,12 +64,9 @@ const nextPost = posts[getRandomInt(posts.length)];
 				box-shadow: var(--box-shadow);
 			}
 			.prose {
-				/* width: 720px; */
-				max-width: calc(100% - 2em);
-				max-height: 85vh;
-				overflow-y: auto;
+				max-width: -webkit-fill-available;
+				
 				margin: auto;
-				/* margin-top: 20px; */
 				padding: 1em 2em;
 				color: var(--text-normal);
 			}
@@ -82,7 +88,10 @@ const nextPost = posts[getRandomInt(posts.length)];
 
 			.nav-buttons {
 				display: flex;
+				margin-top: var(--gap-large);
 				gap: var(--gap-large);
+
+				width: fit-content;
 			}
 
 			.nav-button {
@@ -113,20 +122,6 @@ const nextPost = posts[getRandomInt(posts.length)];
 		<Cosmetic/>
 		<Header />
 		<main>
-			<div class="nav-buttons">
-				<!-- <a href={`/blog/${prevPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
-					<span class="material-symbols-sharp">chevron_left</span>
-					<p>Previous</p>
-				</a> -->
-				<a href={`/blog/${randomPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
-					<span class="material-symbols-sharp">ifl</span>
-					<p>Random</p>
-				</a>
-				<!-- <a href={`/blog/${nextPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
-					<p>Next</p>
-					<span class="material-symbols-sharp">chevron_right</span>
-				</a> -->
-			</div>
 			<article>
 				<div class="prose anim-fadein anim-ease delay-200ms frosted-glass">
 					<div class="title">
@@ -144,6 +139,21 @@ const nextPost = posts[getRandomInt(posts.length)];
 						<hr />
 					</div>
 					<slot /><!--  this is the article content -->
+				</div>
+
+				<div class="nav-buttons">
+					<!-- <a href={`/blog/${prevPost}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+						<span class="material-symbols-sharp">chevron_left</span>
+						<p>Previous</p>
+					</a> -->
+					<a href={`/blog/${randomPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+						<span class="material-symbols-sharp">ifl</span>
+						<p>Random</p>
+					</a>
+					<!-- <a href={`/blog/${nextPost}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+						<p>Next</p>
+						<span class="material-symbols-sharp">chevron_right</span>
+					</a> -->
 				</div>
 			</article>
 

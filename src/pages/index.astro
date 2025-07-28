@@ -1,7 +1,5 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import BlogCards from '../components/BlogCards.astro';
-
 import Cosmetic from '../components/Cosmetic.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -32,31 +30,21 @@ import '../styles/text.css';
 			#main-left, #main-right {
 				width: 50%;
 				max-width: 500px;
-			}
 
-
-			#main-left {
-				padding: 12px 20px 20px 20px;
-			}
-			#main-right {
 				max-height: fit-content;
 				display: flex;
 				flex-direction: column;
 				gap: 20px;
 			}
 
-			/* #main-left::after {
-				width: 1000px;
-				height: 100px;
-				border: 5px solid var(--primary);
-				content: "after element";
-			} */
-
-			.entrylist-title {
-				margin-bottom: 20px;
-				/* text-decoration: underline; */
+			#main-left:hover::-webkit-scrollbar-thumb,
+			#main-right:hover::-webkit-scrollbar-thumb {
+				background-color: var(--primary);
 			}
 
+			#main-left > section {
+				padding: 12px 20px 20px 20px;
+			}
 
 			@media only screen and (max-width: 800px) {
 				body {
@@ -80,52 +68,49 @@ import '../styles/text.css';
 	<body>
 		<Cosmetic />
 		<Header />
-		<main class="">
+		<main>
 			
-			<section id="main-left" class="frosted-glass scrollable 
-			anim-fadein-up-small anim-ease delay-200ms">
-				<h2>&lt; About Me &gt;</h2>
-				<hr>
-				<p>
-					hi hi hi!!
-					<br><br>
-					Who am i? im a silly little idiot putting silly little words on my silly little webbed site. <br><br>
-					im trying to find a sense of purpose and belonging in life. Im using this website as a place to write down whatever is on my mind that day. Feel free to look through everything, maybe someone will get something out of this. 
-					<br><br>
-				</p>
-					<h4>Todo:</h4>
-				<ul>
-					<li>more art</il>
-					<li>more gimmicks and fun stuff</il>	
-					<li>journal navigation buttons</li>
-					<li>toggle for animations</il>
-					<br>
-				</ul>
-				<!-- <div style="height: 100px;"></div> -->
-				<div style="display: flex; flex-direction: row; gap: 20px">
-					<img 
-					src="images/gifs/150px-Mewo_sprite.gif" 
-					alt="mewo from omori"
-					style="image-rendering: pixelated; height: 64px; width: auto;"
-					onclick="PlaySound('snd_cat_purr.wav', {rate_min: 1, rate_max: 1.2})">
+			<section id="main-left" class="scrollable">
+				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+						<h2>&lt; About Me &gt;</h2>
+					<hr>
+					<p>
+						hi hi hi!!
+						<br><br>
+						Who am i? im a silly little idiot putting silly little words on my silly little webbed site. <br><br>
+						im trying to find a sense of purpose and belonging in life. Im using this website as a place to write down whatever is on my mind that day. Feel free to look through everything, maybe someone will get something out of this. 
+						<br><br>
+					</p>
+						<h4>Todo:</h4>
+					<ul>
+						<li>more art</il>
+						<li>more gimmicks and fun stuff</il>	
+						<li>journal navigation buttons</li>
+						<li>toggle for animations</il>
+						<br>
+					</ul>
+					<!-- <div style="height: 100px;"></div> -->
+					<div style="display: flex; flex-direction: row; gap: 20px">
+						<img 
+						src="images/gifs/150px-Mewo_sprite.gif" 
+						alt="mewo from omori"
+						style="image-rendering: pixelated; height: 64px; width: auto;"
+						onclick="PlaySound('snd_cat_purr.wav', {rate_min: 1, rate_max: 1.2})">
 
-					<img 
-					src="images/gifs/Forest_Bunny_Sprite.gif" 
-					alt="bunny enemy from omori"
-					style="image-rendering: pixelated; height: 64px; width: auto;" 
-					onclick="PlaySound('snd_ut_tem6.wav', {rate_min: 0.8, rate_max: 1.5})">
-				</div>
+						<img 
+						src="images/gifs/Forest_Bunny_Sprite.gif" 
+						alt="bunny enemy from omori"
+						style="image-rendering: pixelated; height: 64px; width: auto;" 
+						onclick="PlaySound('snd_ut_tem6.wav', {rate_min: 0.8, rate_max: 1.5})">
+					</div>
+				</section>
+
+				<SiteUpdates/>
 			</section>
 
 			<section id="main-right" class="scrollable">
 				<LatestBlogEntry/>
 				<ThingOfTheDay/>
-				<SiteUpdates/>
-
-				<!-- <div class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
-					<h3 class="entrylist-title">My Journal</h3>
-					<BlogCards/>
-				</div> -->
 			</section">
 
 			
