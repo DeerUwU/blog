@@ -107,10 +107,11 @@ function PlayMusic(value, fade = false, seek = 0) {
 
 function RegisterSounds() {
 	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
+	$(".snd_blip2").on("mouseenter", () => {PlaySound("snd_blip2.wav")});
 	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
 	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
 	$(".site-button").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
-	$(".snd_ac_bubble_1").on("mouseenter", () => {PlaySound("snd_blip2.wav", {rate_min: 0.99, rate_max: 1.01})});
+	$(".snd_slider_drag").on("mouseenter", () => {PlaySound("snd_slider_drag.wav", {rate_min: 0.99, rate_max: 1.01})});
 
 	$('body').on('click', function(e) {
 		// console.log(e.target);
@@ -131,6 +132,7 @@ function RegisterSounds() {
 	$(".snd_click_close").on("click", () => {PlaySound("snd_close.wav", {volume: 0.5})});
 	$(".snd_effect_equip").on("click", () => {PlaySound("snd_effect_equip.wav")});
 	$(".snd_click_blip1").on("click", () => {PlaySound("snd_blip1.wav")});
+	$(".snd_click_blip2").on("click", () => {PlaySound("snd_blip2.wav")});
 	console.log("registered sounds");
 }
 
