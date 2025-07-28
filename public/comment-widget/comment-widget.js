@@ -84,7 +84,7 @@ document.getElementsByTagName('head')[0].appendChild(c_cssLink);
 
 // HTML Form
 const v_mainHtml = `
-    <div id="c_inputDiv">
+    <div id="c_inputDiv" class="frosted-glass">
         <form id="c_form" onsubmit="c_submitButton.disabled = true; v_submitted = true;" method="post" target="c_hiddenIframe" action="https://docs.google.com/forms/d/e/${s_formId}/formResponse"></form>
     </div>
     <div id="c_container" class="">${s_loadingText}</div>
@@ -291,7 +291,7 @@ function displayComments(comments) {
         comment.style.display = 'none';
         if (i >= v_commentMin && i < v_commentMax) {comment.style.display = 'block'}
 
-        comment.className = 'c-comment';
+        comment.className = 'c-comment frosted-glass anim-fadein anim-ease dur-500ms';
         c_container.appendChild(comment);
         a_commentDivs.push(document.getElementById(comment.id)); // Add to array for use later
     }

@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).reverse();
+const post = posts[0];
+---
+<style>
+	section {
+		padding: 12px 20px 20px 20px;
+	}
+
+	#view-all {
+		padding: 5px 10px;
+
+		flex-direction: row-reverse;
+
+		background-color: var(--background-trans);
+		transition-duration: 0.2s;
+		transition-delay: 0.1s;
+		transition-property: background-color;
+	}
+	#view-all:hover {
+		background-color: var(--primary-dark-trans);
+		transition-duration: 0.0s;
+		transition-delay: 0s;
+	}
+	
+</style>
+
+
+<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+	<div class="space-between">
+		<h3>&lt; Latest Post &gt;</h3>
+		
+		<a href="/blog" id="view-all" class="icon-button snd_slider_drag snd_click_open">
+			<span class="material-symbols-sharp">density_small</span>
+			<p>All</p>
+		</a>
+	</div>
+	
+	<hr>
+	<ul class="blogcard-container">
+				<li class="blogcard frosted-glass snd_mod_hover snd_click_blip1">
+					<a href={`/blog/${post.id}/`}>
+						<div class="blogcard-text">
+							<h3 class="blogcard-title">{post.data.title}</h3>
+							<p class="blogcard-date">
+								<FormattedDate date={post.data.pubDate} />
+							</p>
+						</div>
+						
+						{post.data.heroImage && (
+							<Image class="thumbnail" src={post.data.heroImage} alt="" />
+						)}
+						
+					</a>
+				</li>
+	</ul>
+</section>

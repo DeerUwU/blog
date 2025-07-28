@@ -5,7 +5,9 @@ import BlogCards from '../components/BlogCards.astro';
 import Cosmetic from '../components/Cosmetic.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import SiteUpdate from '../components/SiteUpdate.astro';
+import LatestBlogEntry from '../components/LatestBlogEntry.astro';
+import SiteUpdates from '../components/SiteUpdates.astro';
+import ThingOfTheDay from '../components/ThingOfTheDay.astro';
 import { SITE_TITLE } from '../consts';
 import '../styles/text.css';
 
@@ -33,10 +35,8 @@ import '../styles/text.css';
 			}
 
 
-			#main-left,
-			#main-right > div,
-			#main-right > section {
-				padding: 20px 20px;
+			#main-left {
+				padding: 12px 20px 20px 20px;
 			}
 			#main-right {
 				max-height: fit-content;
@@ -55,33 +55,6 @@ import '../styles/text.css';
 			.entrylist-title {
 				margin-bottom: 20px;
 				/* text-decoration: underline; */
-			}
-
-			.totd-item {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				background-color: var(--background-trans);
-				height: fit-content;
-				padding: 5px 10px;
-				gap: 10px;
-			}
-			.totd-item > p {
-				margin: 0px;
-			}
-			.totd-item :first-child {
-				text-wrap: nowrap;
-			}
-			.totd-item :last-child {
-				text-align: right;
-			}
-
-			.site-updates {
-				display: flex;
-				flex-direction: column;
-				gap: 5px;
-				max-height: 500px;
-				overflow-y: auto;
 			}
 
 
@@ -111,7 +84,7 @@ import '../styles/text.css';
 			
 			<section id="main-left" class="frosted-glass scrollable 
 			anim-fadein-up-small anim-ease delay-200ms">
-				<h2>About Me</h2>
+				<h2>&lt; About Me &gt;</h2>
 				<hr>
 				<p>
 					hi hi hi!!
@@ -145,91 +118,20 @@ import '../styles/text.css';
 			</section>
 
 			<section id="main-right" class="scrollable">
-				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
-					<h3>Thing of the day</h3>
-					<hr>
-					<div class="totd-item">
-						<p>Fruit of the day: </p><p id="totd-fruit">Fruit</p>
-					</div>
-					<hr class="dashed">
-					<div class="totd-item">
-						<p>Animal of the day: </p><p id="totd-animal">Animal</p>
-					</div>
-					<hr class="dashed">
-					<div class="totd-item">
-						<p>Number of the day: </p><p id="totd-number">Number</p>
-					</div>
-					<hr class="dashed">
-					<div class="totd-item">
-						<p>Day of the day: </p><p id="totd-day">Day</p>
-					</div>
-					<hr class="dashed">
-					<div class="totd-item">
-						<p>Shape of the day: </p><p id="totd-shape">Shape</p>
-					</div>
-					<hr class="dashed">
-					<div class="totd-item">
-						<p>Month of the day: </p><p id="totd-month">Month</p>
-					</div>
-				</section>
+				<LatestBlogEntry/>
+				<ThingOfTheDay/>
+				<SiteUpdates/>
 
 				<!-- <div class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
 					<h3 class="entrylist-title">My Journal</h3>
 					<BlogCards/>
 				</div> -->
-
-				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
-					<h3>Site Updates</h3>
-					<hr>
-					<div class="site-updates">
-						<SiteUpdate date="07/28/25" content="i added the site update section today so any prior updates are based on my own commit history lol. anyways, i added seamless page transitions today! need to figure out a proper solution for the guestbook though because it prevents data from loading"/>
-						<SiteUpdate date="07/22/25" content="added twemoji support (replacing default emojis with the ones on twitter/discord). also added the 88x31 page"/>
-						<SiteUpdate date="07/21/25" content="added the guestbook!"/>
-						<SiteUpdate date="07/20/25" content="Added background music, sound effects and a settings page. also added the custom wii cursor"/>
-						<SiteUpdate date="07/18/25" content="improved visuals like the background"/>
-						<SiteUpdate date="07/16/25" content="added particles"/>
-						<SiteUpdate date="07/10/25" content="created the website!"/>
-					</div>
-				</section>
-				
 			</section">
 
 			
 
 		</main>
 		<Footer/>
-
-		<script>
-
-			const totd_fruits = 	['Apple','Banana','Cherry','Clementine','Cranberry','Decaisnea','Dragon Fruit','Durian','Kumquat','Plum','Grapes (green)','Grapes (not green)','Grapefruit','Green Kiwi','Golden Kiwi','Lime','Lemon','Mango','Nectarine','Orange','Passion Fruit','Peach','Pear','Pineapple','Pomegranate','Pomelo','Star Fruit','Strawberry','Tomato','Umbu','Watermelon','Xoconostle Cactus Fruit'];
-			const totd_animals = 	['Aardvark','Addax','Alligator','Ant','Antelope','Armadillo','Aquatic Warbler','Axolotl','Badger','Bald Eagle','Bat','Bee','Buffalo','Butterfly','Bnuyy','Camel','Caracal','Cheetah','Chicken','Chinchilla','Chipmunk','Copepod','Cow','Coyote','Crab','Crocodile','Deer','Dik Dik','Dolphin','Duck','Elephant','Ferret','Fish','Flamingo','Fox','Frog','Goat','Giraffe','Ground Centipede','Goose','Hedgehog','Iguana','Jellyfish','Jaguar','Large Mouth Bass','Lion','Lizard','Manatee','Monkey','Octopus','Owl','Penguin','Pig','Puffin','Pelican','Rhinoceros','Seal','Shark','Shrew','Snake','Squid','Tortoise','Turtle','Whale','Wolf','Worm'];
-			const totd_day = 		['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-			const totd_shape = 		['Line','Triangle','Rectangle','Square','Pentagon','Hexagon','Heptagon','Octagon','Nonagon','Decagon','Dodecagon','Oval','Star','Prism','Cylinder','Icosahedron','Torus','Trapezoid','Rhombus','Octahedron','Dodecahedron','Tetrahedron','Cube','Sphere','Rhombicuboctahedron'];
-			const totd_month = 		['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
-			function randFromSeed(x:any, iterations:any){
-				iterations = iterations || 100;
-				for(var i = 0; i < iterations; i++)
-					x = (x ^ (x << 1) ^ (x >> 1)) % 10000;
-				return x;
-			};
-
-			var unix_day = Math.floor(Date.now()/86400000);
-			var random_fruit = randFromSeed(unix_day, 1);
-			var random_animal = randFromSeed(unix_day, 2);
-			var random_number = randFromSeed(unix_day, 3);
-			var random_day = randFromSeed(unix_day, 4);
-			var random_shape = randFromSeed(unix_day, 5);
-			var random_month = randFromSeed(unix_day, 6);
-
-			$("#totd-fruit").text(totd_fruits[random_fruit % totd_fruits.length]);
-			$("#totd-animal").text(totd_animals[random_animal % totd_animals.length]);
-			$("#totd-number").text(random_number % 99);
-			$("#totd-day").text(totd_day[random_day % totd_day.length]);
-			$("#totd-shape").text(totd_shape[random_shape % totd_shape.length]);
-			$("#totd-month").text(totd_month[random_month % totd_month.length]);
-			
-		</script>
 	</body>
 	
 </html>

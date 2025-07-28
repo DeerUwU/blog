@@ -1,16 +1,16 @@
 // @ts-check
 import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog.cakeeh.art',
-	integrations: [mdx(), sitemap()],
+	// integrations: [mdx(), sitemap()],
+	integrations: [mdx()],
 
 	trailingSlash: "ignore", //Set the route matching behavior for trailing slashes in the dev server and on-demand rendered pages.
 	output: 'static', //Prerender all your pages by default, outputting a completely static site if none of your pages opt out of prerendering.
-	compressHTML: false,
+	compressHTML: true,
 
 	experimental: {
         fonts: [{

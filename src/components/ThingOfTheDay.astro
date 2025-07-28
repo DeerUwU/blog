@@ -1,0 +1,93 @@
+---
+
+---
+<style>
+	section {
+		padding: 12px 20px 20px 20px;
+	}
+	.totd-item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		background-color: var(--background-trans);
+		height: fit-content;
+		padding: 0px 10px;
+		gap: 10px;
+	}
+	.totd-item > p {
+		margin: 0px;
+	}
+	.totd-item :first-child {
+		text-wrap: nowrap;
+		color: var(--text-sub)
+	}
+	.totd-item :last-child {
+		text-align: right;
+	}
+</style>
+
+
+
+<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+	<h3>&lt; Thing of the day &gt;</h3>
+	<hr>
+	<div class="totd-item">
+		<p>Fruit of the day: </p><p id="totd-fruit">Fruit</p>
+	</div>
+	<hr class="dashed">
+	<div class="totd-item">
+		<p>Animal of the day: </p><p id="totd-animal">Animal</p>
+	</div>
+	<hr class="dashed">
+	<div class="totd-item">
+		<p>Number of the day: </p><p id="totd-number">Number</p>
+	</div>
+	<hr class="dashed">
+	<div class="totd-item">
+		<p>Day of the day: </p><p id="totd-day">Day</p>
+	</div>
+	<hr class="dashed">
+	<div class="totd-item">
+		<p>Shape of the day: </p><p id="totd-shape">Shape</p>
+	</div>
+	<hr class="dashed">
+	<div class="totd-item">
+		<p>Month of the day: </p><p id="totd-month">Month</p>
+	</div>
+</section>
+
+
+<script>
+
+	const totd_fruits = 	['Apple','Banana','Cherry','Clementine','Cranberry','Decaisnea','Dragon Fruit','Durian','Kumquat','Plum','Grapes (green)','Grapes (not green)','Grapefruit','Green Kiwi','Golden Kiwi','Lime','Lemon','Mango','Nectarine','Orange','Passion Fruit','Peach','Pear','Pineapple','Pomegranate','Pomelo','Star Fruit','Strawberry','Tomato','Umbu','Watermelon','Xoconostle Cactus Fruit'];
+	const totd_animals = 	['Aardvark','Addax','Alligator','Ant','Antelope','Armadillo','Aquatic Warbler','Axolotl','Badger','Bald Eagle','Bat','Bee','Buffalo','Butterfly','Bnuyy','Camel','Caracal','Cheetah','Chicken','Chinchilla','Chipmunk','Copepod','Cow','Coyote','Crab','Crocodile','Deer','Dik Dik','Dolphin','Duck','Elephant','Ferret','Fish','Flamingo','Fox','Frog','Goat','Giraffe','Ground Centipede','Goose','Hedgehog','Iguana','Jellyfish','Jaguar','Large Mouth Bass','Lion','Lizard','Manatee','Monkey','Octopus','Owl','Penguin','Pig','Puffin','Pelican','Rhinoceros','Seal','Shark','Shrew','Snake','Squid','Tortoise','Turtle','Whale','Wolf','Worm'];
+	const totd_day = 		['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+	const totd_shape = 		['Line','Triangle','Rectangle','Square','Pentagon','Hexagon','Heptagon','Octagon','Nonagon','Decagon','Dodecagon','Oval','Star','Prism','Cylinder','Icosahedron','Torus','Trapezoid','Rhombus','Octahedron','Dodecahedron','Tetrahedron','Cube','Sphere','Rhombicuboctahedron'];
+	const totd_month = 		['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+	function randFromSeed(x:any, iterations:any){
+		iterations = iterations || 100;
+		for(var i = 0; i < iterations; i++)
+			x = (x ^ (x << 1) ^ (x >> 1)) % 10000;
+		return x;
+	};
+
+	var unix_day = Math.floor(Date.now()/86400000);
+	var random_fruit = randFromSeed(unix_day, 1);
+	var random_animal = randFromSeed(unix_day, 2);
+	var random_number = randFromSeed(unix_day, 3);
+	var random_day = randFromSeed(unix_day, 4);
+	var random_shape = randFromSeed(unix_day, 5);
+	var random_month = randFromSeed(unix_day, 6);
+
+	function Init() {
+		$("#totd-fruit").text(totd_fruits[random_fruit % totd_fruits.length]);
+		$("#totd-animal").text(totd_animals[random_animal % totd_animals.length]);
+		$("#totd-number").text(random_number % 99);
+		$("#totd-day").text(totd_day[random_day % totd_day.length]);
+		$("#totd-shape").text(totd_shape[random_shape % totd_shape.length]);
+		$("#totd-month").text(totd_month[random_month % totd_month.length]);
+	}
+
+	document.addEventListener('astro:page-load', Init);
+</script>

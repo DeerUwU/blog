@@ -1,15 +1,23 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Cosmetic from '../components/Cosmetic.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import { getRandomInt } from '../scripts/util';
 import '../styles/text.css';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, pubDate, updatedDate, heroImage } = Astro.props;
+
+const posts = (await getCollection('blog')).reverse();
+const randomPost = posts[getRandomInt(posts.length)];
+const prevPost = posts[getRandomInt(posts.length)];
+const nextPost = posts[getRandomInt(posts.length)];
+
 ---
 
 <!-- this is for the blog entry itself -->
@@ -26,7 +34,9 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 				margin-top: 30px;
 				
 				display: flex;
-				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+				gap: 20px;
 			}
 
 			article {
@@ -70,10 +80,30 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 				font-style: italic;
 			}
 
-			.flow-right {
-				display: flex!important;
-				gap: 20px;
-				flex-direction: row;
+			.nav-buttons {
+				display: flex;
+				gap: var(--gap-large);
+			}
+
+			.nav-button {
+				padding: 5px 10px;
+
+				background-color: var(--background-trans);
+				transition-duration: 0.2s;
+				transition-delay: 0.1s;
+				transition-property: background-color;
+			}
+			.nav-button:hover {
+				background-color: var(--primary-dark-trans);
+				transition-duration: 0.0s;
+				transition-delay: 0s;
+			}
+
+			.nav-buttons:first-child {
+				padding-left: 0px;
+			}
+			.nav-buttons:last-child {
+				padding-right: 0px;
 			}
 
 		</style>
@@ -83,6 +113,20 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 		<Cosmetic/>
 		<Header />
 		<main>
+			<div class="nav-buttons">
+				<!-- <a href={`/blog/${prevPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+					<span class="material-symbols-sharp">chevron_left</span>
+					<p>Previous</p>
+				</a> -->
+				<a href={`/blog/${randomPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+					<span class="material-symbols-sharp">ifl</span>
+					<p>Random</p>
+				</a>
+				<!-- <a href={`/blog/${nextPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+					<p>Next</p>
+					<span class="material-symbols-sharp">chevron_right</span>
+				</a> -->
+			</div>
 			<article>
 				<div class="prose anim-fadein anim-ease delay-200ms frosted-glass">
 					<div class="title">
@@ -102,6 +146,7 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 					<slot /><!--  this is the article content -->
 				</div>
 			</article>
+
 		</main>
 		<Footer />
 	</body>
