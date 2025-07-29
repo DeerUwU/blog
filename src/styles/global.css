@@ -103,11 +103,16 @@ body {
 	overflow: hidden;
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+	width: -webkit-fill-available;
+	max-width: 100%;
 	margin: auto;
 	margin-top: 50px;
 	padding: 2em 1em;
+
+	display: flex;
+	justify-self: center;
+	/* justify-content: center; */
+	flex-direction: column;
 }
 
 /* EXPERIMENTAL */
@@ -296,6 +301,7 @@ code {
 
 	max-width: fit-content;
 	word-wrap: break-word;
+	word-break: break-all;
 }
 pre {
 	padding: 1.5em;
@@ -465,6 +471,7 @@ input[type="range"] {
 	-webkit-appearance: none;  /* Override default CSS styles */
   	appearance: none;
 	height: 10px;
+	
 	background: var(--primary-darkest);
 	background-image: linear-gradient(var(--primary-dark), var(--primary-dark));
 	background-size: 50% 100%;
@@ -472,23 +479,39 @@ input[type="range"] {
 }
 
 input[type="range"]::-moz-range-progress {
-	background-color: #9a905d;
+	background-color: transparent;
 }
 
 
 input[type="range"]::-webkit-slider-thumb {
 	-webkit-appearance: none;  /* Override default CSS styles */
   	appearance: none;
+	border: unset;
+	border-radius: 0px;
+
+	width: 10px; /* Set a specific slider handle width */
+	height: 10px; /* Slider handle height */
+	background: var(--primary);
+}
+/* its down here because applying it to both at the same time breaks it? */
+::-moz-range-thumb {
+	border: unset;
+	border-radius: 0px;
+
 	width: 10px; /* Set a specific slider handle width */
 	height: 10px; /* Slider handle height */
 	background: var(--primary);
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
+input[type="range"]::-webkit-slider-thumb:hover,
+::-moz-range-thumb:hover {
+	background: var(--primary-light);
 	cursor: url("/cursor/Open.cur"), pointer; /* Cursor on hover */
 }
 
-input[type="range"]::-webkit-slider-thumb:active {
+input[type="range"]::-webkit-slider-thumb:active,
+::-moz-range-thumb:active {
+	background: var(--primary-light);
 	cursor: url("/cursor/Grab.cur"), grab;
 }
 
@@ -650,9 +673,9 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 
 @-moz-document url-prefix() {
-  html {
+  * {
     scrollbar-color: var(--primary-dark) var(--primary-darkest);
-	scrollbar-width: 5px;
+	scrollbar-width: thin;
   }
 }
 

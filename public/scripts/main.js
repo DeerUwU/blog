@@ -149,7 +149,7 @@ function SaveBgmState() {
 
 function LoadSettingsToMenu() {
 	$("#setting-volume").val(setting_volume_master*100);
-	$("#setting-volume-value").text(setting_volume_master*100+"%");
+	$("#setting-volume-value").text(Math.round(setting_volume_master*100)+"%");
 	$('#setting-volume').css({'backgroundSize': (setting_volume_master*100) + "% 100%"});
 	
 	$("#setting-showparticles").prop('checked', setting_enable_particles);
@@ -190,7 +190,7 @@ function SetVolume(volume) {
 	Howler.volume(setting_volume_master);
 	localStorage.setItem("setting_volume_master", setting_volume_master)
 	
-	$('#setting-volume-value').text(volume+"%");
+	$('#setting-volume-value').text(Math.round(volume)+"%");
 	$('#setting-volume').css({'backgroundSize': (volume) + "% 100%"});
 
 	PlaySound("snd_slider_drag.wav");

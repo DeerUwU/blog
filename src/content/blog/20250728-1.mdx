@@ -12,13 +12,15 @@ notice the `_10` at the end of the filename? bandcamp stores images in a range o
 <br/>
 now lets try youtube community posts for example.
 urls will look like this:
+
 `https://yt3.ggpht.com/8AB4knZOv7dfGRVD54GyVWdiRT9rTq4khtzdtLzK1XpZPK0tq14EJzhDgb03EqHzW8zNiJMIbovGUw=s640-c-fcrop64=1,00380000ffeeffff-rw-nd-v1`
 <br/>
 seems a lot more confusing with all the numbers and values, BUT there is a little `w=s640` buried inside. w= suggests that its the image width. changing it to `w=s0` will again give us the original image.
-
+<br/>
 sometimes, you can't just right click and open in a new tab. thats when you need to use the inspect element tool <small>(explaining how to use it goes beyond the scope of this post, look up a tutorial)</small>
-<span>![inspect element to find the image url](/images/blog/20250728-1.png)</span>
+<br/>
+<img src="/images/blog/20250728-1.png" style="border: var(--B-primary-thin)" alt="screenshot of inspect element tool"/>
 
-when you select the image, you should be able to see the url somewhere in the styles panel or inside the html element itself. you can open this one in a new tab. soundcloud images tend to append their resolution at the end aswell like this: `-t500x500.png`. im not entirely sure how to get the original res image, but sometimes it lets you get a bigger res version by using multiplicatives of the current resolution. for pfps you can change it from `-t120x120.png` to `-t240x240.png`, for example
-
+when you select the image, you should be able to see the url somewhere in the styles panel or inside the html element itself. you can open this one in a new tab. soundcloud images tend to append their resolution at the end aswell like this: `-t500x500.png`. im not entirely sure how to get the original res image, but sometimes it lets you get a bigger res version by using multiplicatives of the current resolution. for pfps you can change it from `-t120x120.png` to `-t240x240.png`, for example.
+<br/>
 I hope this gives you an idea on how platforms store images and how you can identify patterns to get the highest quality images.

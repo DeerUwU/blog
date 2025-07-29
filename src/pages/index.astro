@@ -17,9 +17,9 @@ import '../styles/text.css';
 		<BaseHead title={SITE_TITLE}/>
 		<style>
 			main {
-				width: 100%;
+				/* width: 100%; */
 				height: -webkit-fill-available;
-				height: 75vh;
+				height: 80vh;
 				/* margin: 20px; */
 				gap: 20px;
 				display: flex;
@@ -51,7 +51,7 @@ import '../styles/text.css';
 					overflow: auto;
 				}
 				main {
-					width: 100%;
+					width: -webkit-fill-available;
 					height: auto;
 					flex-direction: column;
 					padding: 1em;
@@ -72,7 +72,7 @@ import '../styles/text.css';
 			
 			<section id="main-left" class="scrollable">
 				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
-						<h2>&lt; About Me &gt;</h2>
+					<h2>&lt; About Me &gt;</h2>
 					<hr>
 					<p>
 						hi hi hi!!
@@ -81,15 +81,6 @@ import '../styles/text.css';
 						im trying to find a sense of purpose and belonging in life. Im using this website as a place to write down whatever is on my mind that day. Feel free to look through everything, maybe someone will get something out of this. 
 						<br><br>
 					</p>
-						<h4>Todo:</h4>
-					<ul>
-						<li>more art</il>
-						<li>more gimmicks and fun stuff</il>	
-						<li>journal navigation buttons</li>
-						<li>toggle for animations</il>
-						<br>
-					</ul>
-					<!-- <div style="height: 100px;"></div> -->
 					<div style="display: flex; flex-direction: row; gap: 20px">
 						<img 
 						src="images/gifs/150px-Mewo_sprite.gif" 
@@ -106,6 +97,18 @@ import '../styles/text.css';
 				</section>
 
 				<SiteUpdates/>
+
+				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+					<h4>&lt; Todo &gt;</h4>
+					<ul>
+						<li>more art</il>
+						<li>fix comment sections breaking bc of seamless transitions</il>
+						<li>more gimmicks and fun stuff</il>	
+						<li>journal navigation buttons</li>
+						<li>toggle for animations</il>
+						<br>
+					</ul>
+				</section>
 			</section>
 
 			<section id="main-right" class="scrollable">
