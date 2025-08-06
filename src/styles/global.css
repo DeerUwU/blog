@@ -397,10 +397,20 @@ small {
 	scrollbar-gutter: 10px;
 }
 
+.flow-center {
+	display: flex!important;
+	justify-content: center
+}
+
 .flow-right {
 	display: flex!important;
 	gap: var(--gap-large);
 	flex-direction: row;
+}
+.flow-down {
+	display: flex!important;
+	gap: var(--gap-large);
+	flex-direction: column;
 }
 .space-between {
 	display: flex;

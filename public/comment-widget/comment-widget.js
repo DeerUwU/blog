@@ -54,7 +54,7 @@ const s_filteredWords = [ // Add words to filter by putting them in quotes and s
 const s_widgetTitle = 'Leave a comment!';
 const s_nameFieldLabel = 'Name';
 const s_websiteFieldLabel = 'Website (Optional)';
-const s_textFieldLabel = '';
+const s_textFieldLabel = 'Comment';
 const s_submitButtonLabel = 'Send';
 const s_loadingText = 'Loading comments...';
 const s_noCommentsText = 'No comments yet!';
@@ -93,18 +93,15 @@ const v_formHtml = `
     <h2 id="c_widgetTitle">${s_widgetTitle}</h2>
 
     <div id="c_nameWrapper" class="c-inputWrapper">
-        <label class="c-label c-nameLabel" for="entry.${s_nameId}">${s_nameFieldLabel}</label>
-        <input class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" required>
+        <input class="c-input c-nameInput" name="entry.${s_nameId}" id="entry.${s_nameId}" type="text" maxlength="${s_maxLengthName}" placeholder="${s_nameFieldLabel}" required>
     </div>
 
     <div id="c_websiteWrapper" class="c-inputWrapper">
-        <label class="c-label c-websiteLabel" for="entry.${s_websiteId}">${s_websiteFieldLabel}</label>
-        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="url" pattern="https://.*">
+        <input class="c-input c-websiteInput" name="entry.${s_websiteId}" id="entry.${s_websiteId}" type="url" pattern="https://.*" placeholder="${s_websiteFieldLabel}">
     </div>
 
     <div id="c_textWrapper" class="c-inputWrapper">
-        <label class="c-label c-textLabel" for="entry.${s_textId}">${s_textFieldLabel}</label>
-        <textarea class="c-input c-textInput" name="entry.${s_textId}" id="entry.${s_textId}" rows="4" cols="50"  maxlength="${s_maxLength}" required></textarea>
+        <textarea class="c-input c-textInput" name="entry.${s_textId}" id="entry.${s_textId}" rows="4" cols="50"  maxlength="${s_maxLength}" placeholder="${s_textFieldLabel}" required></textarea>
     </div>
 
     <input id="c_submitButton" name="c_submitButton" type="submit" value="${s_submitButtonLabel}" disabled>
