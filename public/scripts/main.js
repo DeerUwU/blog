@@ -183,6 +183,26 @@ function UpdateSliderFill(slider) {
 	$(slider).css({'backgroundSize': (RemapRange(slider.value, slider.min, slider.max, 0, 100)) + "% 100%"});
 }
 
+
+// --------------------------------------------------------------
+
+function RegisterSpoilers() {
+	$('.spoiler').on('click', function(e) {
+		console.log(e.target);
+		if ($(e.target).hasClass('reveal')) { 
+			$(e.target).removeClass('reveal');
+		} else {
+			$(e.target).addClass('reveal');
+		};
+	});
+}
+
+function ParseCustomEmotes() {
+	// todo
+	// should feature regex based search for strings starting and ending with :
+	// and also manually parsing specific elements as emotes if i want to do it manually, for optimization reasons
+}
+
 // --------------------------------------------------------------
 
 function SetVolume(volume) {
@@ -347,4 +367,5 @@ function init() {
 };
 
 document.addEventListener('astro:page-load', RegisterSounds);
+document.addEventListener('astro:page-load', RegisterSpoilers);
 init();

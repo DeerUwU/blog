@@ -1,14 +1,24 @@
 /* Text effects for blog posts etc */
 
-.spoiler {
-	color: transparent;
+.spoiler
+{
+	color: transparent!important;
 	background-color: #ffffff08;
 	transition-duration: 0.1s;
 	transition-property: color;
 }
-
+.spoiler:not(.reveal)::selection
+{
+	color: transparent;
+	background-color: #ffffff08;
+	text-shadow: none!important;
+}
 .spoiler:hover {
-	color: inherit;
+  cursor: url("/cursor/Open.cur"), pointer;
+}
+
+.spoiler.reveal {
+	color: inherit!important;
 }
 
 
