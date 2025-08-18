@@ -285,6 +285,7 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
+	display: block;
 }
 img.emoji {
    height: 1em;
