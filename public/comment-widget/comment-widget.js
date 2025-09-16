@@ -82,6 +82,8 @@ c_cssLink.rel = 'stylesheet';
 c_cssLink.href = s_stylePath;
 document.getElementsByTagName('head')[0].appendChild(c_cssLink);
 
+
+
 // HTML Form
 const v_mainHtml = `
     <div id="c_inputDiv" class="frosted-glass">

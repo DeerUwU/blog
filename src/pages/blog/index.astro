@@ -18,7 +18,14 @@ import { SITE_TITLE } from '../../consts';
 			main {
 				max-width: 960px;
 				height: -webkit-fill-available;
+				max-height: 100%; /* firefox fix */
+				
+			}
+			#entrylist {
 				overflow-y: scroll;
+				pointer-events: initial;
+				padding-right: 10px;
+				/* -webkit-mask-image: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 84%, rgba(0, 0, 0, 0) 100%); */
 			}
 		</style>
 	</head>
@@ -26,7 +33,9 @@ import { SITE_TITLE } from '../../consts';
 		<Cosmetic/>
 		<Header />
 		<main>
-			<BlogCards/>
+			<div id="entrylist">
+				<BlogCards/>
+			</div>
 		</main>
 		<Footer />
 	</body>

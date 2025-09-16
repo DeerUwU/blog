@@ -91,7 +91,7 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 
 			.nav-buttons {
 				display: flex;
-				margin-top: var(--gap-large);
+				/* margin-top: var(--gap-large); */
 				gap: var(--gap-large);
 
 				width: fit-content;
@@ -144,22 +144,22 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 					<slot /><!--  this is the article content -->
 				</div>
 
-				<div class="nav-buttons">
-					<!-- <a href={`/blog/${prevPost}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
-						<span class="material-symbols-sharp">chevron_left</span>
-						<p>Previous</p>
-					</a> -->
-					<a href={`/blog/${randomPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
-						<span class="material-symbols-sharp">ifl</span>
-						<p>Random</p>
-					</a>
-					<!-- <a href={`/blog/${nextPost}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
-						<p>Next</p>
-						<span class="material-symbols-sharp">chevron_right</span>
-					</a> -->
-				</div>
+				
 			</article>
-
+			<div class="nav-buttons">
+				<!-- <a href={`/blog/${prevPost}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+					<span class="material-symbols-sharp">chevron_left</span>
+					<p>Previous</p>
+				</a> -->
+				<a href={`/blog/${randomPost.id}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+					<span class="material-symbols-sharp">ifl</span>
+					<p>Random</p>
+				</a>
+				<!-- <a href={`/blog/${nextPost}/`} class="icon-button nav-button snd_slider_drag snd_click_open">
+					<p>Next</p>
+					<span class="material-symbols-sharp">chevron_right</span>
+				</a> -->
+			</div>
 		</main>
 		<Footer />
 	</body>
