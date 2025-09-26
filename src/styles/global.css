@@ -294,6 +294,21 @@ img.emoji {
    vertical-align: -0.1em;
 }
 
+.hover-grow
+{
+	position: relative;
+	z-index: 1;
+
+	transform: scale(1);
+	transition: transform .2s ease;
+}
+
+.hover-grow:hover
+	{
+	transform: scale(2);
+	z-index: 2;
+}
+
 code {
 	padding: 2px 5px;
 	background-color: #111111;

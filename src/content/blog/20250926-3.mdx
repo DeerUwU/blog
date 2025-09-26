@@ -1,0 +1,60 @@
+---
+title: 'unconventional image editing techniques'
+pubDate: '09/26/2025'
+---
+it's almost 6 am so instead of going to bed like a reasonable person wouldve done 8 hours sooner, im instead going to tell you about some unconventional image editing techniques i like to use. 
+<br/>
+<hr class="dashed"/>
+### File Corruption
+<div style="height:5px"/>
+first one is pretty simple: open an image as a text file and simply remove random bits and pieces until you start to see corruptions. what they look like can vary wildly from image to image so you never know what youll get. but be careful to make sure you can always undo your last edit in case the image becomes unreadable or you get undesirable corruptions.
+![glitchy deer image](/images/blog/20250926-3/Deer.jpg)
+<br/>
+
+
+<hr class="dashed"/>
+### Post Processing
+this one isnt exactly unconventional by itself, but a lot of people forget that color-grading, filters and effects can be applied to *any* image, including pixel art. i like using photoshop's camera raw filter to give my pixel artworks a final layer of polish. my go-to effects are film-grain and vignette, but simple color-grading and tweaking the contrast can help sell the mood youre going for. 
+<div class="flow-right" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+	<img 
+	src="/images/blog/20250926-3/gwehhh_nopost_1080p.png" 
+	alt="example image before raw filter"
+	class="hover-grow"
+	style="max-width: 50%;"/>
+	
+	<img 
+	src="/images/blog/20250926-3/gwehhh_1080p.png" 
+	alt="example image after raw filter"
+	class="hover-grow"
+	style="max-width: 50%;"/>
+</div>
+<br/>
+
+<hr class="dashed"/>
+### Audio Effects
+the third method is even more interesting: processing images with sound effects. thats right. 
+
+<div class="flow-right" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+	<img 
+	src="/images/blog/20250926-3/theres nothing i can do.png" 
+	alt="example image before adding reverb"
+	style="max-height: 200px;"/>
+	<img 
+	src="/images/blog/20250926-3/theres nothing i can do echo.png" 
+	alt="example image after adding reverb"
+	style="max-height: 200px;"/>
+	<img 
+	src="/images/blog/20250926-3/gwehhh_delay_square.png" 
+	alt="second example image with reverb"
+	style="max-height: 200px;"/>
+</div>
+
+this one is a little more complicated but bare with me. first we need to convert our image to sound. to do that, you need a little program called [MMSSTV](https://hamsoft.ca/pages/mmsstv.php) <small>(theres also a newer version called mmsstv_yoniq but i only found out just now so i havent tried it myself)</small>. im by no means an expert but this is what ive done to edit my images. 
+1. open your image in an image editor, select all pixels and copy them. then open mmsstv and paste the image. it should automatically insert it in the "TX" tab. now in the top left, click "File > record sound to the file..." and pick a random `filename.mmv`. now it *should* start playing some loud beeping noises <small>(you can lower the volume in windows volume mixer panel)</small>. wait until its done. then, in the top left click on "File > Close Record/Play". now you have a .mmv file of your image. 
+2. open audacity, select "File > Import > Raw Data" and select your .mmv file. you can now apply audio filters to it. just make sure to not get too crazy with it or mmsstv wont be able to read it later. when youre done, export the audio and rename the file extension to .mmv (i recommend exporting as "Other uncompressed files"). 
+> Important!
+> if the exported audio ends up being faster or slower than before, try applying "change speed and pitch" and change it by 50%
+3. open mmsstv and choose "play sound from the file..." and select your .mmv file. it should now play through the whole audio file. if you did everything correctly, your image should start appearing in the "RX" tab. once its finished, you can copy the image and youre done! <small>(im praying that i explained this correctly and well enough)</small>
+
+<br/>
+final tip: dont be afraid to experiment and try new weird things and settings, its always fun and you might discover new tricks to make your work more your own.
