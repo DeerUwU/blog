@@ -340,11 +340,11 @@ function init() {
 
 		//TODO: create a function to actually unload particles.js
 		if (is_mobile) {
-			particlesJS.load("particles-js", "/particles/particles_mobile.json", function(){
+			particlesJS.load("particles-js", "/particles/default_mobile.json", function(){
 			console.log("particles_mobile.json loaded")
 			});
 		} else {
-			particlesJS.load("particles-js", "/particles/particles.json", function(){
+			particlesJS.load("particles-js", "/particles/default.json", function(){
 			console.log("particles.json loaded")
 			});
 		}
