@@ -28,16 +28,15 @@ import '../styles/text.css';
 				justify-content: center;
 				flex-direction: row;
 			}
-			#main-left, #main-right {
-				width: 50%;
-				max-width: 500px;
+			#main{
+				width: fit-content;
+				/* max-width: 500px; */
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				align-items: center;
 
 				max-height: fit-content;
-				display: flex;
-				flex-direction: column;
-				gap: 20px;
-
-				padding-right: 10px;
 			}
 
 			#main-left:hover::-webkit-scrollbar-thumb,
@@ -45,7 +44,7 @@ import '../styles/text.css';
 				background-color: var(--primary);
 			}
 
-			#main-left > section {
+			#main > section {
 				padding: 12px 20px 20px 20px;
 			}
 
@@ -73,16 +72,12 @@ import '../styles/text.css';
 		<Header />
 		<main>
 			
-			<section id="main-left" class="scrollable">
-				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
-					<h2>&lt; About Me &gt;</h2>
+			<section id="main" class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+				<section>
+					<h2>&lt; 404: Page not found &gt;</h2>
 					<hr>
 					<p>
-						hi hi hi!!
-						<br><br>
-						Who am i? im a silly little idiot putting silly little words on my silly little webbed site. <br><br>
-						im trying to find a sense of purpose and belonging in life. Im using this website as a place to write down whatever is on my mind that day. Feel free to look through everything, maybe someone will get something out of this. 
-						<br><br>
+						how did you get here?
 					</p>
 					<div style="display: flex; flex-direction: row; gap: 20px">
 						<img 
@@ -99,33 +94,17 @@ import '../styles/text.css';
 					</div>
 				</section>
 
-				<LatestBlogEntry/>
-
-				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
-					<h4>&lt; Todo &gt;</h4>
-					<ul>
-						<li>create more robust system for theming in backend</il>
-						<li>fix comment sections breaking bc of seamless transitions</il>
-						<li>fix the stupid journal entry sorting</il>	
-						<li>better journal entry navigation</li>	
-						<li>more gimmicks and fun stuff</il>	
-						<li>custom emotes?</li>
-						<li>toggle for animations?</il>
-						<br>
-					</ul>
-				</section>
 			</section>
-
-			<section id="main-right" class="scrollable">
-				<Polls/>
-				<ThingOfTheDay/>
-				<SiteUpdates/>
-			</section">
-
-			
 
 		</main>
 		<Footer/>
+
+
+		<script>
+			particlesJS.load("particles-js", "/particles/404.json", function(){
+			console.log("PARTICLES: 404.json loaded")
+			});
+		</script>
 	</body>
 	
 </html>

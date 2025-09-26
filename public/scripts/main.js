@@ -362,8 +362,9 @@ function init() {
 		console.warn(error);
 	}
 	
+	twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
 
-	console.log("main.ts loaded.");
+	console.log("main.js loaded.");
 };
 
 document.addEventListener('astro:page-load', RegisterSounds);
