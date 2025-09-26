@@ -4,6 +4,7 @@ import Cosmetic from '../components/Cosmetic.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import LatestBlogEntry from '../components/LatestBlogEntry.astro';
+import Polls from '../components/Polls.astro';
 import SiteUpdates from '../components/SiteUpdates.astro';
 import ThingOfTheDay from '../components/ThingOfTheDay.astro';
 import { SITE_TITLE } from '../consts';
@@ -103,7 +104,7 @@ import '../styles/text.css';
 				<section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
 					<h4>&lt; Todo &gt;</h4>
 					<ul>
-						<li>more art</il>
+						<li>create more robust system for theming in backend</il>
 						<li>fix comment sections breaking bc of seamless transitions</il>
 						<li>more gimmicks and fun stuff</il>	
 						<li>better journal navigation buttons</li>
@@ -115,7 +116,7 @@ import '../styles/text.css';
 			</section>
 
 			<section id="main-right" class="scrollable">
-				
+				<Polls/>
 				<ThingOfTheDay/>
 				<SiteUpdates/>
 			</section">

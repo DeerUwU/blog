@@ -13,6 +13,7 @@
 	--primary: 				#c05de1;
 	--primary-dark: 		#7a3fa9;
 	--primary-dark-trans:	#7c2fba7b;
+	--primary-dark-transer:	#7b2fba40;
 	--primary-darkest:		#35285a;
 	--gradient-primary-darkest: linear-gradient(to right, var(--primary-darkest) , transparent);
 
@@ -277,6 +278,7 @@ button:hover {
 ul {
 	margin: 10px 0px;
 	padding-left: 30px;
+	list-style-type: square;
 }
 
 table {
@@ -491,6 +493,19 @@ small {
 }
 
 
+/* BUTTONS */
+button, .button {
+	font: initial;
+	color: var(--text-normal);
+	border: unset;
+	background-color: var(--background-trans);
+
+	transition-duration: 0.1s;
+}
+button:hover, .button:hover {
+	background-color: var(--primary-dark-trans)!important;
+}
+
 /* SLIDERS */
 
 input[type="range"] {
@@ -596,6 +611,18 @@ input[type="range"]::-webkit-slider-thumb:active,
 	left: 1.7em;
 }
 
+
+
+input[type="radio"] {
+	margin-right: 10px;
+}
+
+/* input[type="radio"]:not(:checked) {
+
+}
+
+input[type="radio"]:checked {
+} */
 
 /* TOOLTIPS */
 .tooltip {

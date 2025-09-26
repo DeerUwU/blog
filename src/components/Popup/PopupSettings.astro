@@ -8,6 +8,11 @@
 		height: fit-content;
 	}
 
+    #settings-close {
+        width: 30px;
+        height: 30px;
+    }
+
     .settings-titlebar {
         display: flex; 
         justify-content: space-between;
@@ -23,7 +28,18 @@
         align-items: center;
         background-color: var(--background-trans);
         padding: 5px 10px;
+
+        transition-duration: 0.2s;
+        transition-delay: 0.1s;
+        transition-property: background-color;
     }
+
+    .setting:hover {
+	background-color: var(--primary-dark-transer);
+	transition-duration: 0.1s;
+	transition-delay: 0s;
+    }
+
 
     .slider-value {
         width: 50px;
@@ -31,16 +47,9 @@
     }
 
     button {
-        background-color: var(--background-trans);
-        display: flex;
         gap:10px;
         align-items: center!important;
         justify-content: center!important;
-
-        transition-duration: 0.1s;
-    }
-    button:hover {
-        background-color: var(--primary-dark-trans)!important;
     }
 </style>
 
@@ -49,14 +58,14 @@
     <div>
         <div class="settings-titlebar">
             <h2>Site Settings</h2>
-            <span id="settings-close"class="material-symbols-sharp icon-button snd_click_close" onclick="ClosePopup()">close</span>
+            <span id="settings-close"class="material-symbols-sharp icon-button snd_mod_hover snd_click_close" onclick="ClosePopup()">close</span>
         </div>
         
         <hr>
         <p id="info-first-time" style="display: none;">Looks like you're visiting for the first time! Please adjust the settings to your likings.</p>
 
         <div class="settings-list">
-            <div class="setting">
+            <div class="setting snd_mod_hover">
                 <p>Volume</p>
                 <div style="display: flex; align-items: center; gap: 10px">
                     <p id="setting-volume-value" class="slider-value">50%</p>
@@ -64,7 +73,7 @@
                 </div>
 
             </div>
-            <div class="setting">
+            <div class="setting snd_mod_hover">
                 <p>Enable Music</p>
                 <div class="item">
                     <div class="checkbox-slider">
@@ -73,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="setting">
+            <div class="setting snd_mod_hover">
                 <p>Enable Sounds</p>
                 <div class="item">
                     <div class="checkbox-slider">
@@ -82,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="setting">
+            <div class="setting snd_mod_hover">
                 <p>Enable Particles</p>
                 <div class="item">
                     <div class="checkbox-slider">
@@ -92,7 +101,7 @@
                 </div>
             </div>
 
-            <div class="setting">
+            <div class="setting snd_mod_hover">
                 <p>Monospace Font</p>
                 <div class="item">
                     <div class="checkbox-slider">
