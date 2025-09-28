@@ -364,6 +364,8 @@ function init() {
 	
 	twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
 
+	RegisterSounds();
+	RegisterSpoilers();
 	console.log("main.js loaded.");
 };
 

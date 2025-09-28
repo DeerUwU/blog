@@ -554,4 +554,6 @@ function init() {
     getComments(); // Run once on page load
 }
 
-document.addEventListener('astro:page-load', init);
+// document.addEventListener('astro:page-load', init);
+// document.addEventListener('load', init);
+init();

@@ -260,20 +260,24 @@ input:hover {
 	cursor: url("/cursor/Open.cur"), pointer;
 }
 
-button {
+button, .button {
 	border: none;
 	font: inherit;
-	color: inherit;
-	background-color: var(--background-trans);
 	text-align: center;
-	transition-duration: 0.2s;
+	color: inherit;
+	color: var(--text-normal);
+	background-color: var(--background-trans);
+
+	transition-duration: 0.1s;
 	transition-property: background-color;
 }
 
-button:hover {
+button:hover, .button:hover {
 	cursor: url("/cursor/Open.cur"), pointer;
-	background-color: var(--primary-dark-trans);
+	background-color: var(--primary-dark-trans)!important;
 }
+
+
 
 ul {
 	margin: 10px 0px;
@@ -493,18 +497,6 @@ small {
 }
 
 
-/* BUTTONS */
-button, .button {
-	font: initial;
-	color: var(--text-normal);
-	border: unset;
-	background-color: var(--background-trans);
-
-	transition-duration: 0.1s;
-}
-button:hover, .button:hover {
-	background-color: var(--primary-dark-trans)!important;
-}
 
 /* SLIDERS */
 
