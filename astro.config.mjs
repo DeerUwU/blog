@@ -4,7 +4,8 @@ import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://blog.cakeeh.art',
+	site: 'https://deeruwu.github.io',
+	//site: 'https://blog.cakeeh.art',
 	// integrations: [mdx(), sitemap()],
 	integrations: [mdx()],
 
