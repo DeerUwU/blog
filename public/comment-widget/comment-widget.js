@@ -27,11 +27,11 @@ const s_replyId =   '90890764';
 const s_sheetId =   '1bJH1D8VhyLIS1Xj8QlfxCOup-juua2YIFQvk4N7fmhM';
 
 // The values below are necessary for accurate timestamps, I've filled it in with EST as an example
-const s_timezone = 2; // Your personal timezone (Example: UTC-5:00 is -5 here, UTC+10:30 would be 10.5)
+const s_timezone = 1; // Your personal timezone (Example: UTC-5:00 is -5 here, UTC+10:30 would be 10.5)
 const s_daylightSavings = true; // If your personal timezone uses DST, set this to true
 // For the dates DST start and end where you live: [Month, Weekday, which number of that weekday, hour (24 hour time)]
-const s_dstStart = ['March', 'Sunday', 2, 3]; // Example shown is the second Sunday of March at 2:00 am
-const s_dstEnd = ['October', 'Sunday', 1, 3]; // Example shown is the first Sunday of November at 2:00 am
+const s_dstStart = ['March', 'Sunday', 5, 3];
+const s_dstEnd = ['October', 'Sunday', 4, 3];
 
 // Misc - Other random settings
 const s_commentsPerPage = 10;       // The max amount of comments that can be displayed on one page, any number >= 1 (Replies not counted)
@@ -47,7 +47,7 @@ const s_fixRarebitIndexPage = false;// If using Rarebit, change to true to make 
 const s_wordFilterOn = false; // True for on, false for off
 const s_filterReplacement = '****'; // Change what filtered words are censored with (**** is the default)
 const s_filteredWords = [ // Add words to filter by putting them in quotes and separating with commas (ie. 'heck', 'dang')
-    'heck', 'dang'
+    'placeholder',
 ]
 
 // Text - Change what messages/text appear on the form and in the comments section (Mostly self explanatory)
