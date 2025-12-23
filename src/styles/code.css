@@ -1,0 +1,65 @@
+[data-rehype-pretty-code-figure] {
+	margin: unset;
+}
+
+pre::-webkit-scrollbar {
+	height: 10px;
+}
+
+/* default inline code blocks */
+code {
+	background-color: #111111;
+	border: 1px solid #222222;
+	color: var(--text-sub);
+
+	font-size: 16px;
+
+	max-width: fit-content;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+code[data-line-numbers] {
+  counter-reset: line;
+}
+ 
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+ 
+  /* Other styling */
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 1rem;
+  padding-right: 0.5rem;
+  text-align: right;
+  color: gray;
+  border-right: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 1.25rem;
+}
+ 
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 1.75rem;
+}
+ 
+code[data-line-numbers-max-digits="4"] > [data-line]::before {
+  width: 2.25rem;
+}
+
+pre {
+	overflow-x: auto;
+  	padding: 1rem 0;
+	font-size: 14px;
+	background-color: rgba(26, 26, 26, 0.25);
+}
+pre > code {
+	all: unset;
+}
+
+
+pre [data-line] {
+  padding: 0 1rem;
+}

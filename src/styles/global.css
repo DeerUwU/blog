@@ -177,6 +177,7 @@ h4 {
 h5 {
 	font-size: 1.25em;
 	margin: 0 0 0.1rem 0;
+	text-shadow: 3px 3px 0px var(--primary-darkest);
 }
 
 .blogpost-title {
@@ -315,22 +316,7 @@ img.emoji {
 	z-index: 2;
 }
 
-code {
-	padding: 2px 5px;
-	background-color: #111111;
-	border: 1px solid #222222;
-	color: var(--text-sub);
 
-	max-width: fit-content;
-	word-wrap: break-word;
-	word-break: break-all;
-}
-pre {
-	padding: 1.5em;
-}
-pre > code {
-	all: unset;
-}
 blockquote {
 	border-left: var(--BW-regular) solid var(--primary);
 	padding: 1px 0 1px 10px;
@@ -440,7 +426,8 @@ small {
 }
 
 
-.icon-button {
+.icon-button,
+.icon-button-bg {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -455,11 +442,16 @@ small {
 	transition-duration: 0.1s;
     /* transition-property: color background-color; */
 }
-.icon-button:hover {
+.icon-button-bg {
+	background-color: var(--background-trans);
+}
+.icon-button:hover,
+.icon-button-bg:hover {
 	cursor: url("/cursor/Open.cur"), pointer;
 	color: var(--primary);
 	background-color: var(--primary-dark-trans);
 }
+
 
 
 /* SCROLLBARS */
@@ -467,6 +459,7 @@ small {
 /* width */
 ::-webkit-scrollbar {
 	width: 10px;
+	height: 10px;
 }
 
 /* Track */
@@ -721,7 +714,7 @@ input[type="radio"]:checked {
 .emote {
 	display: inline-block;
 	aspect-ratio: 1/1;
-	height: 40px;
+	height: 32px;
 
 	transform: scale(1);
 	transition: transform .2s ease;
@@ -797,7 +790,7 @@ p .emote {
 
 	.frosted-glass {
 		backdrop-filter: grayscale(0.2) brightness(0.2);
-		background-color: #34343440;
+		background-color: #24242440;
 	}
 
 

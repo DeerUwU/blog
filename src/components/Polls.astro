@@ -7,13 +7,7 @@
 		padding: 20px;
 		height: 1000px;
 	}
-	.site-updates {
-		display: flex;
-		flex-direction: column;
-		gap: 5px;
-		max-height: 500px;
-		overflow-y: auto;
-	}
+
 
 	.poll-wrapper {
 		background-color:var(--background-trans); 
@@ -28,41 +22,26 @@
 
 	}
 
+	#previous {
+		display: flex;
+        gap:5px;
+		width: fit-content;
+        align-items: center!important;
+        justify-content: center!important;
+		padding: 0px 5px;
+    }
+
 </style>
 
 <section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
 	<h3>&lt; Polls &gt;</h3>
 	<hr />
 	<p>
-		i have so many interests but my attention is spread too thin across all
-		of them, so ill let this poll pick something for me.
+		No current polls.
 	</p>
-	<br />
-	<h5>I should focus on...</h5>
-	<form method="post" action="https://poll.pollcode.com/45498134">
-		<div class="poll-wrapper">
-			<div class="radio-wrapper">
-				<input type="radio" name="answer" value="1" id="answer454981341" style="float:left;"/>
-				<label for="answer454981341" style="float:left;width:168px;">2d art</label>
-			</div>
-			<div class="radio-wrapper">
-				<input type="radio" name="answer" value="2" id="answer454981342" style="float:left;"/>
-				<label for="answer454981342" style="float:left;width:168px;">3d modelling</label>
-			</div>
-
-			<div class="radio-wrapper">
-				<input type="radio" name="answer" value="3" id="answer454981343" style="float:left;"/>
-				<label for="answer454981343" style="float:left;width:168px;">music</label>				
-			</div>
-			<div class="radio-wrapper">
-				<input type="radio" name="answer" value="4" id="answer454981344" style="float:left;"/>
-				<label for="answer454981344" style="float:left;width:168px;">game dev</label>				
-			</div>
-
-			
-			<div align="center" style="padding:3px;">
-				<input type="submit" value=" Vote " class="button snd_mod_hover snd_click_blip1" />&nbsp;<input type="submit" name="view" value=" Results " class="button snd_mod_hover snd_click_blip1"/>
-			</div>
-		</div>
-	</form>
+	<hr class="dashed"/>
+	<a id="previous" class="icon-button-bg snd_mod_hover snd_click_blip1" href="/previous_polls">
+		<span class="material-symbols-sharp icon-button" onclick="ClosePopup()">keyboard_return</span>
+		<p>Previous Polls</p>
+	</a>
 </section>

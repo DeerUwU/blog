@@ -7,11 +7,12 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { getRandomInt } from '../scripts/util';
+import '../styles/code.css';
 import '../styles/text.css';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, pubDate, updatedDate, comments, } = Astro.props;
 const page = Astro.props;
 
 const posts = (await getCollection('blog')).reverse();
@@ -118,6 +119,11 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 				padding-right: 0px;
 			}
 
+			#comment-section {
+				width: 100%;
+				margin: unset;
+			}
+
 		</style>
 	</head>
 
@@ -126,7 +132,7 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 		<Header />
 		<main>
 			<article>
-				<div class="prose anim-fadein anim-ease delay-200ms frosted-glass">
+				<section class="prose anim-fadein anim-ease delay-200ms frosted-glass">
 					<div class="title">
 						<div class="date">
 							<FormattedDate date={pubDate} />
@@ -141,9 +147,23 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 						<h1 class="blogpost-title">{title}</h1>
 						<hr />
 					</div>
-					<slot /><!--  this is the article content -->
-				</div>
+					<slot /> <!-- this is the article content -->
+				</section>
 
+				
+
+				{
+					comments && (
+						<hr>
+						<section id="comment-section" class="prose anim-fadein anim-ease delay-200ms frosted-glass">
+							<div><div id="c_widget"/></div>
+							<script is:inline src="/comment-widget/comment-widget.js"></script>
+						</section>
+					)
+				}
+
+
+				
 				
 			</article>
 			<div class="nav-buttons">
@@ -160,6 +180,7 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 					<span class="material-symbols-sharp">chevron_right</span>
 				</a> -->
 			</div>
+			
 		</main>
 		<Footer />
 	</body>

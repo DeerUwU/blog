@@ -1,0 +1,150 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Cosmetic from '../components/Cosmetic.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+import '../styles/text.css';
+
+
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE}/>
+		<style>
+			main {
+				max-width: 700px;
+				height: -webkit-fill-available;
+				height: 80vh;
+				/* margin: 20px; */
+				gap: 20px;
+				display: flex;
+				justify-self: center;
+				justify-content: center;
+				flex-direction: row;
+			}
+			#main{
+				width: fit-content;
+				/* max-width: 500px; */
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+
+				max-height: fit-content;
+			}
+
+			#main-left:hover::-webkit-scrollbar-thumb,
+			#main-right:hover::-webkit-scrollbar-thumb {
+				background-color: var(--primary);
+			}
+
+			#main > section {
+				padding: 12px 20px 20px 20px;
+			}
+
+			@media only screen and (max-width: 800px) {
+				body {
+					overflow: auto;
+				}
+				main {
+					width: -webkit-fill-available;
+					height: auto;
+					flex-direction: column;
+					padding: 1em;
+				}
+				#main-left, #main-right {
+					width: auto;
+					max-width: 100%;
+				}
+			}
+
+
+			.poll {
+				margin-top: 10px;
+				width: 100%;
+			}
+
+
+			.poll-wrapper {
+				background-color:var(--background-trans); 
+				display: flex;
+				margin-top: 5px;
+				padding: 10px;
+				flex-direction: column;
+				align-content: center;
+				align-items: flex-start;
+			}
+			.radio-wrapper {
+
+			}
+		</style>
+	</head>
+
+	
+	<body>
+		<Cosmetic />
+		<Header />
+		<main>
+			
+			<section id="main">
+				<section class="poll frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+					<h2>&lt; Previous Polls &gt;</h2>
+					<hr>
+					<p>
+						here are some polls ive created in the past.
+					</p>
+				</section>
+
+				<section class="poll frosted-glass anim-fadein-up-small anim-ease delay-200ms">
+					<h4>&lt; 26/09/25 - 22/12/25 &gt;</h4>
+					<hr>
+					<p>
+						i have so many interests but my attention is spread too thin across all
+						of them, so ill let this poll pick something for me.
+					</p>
+					<br />
+					<h5>I should focus on...</h5>
+					<form method="post" action="https://poll.pollcode.com/45498134">
+						<div class="poll-wrapper">
+							<div class="radio-wrapper">
+								<input type="radio" name="answer" value="1" id="answer454981341" style="float:left;"/>
+								<label for="answer454981341" style="float:left;width:168px;">2d art</label>
+							</div>
+							<div class="radio-wrapper">
+								<input type="radio" name="answer" value="2" id="answer454981342" style="float:left;"/>
+								<label for="answer454981342" style="float:left;width:168px;">3d modelling</label>
+							</div>
+
+							<div class="radio-wrapper">
+								<input type="radio" name="answer" value="3" id="answer454981343" style="float:left;"/>
+								<label for="answer454981343" style="float:left;width:168px;">music</label>				
+							</div>
+							<div class="radio-wrapper">
+								<input type="radio" name="answer" value="4" id="answer454981344" style="float:left;"/>
+								<label for="answer454981344" style="float:left;width:168px;">game dev</label>				
+							</div>
+
+							
+							<div align="center" style="padding:3px;">
+								<input type="submit" value=" Vote " class="button snd_mod_hover snd_click_blip1" />&nbsp;<input type="submit" name="view" value=" Results " class="button snd_mod_hover snd_click_blip1"/>
+							</div>
+						</div>
+					</form>
+				</section>
+
+			</section>
+
+		</main>
+		<Footer/>
+
+
+		<!-- <script>
+			particlesJS.load("particles-js", "/particles/404.json", function(){
+			console.log("PARTICLES: 404.json loaded")
+			});
+		</script> -->
+	</body>
+	
+</html>

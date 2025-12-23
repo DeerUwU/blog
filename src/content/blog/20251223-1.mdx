@@ -1,0 +1,75 @@
+---
+title: 'how to kill discord nitro'
+pubDate: '12/23/2025'
+comments: true
+---
+I hate discord and i hate that theres no better alternative. fuck nitro its so annoying. if you dont a custom client, please do yourself a favor and install one like, right now. i recommend [Vencord](https://vencord.dev). custom clients are  completely safe to use and theres no risk of getting banned, despite technically being against discord TOS. (unless you use plugins to self-bot or things like that, but youd have to go out of your way to do that)
+<br/>
+anyways here's some stuff you can add as custom CSS to get rid of annoying crap discord desperately tries to shove into your face.
+
+```css showLineNumbers
+[aria-label="Send a gift"], /* gift button */
+[data-tab-id="Nitro Server Boost"],
+[href="/quest-home"], /* friendslist button to quests */
+[href="/store"], /* friendslist button to store */
+[href="/shop"] /* friendslist button to shop */
+{
+    display: none;
+}
+
+/* settings menu */
+[aria-label="Nitro"], /* (in legacy settings) */
+[aria-label="Billing Settings"], /* nitro-related category*/
+[data-settings-sidebar-item="family_center_panel"] /* family center tab*/
+{
+    display: none;
+}
+
+/* profile edit page */
+[class*="-upsell"], /* nitro upsell banners */
+[class*="-premiumFeatureBorder"], /* nitro try it out */
+._8279f38edc620354-container /* shop banner */
+{
+    display: none;
+}
+
+/* pfp decorations */
+[src*="avatar-decoration"] {display: none;}
+
+/* profile animated popups 
+(still visible when you hover over the profile, unfortunately) */
+[class$="-profileEffects"] {display: none;}
+
+/* nameplates */
+[poster*="nameplate"],
+[src*="nameplates"]
+{
+    display: none;
+}
+[class*="nameplated"] div:first-child {
+    background: unset!important;
+}
+```
+other annoying junk you might wanna get rid of:
+```css showLineNumbers{43}
+[aria-label="Checkpoint"], /* discord 'checkpoint' button */
+[aria-label^="Server Tag"], /* server tags next to usernames */
+[aria-label="Help"], /* help button */
+[aria-label="Add Friends to DM"],
+[aria-label="Start Video Call"],
+[aria-label="Notification Settings"],
+[data-settings-sidebar-item="family_center_panel"] /* settings menu family center */
+{display: none;}
+
+/* discovery button in server list */
+[aria-label="Discover"] {display: none;}
+
+/* invite to server right click option */
+div#user-context-invite-to-server {
+    display: none;
+}
+```
+aside from that, i also recommend going into accessibility settings and disabling "display name styles" to get rid of animated usernames with custom fonts.
+<br/>
+please leave any corrections, additions or ideas in the comments.
+
