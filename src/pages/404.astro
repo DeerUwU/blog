@@ -17,7 +17,6 @@ import '../styles/text.css';
 				/* width: 100%; */
 				height: -webkit-fill-available;
 				height: 80vh;
-				/* margin: 20px; */
 				gap: 20px;
 				display: flex;
 				justify-self: center;
@@ -35,13 +34,22 @@ import '../styles/text.css';
 				max-height: fit-content;
 			}
 
-			#main-left:hover::-webkit-scrollbar-thumb,
-			#main-right:hover::-webkit-scrollbar-thumb {
-				background-color: var(--primary);
-			}
-
 			#main > section {
 				padding: 12px 20px 20px 20px;
+			}
+
+
+			/* for firefox only */
+			@-moz-document url-prefix() { 
+				main {
+					height: -moz-available;
+				}
+
+				@media only screen and (max-width: 800px) {
+					main {
+						width: -moz-available;
+					}
+				}
 			}
 
 			@media only screen and (max-width: 800px) {
@@ -54,9 +62,9 @@ import '../styles/text.css';
 					flex-direction: column;
 					padding: 1em;
 				}
-				#main-left, #main-right {
-					width: auto;
-					max-width: 100%;
+
+				section {
+					margin: auto;
 				}
 			}
 		</style>

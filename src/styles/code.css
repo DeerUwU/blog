@@ -1,6 +1,9 @@
-[data-rehype-pretty-code-figure] {
-	margin: unset;
+:root {
+  --text-size-code: 0.875rem;
+
+  --copy-icon-h: url(data:image/<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M290-260v-600h480v600H290Zm60-60h360v-480H350v480ZM150-120v-587.69h60V-180h407.69v60H150Zm200-200v-480 480Z"/>)
 }
+
 
 pre::-webkit-scrollbar {
 	height: 10px;
@@ -12,13 +15,83 @@ code {
 	border: 1px solid #222222;
 	color: var(--text-sub);
 
-	font-size: 16px;
+	font-size: var(--text-size-code);
 
 	max-width: fit-content;
 	word-wrap: break-word;
 	word-break: break-all;
 }
 
+
+/* ------------------------------------------------------------ */
+/* rehype code blocks                                           */
+/* ------------------------------------------------------------ */
+
+/* the whole code block */
+[data-rehype-pretty-code-figure] {
+	margin: unset;
+}
+
+/* title */
+[data-rehype-pretty-code-title] {
+  /* background: var(--gradient-primary-darkest); */
+  color: var(--primary);
+  background-color: #35285a4a;
+  font-size: var(--text-size-code);
+  width: fit-content;
+  padding: 5px 8px;
+
+  border-top: 2px solid var(--primary);
+}
+
+/* text section */
+pre {
+	overflow-x: auto;
+  padding: 1rem 0;
+  margin: unset;
+	font-size: var(--text-size-code);
+	background-color: var(--background-trans);
+}
+pre > code {
+	all: unset;
+}
+
+/* selected text */
+/* pre [data-line] span::selection  {
+  color: rgb(0, 0, 0)!important;
+  background-color: #643f8284;
+} */
+
+/* code line */
+pre [data-line] {
+  padding: 0 1rem;
+  background-color: transparent;
+}
+/* hovered code line */
+pre [data-line]:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+/* highlighted code line */
+pre [data-highlighted-line] {
+  background-color: var(--primary-dark-transer)!important;
+}
+
+pre [data-highlighted-line]:hover {
+  background-color: var(--primary-dark-trans)!important;
+}
+
+
+
+
+/* copy button */
+pre button.rehype-pretty-copy {
+  border-radius: unset!important;
+  padding: 1px!important;
+}
+
+
+/* ------------------------------------------------------------ */
+/* line count stuff */
 code[data-line-numbers] {
   counter-reset: line;
 }
@@ -30,7 +103,7 @@ code[data-line-numbers] > [data-line]::before {
   /* Other styling */
   display: inline-block;
   width: 0.75rem;
-  margin-right: 1rem;
+  margin-right: 0.75rem;
   padding-right: 0.5rem;
   text-align: right;
   color: gray;
@@ -49,17 +122,21 @@ code[data-line-numbers-max-digits="4"] > [data-line]::before {
   width: 2.25rem;
 }
 
-pre {
-	overflow-x: auto;
-  	padding: 1rem 0;
-	font-size: 14px;
-	background-color: rgba(26, 26, 26, 0.25);
-}
-pre > code {
-	all: unset;
-}
 
+/* ---------------------------------------------------------------- */
 
-pre [data-line] {
-  padding: 0 1rem;
+@media only screen and (max-width: 800px) { 
+
+  :root {
+    --text-size-code: 0.75rem;
+  }
+
+  pre {
+    padding: 0.5rem 0;
+  }
+
+  pre [data-line] {
+    padding: 0 0.3rem;
+  }
+
 }

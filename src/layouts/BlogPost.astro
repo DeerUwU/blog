@@ -46,7 +46,7 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 
 			article {
 				width: -webkit-fill-available;
-				max-width: 720px;
+				max-width: 45rem;
 				max-height: 85vh;
 
 				display: flex;
@@ -120,8 +120,17 @@ const currentPosts = await getCollection('blog', ({ data }) => {
 			}
 
 			#comment-section {
-				width: 100%;
+				width: -webkit-fill-available;
 				margin: unset;
+			}
+
+			/* for firefox only */
+			@-moz-document url-prefix() {
+			.prose, 
+			#comment-section
+			{
+				width: -moz-available;
+			}
 			}
 
 		</style>
