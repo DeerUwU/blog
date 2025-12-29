@@ -17,7 +17,8 @@
 	--primary-darkest:		#35285a;
 	--gradient-primary-darkest: linear-gradient(to right, var(--primary-darkest) , transparent);
 
-	--text-normal: #8d829e;
+	/* --text-normal: #8d829e; old, less contrast */
+	--text-normal: #a295b5;
 	--text-sub: 	#55505b;
 	--text-darkest: #47454e41;
 
@@ -178,6 +179,11 @@ h5 {
 	font-size: 1.25em;
 	margin: 0 0 0.1rem 0;
 	text-shadow: 3px 3px 0px var(--primary-darkest);
+}
+h6 {
+	font-size: 1.05em;
+	margin: 0 0 0.1rem 0;
+	text-shadow: 2px 2px 0px var(--primary-darkest);
 }
 
 .blogpost-title {

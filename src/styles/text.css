@@ -90,7 +90,7 @@
 
 
 .text-wide {
-  display: block;
+  /* display: block; */
   letter-spacing: 0.7rem!important;
 }
 

@@ -1,0 +1,33 @@
+---
+title: 'The horrors of flashing a custom Rom'
+pubDate: '12/29/2025'
+comments: true
+---
+flashing a custom rom on my phone is something ive always wanted to try. ive finally done it today. so whats my review? is it worth it? no. 
+
+###### DISCLAIMER: this is not a tutorial, i am not responsible for any damages if you decide to follow this blogpost to modify your own device
+<br/>
+<hr/>
+<br/>
+### requirements
+- phone with oem unlock 
+- newest [TWRP](https://twrp.me) version compatible with your device
+- vbmeta.tar (idk what it does, really but it was necessary to get TWRP to work)
+- backup of your firmware version (i downloaded mine from https://samfw.com)
+- older firmware version in case there are security restrictions on the current version (like in my case)
+- firmware flashing tool (in my case, odin for my samsung a50)
+- an OS rom compatible with your device (i chose [FreshOS](https://freshroms.github.io), made specificly for the a50)
+<br/>
+<hr class="dashed"/>
+<br/>
+### my experience
+the process was... long, tedious, complicated and scary. first i had to do a lot of research on what is required. first thing i did was look for a compatible OS, which was surprisingly difficult to find. ended up discovering [FreshOS](https://freshroms.github.io) on the XDA forums, its also pretty much the only one that supports my device. Derpfest is another rom that technically supports my device but the download link was broken and they dont provide any documentation to help guide you through the installation process. then i looked into twrp. i still dont quite understand why its necessary and why the roms cant come in the .tar format so you can skip this but whatever. twrp recommends to pre-root your device so that was the next thing i tried to do. unfortunately that also turned out to be more difficult than expected. to root your device you need magisk, the flashing software, and your firmware. so i downloaded odin from some xda forum post, chucked it into virustotal just to be safe, turned off my device and restarted it in the device unlocking mode to unlock the bootloader. then i put the firmware on my device, let magisk do its thing to it and then tried to flash the patched firmware. according to the guide i was following, magisk shouldve prompted me to do some recovery process to finalize rooting the device but that never showed up so i gave up on rooting the device. 
+<br/>
+next i tried to install TWRP. my phone wasnt happy about that so i ended up finding out that you first need to flash vbmeta and THEN flash TWRP. at this point i was already pretty annoyed by the whole process because its been about 10 hours since i started this "journey". in the end, i finally managed to get it up and running. so.. what next? now it was time to actually get the OS on the device so i could install it. this was another major roadbump for me, because i didnt know how to go on about doing this. i couldnt just hook up my phone to my pc and load it onto the device like that, so i attempted to download it on an SD card first. turns out, you cant move files larger than 4gb on sd cards because they use fat32. so i tried to format it, but unfortunately i dont have an sd card reader dongle for my pc so i was out of luck, and called it a day.
+<br/>
+the next day, i borrowed a usb-c stick from my mom, loaded the OS onto that, reflashed TWRP on the phone, wiped the data, and installed the OS. thats the end of the story, right? NOPE! it wasnt the end of my problems. i didnt notice, but TWRP was actually showing permission errors during the formatting process, so it didnt actually wipe anything, and after the FreshOS installer it just booted me back into the default firmware. after some troubleshooting i figured out that i wasnt actually using the latest compatible version of TWRP, so i downloaded the right version, flashed it on my device <i class="shake">**again**</i>, and finally finally finally installed FreshOS. i forgot to mention, but please if you end up doing something like this with your phone, take out your sim card first. during this whole ordeal the device turned on data roaming at some point and it ended up swallowing 20 bucks worth of credit.
+<br/>
+<hr class="dashed"/>
+<br/>
+### conclusion
+this whole hassle *probably* isnt worth it for most people, even if i do enjoy being in control of my devices. you risk. you void your warranty, risk bricking your phone and rely on sketchy websites to download tools and files that could potentially be malicious. i would be far more likely to recommend it if it was any easier to do. there are some great perks though. depending on your rom, it may already come with kernelSU, which allows you to give root permissions to individual apps and lets you download modules like adblockers for example, which is great! installing roms also allows you to keep your phone's features and security up to date after your device's initial EOL. 
