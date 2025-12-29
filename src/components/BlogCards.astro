@@ -3,12 +3,9 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
-// backup
-// const posts = (await getCollection('blog')).sort(
-// 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-// ).reverse();
-
-const posts = (await getCollection('blog')).reverse();
+ const posts = (await getCollection('blog')).sort(
+ 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+ ).reverse();
 ---
 
 <section class="entrylist">

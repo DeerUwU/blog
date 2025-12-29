@@ -181,9 +181,11 @@ h5 {
 }
 
 .blogpost-title {
-	font-family: var(--font-Barcode-39);
-  	font-weight: 400;
+	/* font-family: var(--font-Barcode-39); */
+  	font-size: 2rem;
+	font-weight: 400;
   	font-style: normal;
+	/* text-transform: uppercase; */
 } 
 /* .blogpost-title:hover {
 	font-family: Ari;

@@ -16,7 +16,7 @@ const { title, pubDate, updatedDate, comments, } = Astro.props;
 const page = Astro.props;
 
 const posts = (await getCollection('blog')).reverse();
-const randomPost = posts[getRandomInt(posts.length)];
+const randomPost = posts[getRandomInt(posts.length-1)];
 
 // WARNING: this will fall apart if 2 posts have the same title
 const currentPosts = await getCollection('blog', ({ data }) => {
