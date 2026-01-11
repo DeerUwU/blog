@@ -1,4 +1,8 @@
 /*
+    Comment Widget originally created by Ayano (https://virtualobserver.moe/)
+    modified by deer. if you plan on using this widget for yourself, get it from ayano.
+    this version also implements frill's moderation system (https://frills.dev/blog/231023-add-moderation-to-comment-widget/)
+
     (PLEASE DO NOT DELETE THIS HEADER OR CREDIT!)
 
     User customizable settings below!
@@ -17,14 +21,16 @@
 */
 
 // The values in this section are REQUIRED for the widget to work! Keep them in quotes!
-const s_stylePath = '/comment-widget/comment-widget-custom.css';
-const s_formId =    '1FAIpQLSfiFMV9cdW_tsTRy0UnJ4lsl1MTUBZNVe2o9rWnAzFdaXPD8g';
-const s_nameId =    '2030089265';
-const s_websiteId = '1466581564';
-const s_textId =    '1841709311';
-const s_pageId =    '79712158';
-const s_replyId =   '90890764';
-const s_sheetId =   '1bJH1D8VhyLIS1Xj8QlfxCOup-juua2YIFQvk4N7fmhM';
+const s_stylePath =     '/comment-widget/comment-widget-custom.css';
+const s_formId =        '1FAIpQLSfiFMV9cdW_tsTRy0UnJ4lsl1MTUBZNVe2o9rWnAzFdaXPD8g';
+const s_nameId =        '2030089265';
+const s_websiteId =     '1466581564';
+const s_textId =        '1841709311';
+const s_pageId =        '79712158';
+const s_replyId =       '90890764';
+const s_moderatedId =   '1395127415'; // whether or not a comment is approved
+const s_ownerId =       '116722230'; // if comment is posted by site owner
+const s_sheetId =       '1bJH1D8VhyLIS1Xj8QlfxCOup-juua2YIFQvk4N7fmhM';
 
 // The values below are necessary for accurate timestamps, I've filled it in with EST as an example
 const s_timezone = 1; // Your personal timezone (Example: UTC-5:00 is -5 here, UTC+10:30 would be 10.5)
@@ -39,7 +45,7 @@ const s_maxLength = 500;            // The max character length of a comment
 const s_maxLengthName = 16;         // The max character length of a name
 const s_commentsOpen = true;        // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
 const s_collapsedReplies = true;    // True for collapsed replies with a button, false for replies to display automatically
-const s_longTimestamp = true;       // True for a date + time, false for just the date
+const s_longTimestamp = false;       // True for a date + time, false for just the date
 let s_includeUrlParameters = false; // Makes new comment sections on pages with URL parameters when set to true (If you don't know what this does, leave it disabled)
 const s_fixRarebitIndexPage = false;// If using Rarebit, change to true to make the index page and page 1 of your webcomic have the same comment section
 
@@ -51,21 +57,23 @@ const s_filteredWords = [ // Add words to filter by putting them in quotes and s
 ]
 
 // Text - Change what messages/text appear on the form and in the comments section (Mostly self explanatory)
-const s_widgetTitle = 'Leave a comment!';
-const s_nameFieldLabel = 'Name';
-const s_websiteFieldLabel = 'Website (Optional)';
-const s_textFieldLabel = 'Comment';
-const s_submitButtonLabel = 'Send';
-const s_loadingText = 'Loading comments...';
-const s_noCommentsText = 'No comments yet!';
-const s_closedCommentsText = 'Comments are currently closed!';
-const s_websiteText = 'Website'; // The links to websites left by users on their comments
-const s_replyButtonText = 'Reply'; // The button for replying to someone
-const s_replyingText = 'Replying to: '; // The text that displays while the user is typing a reply
-const s_expandRepliesText = 'Show Replies';
-const s_leftButtonText = '<<';
-const s_rightButtonText = '>>';
-
+const s_widgetTitle =           'Leave a comment!';                 // comment section title
+const s_nameFieldLabel =        'Name';                             // name field placeholder
+const s_websiteFieldLabel =     'Website (Optional)';               // site field placeholder
+const s_textFieldLabel =        'Comment';                          // comment field placeholder
+const s_submitButtonLabel =     'Send';                             // send button
+const s_loadingText =           'Loading comments...';
+const s_noCommentsText =        'No comments yet!';
+const s_closedCommentsText =    'Comments are currently closed!';
+const s_nameKaratLabel =        '>'
+const s_websiteText =           'Website';                          // The links to websites left by users on their comments
+const s_replyButtonText =       'Reply';                            // The button for replying to someone
+const s_replyingText =          'Replying to: ';                    // The text that displays while the user is typing a reply
+const s_expandRepliesText =     'Show Replies';
+const s_leftButtonText =        '<<';                               // previous page
+const s_rightButtonText =       '>>';                               // next page
+const s_unmoderatedName =       'Guest'                             // name displayed before comment is approved
+const s_unmoderatedText =       'Comment is awaiting approval'      // text displayed before comment is approved
 /*
     DO NOT edit below this point unless you are confident you know what you're doing!
     Everything else is automatic, you don't have to change anything else. ^^
@@ -367,17 +375,26 @@ function createComment(data) {
     const id = data.Name + '|--|' + data.Timestamp2;
     comment.id = id;
 
-    let namekarat = ">";
-    // namekarat.innerText = ">";
-    // namekarat.className = "c-namekarat";
-    // comment.appendChild(namekarat);
-
     // Name of user
     let name = document.createElement('h4');
     let filteredName = data.Name;
-    if (s_wordFilterOn) {filteredName = filteredName.replace(v_filteredWords, s_filterReplacement)}
-    name.innerText = namekarat+filteredName;
-    name.className = 'c-name';
+    
+    // process commenter name
+    if (data.Moderated == false) // unmoderated
+    {
+        filteredName = s_unmoderatedName // placeholder name until comment is approved
+        name.className = 'c-name c-name-unapproved'; // for the style
+    } 
+    else if (data.Owner) // marked as 'owner'
+    {
+        name.className = 'c-name c-name-owner'
+    } 
+    else // regular comment
+    {
+        if (s_wordFilterOn) {filteredName = filteredName.replace(v_filteredWords, s_filterReplacement)}
+        name.className = 'c-name';
+    }
+    name.innerText = s_nameKaratLabel+filteredName;
     comment.appendChild(name);
 
     // Timestamp
@@ -399,9 +416,17 @@ function createComment(data) {
     // Text content
     let text = document.createElement('p');
     let filteredText = data.Text;
-    if (s_wordFilterOn) {filteredText = filteredText.replace(v_filteredWords, s_filterReplacement)}
+
+    if (data.Moderated == false) {
+        filteredText = s_unmoderatedText // placeholder name until comment is approved
+        text.className = 'c-text c-text-unapproved';
+    } else {
+        if (s_wordFilterOn) {filteredText = filteredText.replace(v_filteredWords, s_filterReplacement)}
+        text.className = 'c-text';
+    }
+    
     text.innerText = filteredText;
-    text.className = 'c-text';
+    
     comment.appendChild(text);
     
     try {
@@ -409,7 +434,6 @@ function createComment(data) {
     } catch (error) {
         console.error(error);
     }
-    
     
     return comment;
 }
@@ -556,4 +580,4 @@ function init() {
 
 // document.addEventListener('astro:page-load', init);
 // document.addEventListener('load', init);
-init();
+init(); // run initialization

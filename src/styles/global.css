@@ -724,7 +724,8 @@ input[type="radio"]:checked {
 
 
 
-.emote {
+.emote,
+.emoji {
 	display: inline-block;
 	aspect-ratio: 1/1;
 	height: 32px;
@@ -733,11 +734,13 @@ input[type="radio"]:checked {
 	transition: transform .2s ease;
 }
 
-.emote:hover {
+.emote:hover,
+.emoji:hover {
 	transform: scale(2);
 }
 
-p .emote {
+p .emote,
+p .emoji {
 	height: 20px;
 }
 

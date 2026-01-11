@@ -95,6 +95,7 @@
 
 		$("#totd-animal").text(totd_animals[random_animal % totd_animals.length]);
 		$("#totd-animal").attr('href', `https://en.wikipedia.org/wiki/${totd_animals[random_animal % totd_animals.length]}`);
+		$("#totd-animal").attr('target', `_blank`); // open in new tab
 
 		$("#totd-number").text(random_number % 999);
 		$("#totd-day").text(totd_day[random_day % totd_day.length]);
