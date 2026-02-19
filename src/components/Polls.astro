@@ -19,7 +19,11 @@
 		align-items: flex-start;
 	}
 	.radio-wrapper {
-
+		width: 100%;
+	}
+	.radio-wrapper label {
+		/* width: 100%; */
+		margin-left: 5px;
 	}
 
 	#previous {
@@ -36,9 +40,64 @@
 <section class="frosted-glass anim-fadein-up-small anim-ease delay-200ms">
 	<h3>&lt; Polls &gt;</h3>
 	<hr />
-	<p>
+	<!-- <p>
 		No current polls.
-	</p>
+	</p> -->
+	<section class="poll anim-fadein-up-small anim-ease delay-200ms">
+		<h5>&lt; started: 19/02/26 &gt;</h5>
+		<hr class="dashed">
+		<p>
+			since discord is doing its best to shoot itself in the foot, what are your favorite discord alternatives? 
+			<br>
+			(<a href="https://www.reddit.com/r/degoogle/comments/1r5catk/discord_alternatives/" target="_blank">list based on this post</a>)
+		</p>
+		<br />
+		<h5>my favorite alternatives are...</h5>
+		<form method="post" action="https://poll.pollcode.com/77128117">
+			<div class="poll-wrapper">
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="1" id="answer454981341" style="float:left;"/>
+					<label for="answer454981341" style="float:left;">Matrix</label>
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="2" id="answer771281171" style="float:left;"/>
+					<label for="answer771281171" style="float:left;">Stoat (formerly Revolt)</label>
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="3" id="answer771281173" style="float:left;"/>
+					<label for="answer771281173" style="float:left;">Pulse</label>				
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="4" id="answer771281174" style="float:left;"/>
+					<label for="answer771281174" style="float:left;">XMPP</label>				
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="5" id="answer771281175" style="float:left;"/>
+					<label for="answer771281175" style="float:left;">Fluxer</label>				
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="6" id="answer771281176" style="float:left;"/>
+					<label for="answer771281176" style="float:left;">Nerimity</label>				
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="7" id="answer771281177" style="float:left;"/>
+					<label for="answer771281177" style="float:left;">Root</label>				
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="8" id="answer771281178" style="float:left;"/>
+					<label for="answer771281178" style="float:left;">Spacebar</label>				
+				</div>
+				<div class="radio-wrapper">
+					<input type="checkbox" name="answer" value="9" id="answer771281179" style="float:left;"/>
+					<label for="answer771281179" style="float:left;">Other (comment)</label>				
+				</div>
+				
+				<div align="center" style="padding:3px;">
+					<input type="submit" value=" Vote " class="button snd_mod_hover snd_click_blip1" />&nbsp;<input type="submit" name="view" value=" Results " class="button snd_mod_hover snd_click_blip1"/>
+				</div>
+			</div>
+		</form>
+	</section>
 	<hr class="dashed"/>
 	<a id="previous" class="icon-button-bg snd_mod_hover snd_click_blip1" href="/previous_polls">
 		<span class="material-symbols-sharp icon-button" onclick="ClosePopup()">keyboard_return</span>
