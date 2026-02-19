@@ -1,5 +1,47 @@
 /* Text effects for blog posts etc */
 
+.red 
+{
+  color: palevioletred;
+}
+.orange 
+{
+  color: peachpuff;
+}
+.yellow 
+{
+  color: palegoldenrod;
+}
+.green 
+{
+  color: palegreen;
+}
+.cyan 
+{
+  color: paleturquoise;
+}
+.teal 
+{
+  color: teal;
+}
+.blue 
+{
+  color: #4c4cf1;
+}
+.purple 
+{
+  color: #cd96ed;
+}
+.magenta 
+{
+  color: #cc269d;
+}
+.pink 
+{
+  color: #ffc0f0;
+}
+
+
 .spoiler
 {
 	color: transparent!important;
@@ -238,4 +280,29 @@
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+.shimmer {
+    --spread: 8%;
+
+    /* text-shadow: 4px 4px 0px var(--primary-darkest); */
+    background: linear-gradient(125deg, 
+    var(--primary) calc(50% - var(--spread)), 
+    var(--primary-light) 50%, 
+    var(--primary) calc(50% + var(--spread))
+    );
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
