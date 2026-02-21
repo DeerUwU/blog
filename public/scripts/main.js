@@ -106,12 +106,18 @@ function PlayMusic(value, fade = false, seek = 0) {
 
 
 function RegisterSounds() {
-	$(".snd_blip1").on("mouseenter", () => {PlaySound("snd_blip1.wav")});
-	$(".snd_blip2").on("mouseenter", () => {PlaySound("snd_blip2.wav")});
-	$(".snd_mod_hover").on("mouseenter", () => {PlaySound("snd_mod_hover.wav")});
-	$(".link").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
-	$(".site-button").on("mouseenter", () => {PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
-	$(".snd_slider_drag").on("mouseenter", () => {PlaySound("snd_slider_drag.wav", {rate_min: 0.99, rate_max: 1.01})});
+	$(".snd_blip1").on("mouseenter", () => 			
+		{PlaySound("snd_blip1.wav")});
+	$(".snd_blip2").on("mouseenter", () => 			
+		{PlaySound("snd_blip2.wav")});
+	$(".snd_mod_hover").on("mouseenter", () => 		
+		{PlaySound("snd_mod_hover.wav")});
+	$(".link").on("mouseenter", () => 				
+		{PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
+	$(".site-button").on("mouseenter", () => 		
+		{PlaySound("snd_cmn_open.wav", {rate_min: 0.8, rate_max: 1.2})});
+	$(".snd_slider_drag").on("mouseenter", () => 	
+		{PlaySound("snd_slider_drag.wav", {rate_min: 0.99, rate_max: 1.01})});
 
 	$('body').on('click', function(e) {
 		// console.log(e.target);
@@ -120,13 +126,8 @@ function RegisterSounds() {
 		};
 	});
 
-	$('#popup-container').on('click', function(e) {
-		// console.log(e.target);
-		if ($(e.target).is('#popup-container')) { 
-			ClosePopup();
-			PlaySound('snd_cmn_close.wav')
-		};
-	});
+
+
 
 	$(".snd_click_open").on("click", () => {PlaySound("snd_open.wav", {volume: 0.5})});
 	$(".snd_click_close").on("click", () => {PlaySound("snd_close.wav", {volume: 0.5})});

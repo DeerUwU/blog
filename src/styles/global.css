@@ -241,6 +241,8 @@ p a,
     text-decoration-thickness: 2px;
 	text-underline-offset: 2px;
 
+	/* padding: 1px 3px; */
+
     transition-duration: 0.2s;
 }
 
@@ -329,14 +331,57 @@ img.emoji {
 	z-index: 2;
 }
 
+/* ----------------------------------------------------------------------------- */
+/* block quotes & summaries  */
 
-blockquote {
+blockquote, summary {
 	border-left: var(--BW-regular) solid var(--primary);
 	padding: 1px 0 1px 10px;
 	margin: 0px;
-	font-style: italic;
 	background: var(--gradient-primary-darkest);
 }
+
+blockquote {
+	font-style: italic;
+}
+
+summary {
+	list-style: none;
+	color: var(--primary);
+	font-family: Ari;
+}
+/* safari compatibility */
+summary::-webkit-details-marker {
+	display: none;
+}
+
+summary::before {
+	content:'> ';
+	font-family: Ari;
+	transition: 0.2s;
+}
+details[open] > summary {
+	border-left: 0px solid transparent;
+}
+details[open] > summary::before {
+	/* list-style-type: 'v '; */
+	content:'v ';
+	transform: rotate(90deg);
+}
+
+
+
+details[open] {
+	border-left: var(--BW-regular) solid var(--primary);
+}
+
+.details_content {
+	padding-left: 10px;
+	overflow: hidden;
+}
+
+/* ----------------------------------------------------------------------------- */
+
 hr {
 	border: none;
 	border-top: 2px solid var(--primary-darkest);
@@ -654,6 +699,32 @@ input[type="radio"]:checked {
   transition: transform .2s ease;
 }
 
+.tooltip .tooltiptext-long {
+  visibility: hidden;
+  width: 400px;
+  background-color: var(--background-light);
+  border: var(--B-primary-thin);
+  /* color: #fff; */
+  color: var(--text-normal);
+  text-align: center;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  transform: rotateX(90deg);
+  transition: transform .2s ease;
+}
+
+.tooltip:hover .tooltiptext-long {
+  visibility: visible;
+  transform: rotateX(0deg);
+  transition: transform .2s ease;
+}
+
 /* -------------------------------------------------------------------- */
 
 .blogcard-container {
@@ -792,7 +863,7 @@ p .emoji {
 		line-height: 1.2rem;
 	}
 
-	blockquote {
+	blockquote, summary {
 		padding: 1px 0px;
 	}
 
