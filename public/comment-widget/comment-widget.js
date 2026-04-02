@@ -41,7 +41,7 @@ const s_dstEnd = ['October', 'Sunday', 4, 3];
 
 // Misc - Other random settings
 const s_commentsPerPage = 10;       // The max amount of comments that can be displayed on one page, any number >= 1 (Replies not counted)
-const s_maxLength = 500;            // The max character length of a comment
+const s_maxLength = 1000;            // The max character length of a comment
 const s_maxLengthName = 16;         // The max character length of a name
 const s_commentsOpen = true;        // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
 const s_collapsedReplies = true;    // True for collapsed replies with a button, false for replies to display automatically
@@ -404,7 +404,7 @@ function createComment(data) {
     comment.appendChild(time);
 
     // Website URL, if one was provided
-    if (data.Website) {
+    if (data.Website && data.Moderated) {
         let site = document.createElement('a');
         site.innerText = s_websiteText;
         site.href = data.Website;
